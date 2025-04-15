@@ -80,6 +80,22 @@
         #lienList th {
             background-color: #f0f0f0;
         }
+
+        #lienList th,
+        #lienList td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        #lienList button {
+            background-color: #f44336;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -100,6 +116,7 @@
                     <th>Temps minimum (heures)</th>
                     <th>Temps maximum (heures)</th>
                     <th>Intervalle</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody id="lienListBody">
@@ -152,6 +169,7 @@
                 localStorage.setItem('lienTempsList', JSON.stringify(lienTempsList));
             }
 
+            // Fonction pour charger et afficher les liens
             function chargerLiens() {
                 const lienTempsList = JSON.parse(localStorage.getItem('lienTempsList') || '[]');
                 lienListBody.innerHTML = '';
@@ -179,6 +197,14 @@
                         intervalleCell.textContent = `entre ${lt.tempsMin} et ${lt.tempsMax} heure(s)`;
                     }
                     row.appendChild(intervalleCell);
+                    const actionCell = document.createElement('td');
+                    const supprimerButton = document.createElement('button');
+                    supprimerButton.textContent = 'Supprimer';
+                    supprimerButton.onclick = () => {
+                        supprimerLien(index);
+                    };
+                    actionCell.appendChild(supprimerButton);
+                    row.appendChild(actionCell);
                     lienListBody.appendChild(row);
                     totalTempsMin += parseFloat(lt.tempsMin);
                     totalTempsMax += parseFloat(lt.tempsMax);
@@ -190,6 +216,15 @@
                     totalTempsValeur.textContent = `entre ${totalTempsMin.toFixed(1)} et ${totalTempsMax.toFixed(1)} heure(s)`;
                 }
             }
+
+            // Fonction pour supprimer un lien
+            function supprimerLien(index) {
+                const lienTempsList = JSON.parse(localStorage.getItem('lienTempsList') || '[]');
+                lienTempsList.splice(index, 1);
+                localStorage.setItem('lienTempsList', JSON.stringify(lienTempsList));
+                chargerLiens();
+            }
+
 
             // Appel de la fonction chargerLiens() au chargement de la page
             chargerLiens();
