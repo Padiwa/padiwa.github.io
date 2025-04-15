@@ -108,7 +108,6 @@
             <input type="number" id="tempsMax" placeholder="Temps max (heures)" step="0.1">
             <button type="submit">Ajouter</button>
         </form>
-        <button id="exporterJson">Exporter en JSON</button>
         <table id="lienList">
             <thead>
                 <tr>
@@ -123,9 +122,35 @@
             </tbody>
         </table>
         <p id="totalTemps">Temps total estimé : <span id="totalTempsValeur">0 heure(s)</span></p>
+        <div>
+            <button id="exporterJson">Exporter en JSON</button>
+            <input type="file" id="importerJson" accept=".json">
+            <button id="chargerJson">Charger JSON</button>
+
+        </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('chargerJson').addEventListener('click', () => {
+                const importerJson = document.getElementById('importerJson');
+                const file = importerJson.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = () => {
+                        try {
+                            const lienTempsList = JSON.parse(reader.result);
+                            localStorage.setItem('lienTempsList', JSON.stringify(lienTempsList));
+                            chargerLiens();
+                        } catch (error) {
+                            console.error('Erreur lors de la lecture du fichier JSON :', error);
+                            alert('Erreur lors de la lecture du fichier JSON');
+                        }
+                    };
+                    reader.readAsText(file);
+                } else {
+                    alert('Veuillez sélectionner un fichier JSON');
+                }
+            });
             const lienForm = document.getElementById('lienForm');
             const lienListBody = document.getElementById('lienListBody');
             const exporterJsonButton = document.getElementById('exporterJson');
