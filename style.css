@@ -1,245 +1,286 @@
+/* ===== Neutral UI base ===== */
 :root {
-    --bg: #0b2545;
-    /* bleu profond océan */
-    --ink: #1b1206;
-    /* encre sépia */
-    --parch: #f6efde;
-    /* parchemin */
-    --edge: #c9b793;
-    /* bords brûlés */
-    --gold: #caa44a;
-    /* or */
-    --crimson: #7a1b1b;
-    /* rouge bordeaux */
-    --accent: #0f5c5c;
-    /* vert-bleu algue */
+    --bg: #f6f7fb;
+    --fg: #0f172a;
+    --muted: #5b6475;
+
+    --card-bg: #ffffff;
+    --card-bd: #e5e7eb;
+    --accent: #3b82f6;
+    --accent-2: #2563eb;
+    --ok: #16a34a;
+    --warn: #f59e0b;
+    --error: #dc2626;
+
+    --radius: 14px;
+    --shadow: 0 8px 24px rgba(2, 6, 23, 0.08);
+    --font: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
 }
 
-/* Fond océan + vague */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0b1020;
+        --fg: #e5e7eb;
+        --muted: #96a0b5;
+
+        --card-bg: #121827;
+        --card-bd: #1f2a44;
+        --accent: #60a5fa;
+        --accent-2: #3b82f6;
+        --ok: #22c55e;
+        --warn: #fbbf24;
+        --error: #f87171;
+
+        --shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+    }
+}
+
+/* Resets */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
 body {
     margin: 0;
-    color: var(--ink);
-    background:
-        radial-gradient(1000px 600px at 20% 0%, #103a63 0%, #0b2545 60%, #071a30 100%);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5vmin;
-    font-family: "IM Fell English", Georgia, serif;
+    font-family: var(--font);
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Carte/parchemin */
+/* ===== Layout ===== */
 .map {
-    max-width: 900px;
-    width: min(100%, 980px);
-    background: var(--parch);
-    border-radius: 18px;
-    box-shadow:
-        0 1px 0 #0002,
-        0 16px 40px rgba(0, 0, 0, .35),
-        inset 0 0 0 3px var(--edge),
-        inset 0 0 50px 15px #00000010;
-    position: relative;
-    overflow: hidden;
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    place-items: center;
+    padding: clamp(16px, 2.5vw, 32px);
 }
 
-/* Effet bords brûlés irréguliers */
-.map:before,
-.map:after {
-    content: "";
-    position: absolute;
-    inset: -40px;
-    background:
-        radial-gradient(200px 60px at 10% 0, transparent 60%, #00000010 61%, transparent 62%) repeat-x,
-        radial-gradient(200px 60px at 90% 100%, transparent 60%, #00000010 61%, transparent 62%) repeat-x,
-        radial-gradient(60px 200px at 0 10%, transparent 60%, #00000010 61%, transparent 62%) repeat-y,
-        radial-gradient(60px 200px at 100% 90%, transparent 60%, #00000010 61%, transparent 62%) repeat-y;
-    pointer-events: none;
+/* L’élément .compass n’a pas de thème ici (neutre/invisible).
+     Laisse-le comme espaceur si tu veux. */
+.compass {
+    display: none;
 }
 
-.map:after {
-    filter: blur(2px);
-    opacity: .6;
-}
-
+/* ===== Header ===== */
 header {
+    width: min(960px, 100%);
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1.4rem 1.6rem 0 1.6rem;
+    justify-content: space-between;
+    margin-bottom: clamp(16px, 3vw, 24px);
+    gap: 12px;
 }
 
 .jolly {
-    font-family: "Pirata One", system-ui, sans-serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    color: var(--ink);
-    letter-spacing: .5px;
     display: flex;
     align-items: center;
-    gap: .6rem;
+    gap: 10px;
+    font-weight: 600;
+    font-size: clamp(18px, 2.2vw, 22px);
+    letter-spacing: 0.2px;
 }
 
 .jolly .icon {
-    font-size: 1.6em;
-    filter: drop-shadow(0 1px 0 #0004);
+    display: none;
 }
 
+/* icône masquée pour rester neutre */
 .ribbon {
-    margin-left: auto;
-    background: linear-gradient(135deg, var(--gold), #e8d397);
-    color: #3b2a00;
-    padding: .35rem .7rem;
-    border-radius: 8px;
-    font-variant: small-caps;
-    font-weight: 700;
-    border: 1px solid #a7862a;
+    color: var(--muted);
+    font-size: 13px;
 }
 
+/* ===== Card ===== */
 .card {
-    padding: 1.2rem 1.6rem 1.6rem 1.6rem;
-}
-
-h2 {
-    font-family: "Pirata One", system-ui, sans-serif;
-    margin: .2rem 0 .4rem;
-    font-size: clamp(1.4rem, 2.8vw, 2rem);
-}
-
-p {
-    line-height: 1.6
+    width: min(720px, 100%);
+    background: var(--card-bg);
+    border: 1px solid var(--card-bd);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: clamp(16px, 3.2vw, 28px);
 }
 
 .nav {
     display: flex;
-    gap: .6rem;
-    flex-wrap: wrap;
-    margin: .5rem 0 1rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
 }
 
 .badge {
-    background: #00000008;
-    border: 1px dashed #00000030;
-    padding: .25rem .55rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid var(--card-bd);
     border-radius: 999px;
-    font-size: .95rem;
-    color: #3a2b18;
+    padding: 6px 10px;
+}
+
+/* ===== Step content ===== */
+#hint {
+    margin: 8px 0 16px;
+}
+
+#step-title {
+    font-size: clamp(20px, 2.6vw, 26px);
+    margin: 0 0 4px;
+    font-weight: 650;
+}
+
+#step-text {
+    margin: 0 0 12px;
+    color: var(--fg);
 }
 
 .hint {
-    background: #fff8e6;
-    border: 1px solid #e8d7a7;
-    border-left: 6px solid var(--gold);
-    padding: .8rem 1rem;
-    margin: 1rem 0;
+    font-size: 14px;
+    color: var(--muted);
+    background: color-mix(in oklab, var(--card-bd) 30%, transparent);
+    border: 1px dashed var(--card-bd);
     border-radius: 10px;
+    padding: 10px 12px;
 }
 
-a {
+.hint a {
     color: var(--accent);
-    text-decoration-thickness: 2px;
+    text-decoration: none;
 }
 
+.hint a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Form ===== */
 label {
     display: block;
-    margin: .6rem 0 .3rem;
-    font-weight: 700
+    margin: 16px 0 6px;
+    font-size: 14px;
+    color: var(--muted);
 }
 
-input[type=text] {
+input[type="text"] {
     width: 100%;
-    padding: .8rem 1rem;
-    font-size: 1.05rem;
+    padding: 12px 14px;
     border-radius: 10px;
-    border: 2px solid #cdbf9b;
-    background: #fffdf7;
-    box-shadow: inset 0 2px 4px #00000010;
-    font-family: inherit;
+    border: 1px solid var(--card-bd);
+    background: transparent;
+    color: var(--fg);
+    font-size: 16px;
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+}
+
+input[type="text"]::placeholder {
+    color: color-mix(in oklab, var(--muted) 70%, transparent);
+}
+
+input[type="text"]:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent);
 }
 
 button {
-    padding: .65rem 1.1rem;
-    font-size: 1.05rem;
-    margin-top: .55rem;
-    cursor: pointer;
-    color: #2b1c00;
-    background: linear-gradient(180deg, #f3d896, #d9b765);
-    border: 1px solid #b08e3f;
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid transparent;
     border-radius: 10px;
-    font-weight: 700;
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s, transform .02s, box-shadow .15s;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25);
 }
 
 button:hover {
-    filter: brightness(1.03) saturate(1.05)
+    background: var(--accent-2);
 }
 
-.ok {
-    color: #0d6a28;
-    font-weight: 700
+button:active {
+    transform: translateY(1px);
 }
 
-.err {
-    color: var(--crimson);
-    font-weight: 700
+button:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Messages */
+#msg {
+    margin-top: 8px;
+    font-size: 14px;
 }
 
 .muted {
-    color: #5c4a33
+    color: var(--muted);
 }
 
-/* Boussole décorative */
-.compass {
-    position: absolute;
-    right: -32px;
-    top: -32px;
-    width: 160px;
-    height: 160px;
-    opacity: .25;
-    pointer-events: none;
-    background:
-        radial-gradient(#0000, #0000 48%, #0005 49%, #0000 50%),
-        conic-gradient(from 45deg, #0000 0 24.9%, #7c1111 25% 25.1%, #0000 25.1% 49.9%, #0b4f4f 50% 50.1%, #0000 50.1% 74.9%, #7c1111 75% 75.1%, #0000 75.1% 100%),
-        radial-gradient(circle at 50% 50%, #d3c29d 0 40%, #b6a37c 41% 100%);
-    border-radius: 50%;
-    animation: turn 40s linear infinite;
+/* Completed section */
+#completed,
+#newgame {
+    margin-top: 18px;
 }
 
-@keyframes turn {
-    to {
-        transform: rotate(360deg)
-    }
+#completed h2 {
+    margin: 0 0 6px;
+    font-size: clamp(18px, 2.2vw, 22px);
 }
 
-/* Vague au focus */
-@keyframes swell {
-
-    0%,
-    100% {
-        transform: translateY(0)
-    }
-
-    50% {
-        transform: translateY(-2px)
-    }
+#completed a,
+#newgame a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
 }
 
-input:focus,
-button:focus {
-    outline: 3px solid #e6d094;
-    animation: swell 1s ease-in-out infinite
+#completed a:hover,
+#newgame a:hover {
+    text-decoration: underline;
 }
 
+/* Footer */
 .footer {
-    margin-top: 1.2rem;
-    font-size: .95rem;
-    color: #6b5a3b
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 12.5px;
+    border-top: 1px solid var(--card-bd);
+    padding-top: 12px;
 }
 
-/* Fin du jeu */
-#completed {
-    margin-top: 1rem;
-    padding: 1rem;
-    border: 2px dashed #b08e3f;
-    border-radius: 12px;
-    background: #fff7df;
+/* ===== Accessibility ===== */
+:focus-visible {
+    outline: 3px solid color-mix(in oklab, var(--accent) 60%, transparent);
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ===== Utility (optionnel) ===== */
+.hidden {
+    display: none !important;
 }

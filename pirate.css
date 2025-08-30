@@ -1,0 +1,245 @@
+:root {
+    --bg: #0b2545;
+    /* bleu profond océan */
+    --ink: #1b1206;
+    /* encre sépia */
+    --parch: #f6efde;
+    /* parchemin */
+    --edge: #c9b793;
+    /* bords brûlés */
+    --gold: #caa44a;
+    /* or */
+    --crimson: #7a1b1b;
+    /* rouge bordeaux */
+    --accent: #0f5c5c;
+    /* vert-bleu algue */
+}
+
+/* Fond océan + vague */
+body {
+    margin: 0;
+    color: var(--ink);
+    background:
+        radial-gradient(1000px 600px at 20% 0%, #103a63 0%, #0b2545 60%, #071a30 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5vmin;
+    font-family: "IM Fell English", Georgia, serif;
+}
+
+/* Carte/parchemin */
+.map {
+    max-width: 900px;
+    width: min(100%, 980px);
+    background: var(--parch);
+    border-radius: 18px;
+    box-shadow:
+        0 1px 0 #0002,
+        0 16px 40px rgba(0, 0, 0, .35),
+        inset 0 0 0 3px var(--edge),
+        inset 0 0 50px 15px #00000010;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet bords brûlés irréguliers */
+.map:before,
+.map:after {
+    content: "";
+    position: absolute;
+    inset: -40px;
+    background:
+        radial-gradient(200px 60px at 10% 0, transparent 60%, #00000010 61%, transparent 62%) repeat-x,
+        radial-gradient(200px 60px at 90% 100%, transparent 60%, #00000010 61%, transparent 62%) repeat-x,
+        radial-gradient(60px 200px at 0 10%, transparent 60%, #00000010 61%, transparent 62%) repeat-y,
+        radial-gradient(60px 200px at 100% 90%, transparent 60%, #00000010 61%, transparent 62%) repeat-y;
+    pointer-events: none;
+}
+
+.map:after {
+    filter: blur(2px);
+    opacity: .6;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.4rem 1.6rem 0 1.6rem;
+}
+
+.jolly {
+    font-family: "Pirata One", system-ui, sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: var(--ink);
+    letter-spacing: .5px;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+.jolly .icon {
+    font-size: 1.6em;
+    filter: drop-shadow(0 1px 0 #0004);
+}
+
+.ribbon {
+    margin-left: auto;
+    background: linear-gradient(135deg, var(--gold), #e8d397);
+    color: #3b2a00;
+    padding: .35rem .7rem;
+    border-radius: 8px;
+    font-variant: small-caps;
+    font-weight: 700;
+    border: 1px solid #a7862a;
+}
+
+.card {
+    padding: 1.2rem 1.6rem 1.6rem 1.6rem;
+}
+
+h2 {
+    font-family: "Pirata One", system-ui, sans-serif;
+    margin: .2rem 0 .4rem;
+    font-size: clamp(1.4rem, 2.8vw, 2rem);
+}
+
+p {
+    line-height: 1.6
+}
+
+.nav {
+    display: flex;
+    gap: .6rem;
+    flex-wrap: wrap;
+    margin: .5rem 0 1rem;
+}
+
+.badge {
+    background: #00000008;
+    border: 1px dashed #00000030;
+    padding: .25rem .55rem;
+    border-radius: 999px;
+    font-size: .95rem;
+    color: #3a2b18;
+}
+
+.hint {
+    background: #fff8e6;
+    border: 1px solid #e8d7a7;
+    border-left: 6px solid var(--gold);
+    padding: .8rem 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+}
+
+a {
+    color: var(--accent);
+    text-decoration-thickness: 2px;
+}
+
+label {
+    display: block;
+    margin: .6rem 0 .3rem;
+    font-weight: 700
+}
+
+input[type=text] {
+    width: 100%;
+    padding: .8rem 1rem;
+    font-size: 1.05rem;
+    border-radius: 10px;
+    border: 2px solid #cdbf9b;
+    background: #fffdf7;
+    box-shadow: inset 0 2px 4px #00000010;
+    font-family: inherit;
+}
+
+button {
+    padding: .65rem 1.1rem;
+    font-size: 1.05rem;
+    margin-top: .55rem;
+    cursor: pointer;
+    color: #2b1c00;
+    background: linear-gradient(180deg, #f3d896, #d9b765);
+    border: 1px solid #b08e3f;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+button:hover {
+    filter: brightness(1.03) saturate(1.05)
+}
+
+.ok {
+    color: #0d6a28;
+    font-weight: 700
+}
+
+.err {
+    color: var(--crimson);
+    font-weight: 700
+}
+
+.muted {
+    color: #5c4a33
+}
+
+/* Boussole décorative */
+.compass {
+    position: absolute;
+    right: -32px;
+    top: -32px;
+    width: 160px;
+    height: 160px;
+    opacity: .25;
+    pointer-events: none;
+    background:
+        radial-gradient(#0000, #0000 48%, #0005 49%, #0000 50%),
+        conic-gradient(from 45deg, #0000 0 24.9%, #7c1111 25% 25.1%, #0000 25.1% 49.9%, #0b4f4f 50% 50.1%, #0000 50.1% 74.9%, #7c1111 75% 75.1%, #0000 75.1% 100%),
+        radial-gradient(circle at 50% 50%, #d3c29d 0 40%, #b6a37c 41% 100%);
+    border-radius: 50%;
+    animation: turn 40s linear infinite;
+}
+
+@keyframes turn {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+/* Vague au focus */
+@keyframes swell {
+
+    0%,
+    100% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-2px)
+    }
+}
+
+input:focus,
+button:focus {
+    outline: 3px solid #e6d094;
+    animation: swell 1s ease-in-out infinite
+}
+
+.footer {
+    margin-top: 1.2rem;
+    font-size: .95rem;
+    color: #6b5a3b
+}
+
+/* Fin du jeu */
+#completed {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 2px dashed #b08e3f;
+    border-radius: 12px;
+    background: #fff7df;
+}
