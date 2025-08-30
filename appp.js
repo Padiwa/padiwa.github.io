@@ -1,6 +1,3 @@
-// app.js
-
-// ---------------- Configuration ----------------
 const FINAL_URL =
   "https://www.youtube.com/watch?v=CS9OO0S5w2k&ab_channel=VillagePeoplehttps://www.youtube.com/watch?v=CS9OO0S5w2k&ab_channel=VillagePeople"; // ou 'boite.html' selon la page de récompense que tu utilises
 const KEY_IDX = "progress_index"; // index d’étape (0-based)
@@ -10,27 +7,72 @@ const KEY_DONE = "progress_done"; // "1" quand tout est validé
 // Tu peux utiliser "answer" (en clair) OU "answerHash" (SHA-256 hex). Si les deux sont présents, answerHash est prioritaire.
 const STEPS = [
   {
-    title: "Cap au nord",
-    text: "Trouve le point cardinal opposé au sud.",
-    hint: "Cherche la rose des vents.",
-    url: "https://fr.wikipedia.org/wiki/Point_cardinal",
-    answer: "nord",
-    // answerHash: "..." // facultatif
-  },
-  {
-    title: "Le pavillon",
-    text: "Nom anglais du drapeau à tête de mort.",
-    hint: "Deux mots collés sans espace.",
+    title: "Le pavillon aux os croisés",
+    text: "Cher moussaillon, trouve le nom anglais du célèbre drapeau pirate à tête de mort.",
+    hint: "Drapeau pirate en anglais, deux mots.",
     url: "https://fr.wikipedia.org/wiki/Jolly_Roger",
     answer: "jollyroger",
   },
-  // ... ajoute d'autres étapes ...
+  {
+    title: "Le navire de Barbe Noire",
+    text: "Quel était le nom du vaisseau amiral de Barbe Noire ?",
+    hint: "Le navire porte le nom d’une reine.",
+    url: "https://fr.wikipedia.org/wiki/Queen_Anne%27s_Revenge",
+    answer: "queenannesrevenge",
+  },
+  {
+    title: "L’île au trésor",
+    text: "Retrouve le titre original (en anglais) du roman « L’Île au trésor ».",
+    hint: "Roman d’aventure de R. L. Stevenson, deux mots.",
+    url: "https://fr.wikipedia.org/wiki/L%27%C3%8Ele_au_tr%C3%A9sor",
+    answer: "treasureisland",
+  },
+  {
+    title: "Frères de la côte",
+    text: "Les flibustiers firent de l’« Île de la Tortue » leur repaire. De quel pays dépend-elle aujourd’hui ?",
+    hint: "Pays des Caraïbes, langue française.",
+    url: "https://fr.wikipedia.org/wiki/%C3%8Ele_de_la_Tortue_(Ha%C3%AFti)",
+    answer: "haiti",
+  },
+  {
+    title: "Port englouti",
+    text: "Port Royal, jadis repaire de pirates. Dans quel pays moderne se trouve cette ville portuaire ?",
+    hint: "Île des Caraïbes, patrie du reggae.",
+    url: "https://fr.wikipedia.org/wiki/Port_Royal_(Jama%C3%AFque)",
+    answer: "jamaique",
+  },
+  {
+    title: "Les « Pyrates » à l’ancienne",
+    text: "Daniel Defoe (attribué) publie une « Histoire générale des plus fameux… » avec une orthographe archaïque du mot « pirates ». Quelle est-elle ?",
+    hint: "Orthographe anglaise ancienne en ‘y’.",
+    url: "https://fr.wikipedia.org/wiki/Histoire_g%C3%A9n%C3%A9rale_des_plus_fameux_pirates",
+    answer: "pyrates",
+  },
+  {
+    title: "La perle noire",
+    text: "Dans le premier film Pirates des Caraïbes, comment s’appelle le navire de Jack Sparrow ?",
+    hint: "Deux mots, couleur + gemme.",
+    url: "https://fr.wikipedia.org/wiki/Pirates_des_Cara%C3%AFbes_:_La_Mal%C3%A9diction_du_Black_Pearl",
+    answer: "blackpearl",
+  },
+  {
+    title: "Cap sur le méridien",
+    text: "Quel observatoire donne son nom au méridien d’origine utilisé par les cartes modernes ?",
+    hint: "Observatoire au sud-est de Londres.",
+    url: "https://fr.wikipedia.org/wiki/M%C3%A9ridien_de_Greenwich",
+    answer: "greenwich",
+  },
+  {
+    title: "Le butin des trois ingrédients",
+    text: "Dans la chanson Wellerman, quels sont les trois produits que le navire apporte ? Donne le dernier des trois (en anglais).",
+    hint: "Refrain: “sugar and tea and ___”.",
+    url: "https://fr.wikipedia.org/wiki/Wellerman",
+    answer: "rum",
+  },
 ];
 
-// ---------------- Utilitaires ----------------
 function norm(s) {
   if (!s) return "";
-  // minuscules, sans accents, sans espaces
   return s
     .toLowerCase()
     .normalize("NFD")
@@ -176,12 +218,9 @@ function restart() {
   render();
 }
 
-// Expose restart si tu veux l’appeler depuis un lien onclick="restart()"
 window.restart = restart;
 
-// Bind
 elBtn.addEventListener("click", onCheck);
 elInput.addEventListener("keydown", onEnter);
 
-// Démarrage
 render();
