@@ -1,268 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estimation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
-        }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chasse au Trésor des Pirates</title>
 
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=IM+Fell+English:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .form-inline {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .form-inline input[type="text"],
-        .form-inline input[type="number"] {
-            width: 150px;
-            height: 40px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .form-inline button[type="submit"] {
-            width: 100px;
-            height: 40px;
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #exporterJson {
-            width: 100%;
-            height: 40px;
-            background-color: #03A9F4;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-
-        #lienList {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        #lienList th,
-        #lienList td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-
-        #lienList th {
-            background-color: #f0f0f0;
-        }
-
-        #lienList th,
-        #lienList td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-
-        #lienList button {
-            background-color: #f44336;
-            color: #fff;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Estimation</h1>
-        <form id="lienForm" class="form-inline">
-            <input type="text" id="lien" placeholder="Lien">
-            <input type="number" id="tempsMin" placeholder="Temps min (heures)" step="0.1">
-            <input type="number" id="tempsMax" placeholder="Temps max (heures)" step="0.1">
-            <button type="submit">Ajouter</button>
-        </form>
-        <table id="lienList">
-            <thead>
-                <tr>
-                    <th>Lien</th>
-                    <th>Temps minimum (heures)</th>
-                    <th>Temps maximum (heures)</th>
-                    <th>Intervalle</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="lienListBody">
-            </tbody>
-        </table>
-        <p id="totalTemps">Temps total estimé : <span id="totalTempsValeur">0 heure(s)</span></p>
-        <div>
-            <button id="exporterJson">Exporter en JSON</button>
-            <input type="file" id="importerJson" accept=".json">
-            <button id="chargerJson">Charger JSON</button>
+    <div class="map">
+        <div class="compass"></div>
 
+        <header>
+            <div class="jolly">
+                <span class="icon">☠️</span>
+                <span>Chasse au Trésor des Pirates</span>
+            </div>
+            <div class="ribbon">Par ordre du Capitaine</div>
+        </header>
+
+        <div class="card">
+            <div class="nav">
+                <span class="badge">Étape <span id="step-num">1</span>/<span id="step-total">?</span></span>
+                <span class="badge" id="attempts"></span>
+            </div>
+            <div id="hint">
+
+                <h2 id="step-title">Cap au nord</h2>
+                <p id="step-text">Indice…</p>
+
+                <div class="hint">
+                    <strong>Astuce du quartier-maître:</strong>
+                    <span id="step-hint">Visite la page/lien indiqué pour trouver le mot de passe.</span>
+                    <div style="margin-top:.5rem">
+                        <a id="step-url" href="#" target="_blank" rel="noopener">Ouvrir l’indice sur la mer du Web</a>
+                    </div>
+                </div>
+            </div>
+
+            <label for="answer">Mot de passe (sésame du coffre)</label>
+            <input id="answer" type="text" placeholder="Tape ici le mot/phrase" autocomplete="off" />
+            <button id="check">Valider l’offrande</button>
+            <div id="msg" class="muted"></div>
+
+            <div id="completed" style="display:none">
+                <h2>Yo-ho-ho !</h2>
+                <p>Butin conquis. Voici ta récompense:</p>
+                <p><a id="final-link" href="#" target="_blank" rel="noopener"></a></p>
+            </div>
+            <div id="newgame" style="display:none">
+                <p><a id="restart-link" href="#" target="_blank" onclick="restart()" rel="noopener">Nouveau jeu</a>
+                </p>
+            </div>
+
+            <div class="footer">
+                Règle du navire: casse, accents et espace ignorés. Exemple: “Écume d’Or” = “ecumedor”.
+            </div>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('chargerJson').addEventListener('click', () => {
-                const importerJson = document.getElementById('importerJson');
-                const file = importerJson.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = () => {
-                        try {
-                            const lienTempsList = JSON.parse(reader.result);
-                            localStorage.setItem('lienTempsList', JSON.stringify(lienTempsList));
-                            chargerLiens();
-                        } catch (error) {
-                            console.error('Erreur lors de la lecture du fichier JSON :', error);
-                            alert('Erreur lors de la lecture du fichier JSON');
-                        }
-                    };
-                    reader.readAsText(file);
-                } else {
-                    alert('Veuillez sélectionner un fichier JSON');
-                }
-            });
-            const lienForm = document.getElementById('lienForm');
-            const lienListBody = document.getElementById('lienListBody');
-            const exporterJsonButton = document.getElementById('exporterJson');
-
-            // Chargement des données à partir du localStorage
-            chargerLiens();
-
-            // Ajout d'un événement pour la soumission du formulaire
-            lienForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const lien = document.getElementById('lien').value;
-                const tempsMin = parseFloat(document.getElementById('tempsMin').value);
-                const tempsMax = parseFloat(document.getElementById('tempsMax').value);
-                if (lien && !isNaN(tempsMin) && !isNaN(tempsMax) && tempsMin <= tempsMax) {
-                    ajouterLien(lien, tempsMin, tempsMax);
-                    chargerLiens();
-                    // Nettoyage des champs
-                    document.getElementById('lien').value = '';
-                    document.getElementById('tempsMin').value = '';
-                    document.getElementById('tempsMax').value = '';
-                } else {
-                    alert('Veuillez saisir des valeurs valides pour les temps minimum et maximum');
-                }
-            });
-
-            // Ajout d'un événement pour l'exportation en JSON
-            exporterJsonButton.addEventListener('click', () => {
-                const lienTempsList = JSON.parse(localStorage.getItem('lienTempsList') || '[]');
-                const json = JSON.stringify(lienTempsList, null, 2); // Pretty print
-                const blob = new Blob([json], { type: 'application/json' });
-                const a = document.createElement('a');
-                a.href = URL.createObjectURL(blob);
-                a.download = 'lien_temps.json';
-                a.click();
-            });
-
-            // Fonction pour ajouter un lien avec temps
-            function ajouterLien(lien, tempsMin, tempsMax) {
-                const lienTempsList = JSON.parse(localStorage.getItem('lienTempsList') || '[]');
-                lienTempsList.push({ lien, tempsMin, tempsMax });
-                localStorage.setItem('lienTempsList', JSON.stringify(lienTempsList));
-            }
-
-            // Fonction pour charger et afficher les liens
-            function chargerLiens() {
-                const lienTempsList = JSON.parse(localStorage.getItem('lienTempsList') || '[]');
-                lienListBody.innerHTML = '';
-                let totalTempsMin = 0;
-                let totalTempsMax = 0;
-                lienTempsList.forEach((lt, index) => {
-                    const row = document.createElement('tr');
-                    const lienCell = document.createElement('td');
-                    const lienAnchor = document.createElement('a');
-                    lienAnchor.href = lt.lien;
-                    lienAnchor.textContent = lt.lien;
-                    lienAnchor.target = '_blank'; // Pour ouvrir le lien dans un nouvel onglet
-                    lienCell.appendChild(lienAnchor);
-                    row.appendChild(lienCell);
-                    const tempsMinCell = document.createElement('td');
-                    tempsMinCell.textContent = lt.tempsMin;
-                    row.appendChild(tempsMinCell);
-                    const tempsMaxCell = document.createElement('td');
-                    tempsMaxCell.textContent = lt.tempsMax;
-                    row.appendChild(tempsMaxCell);
-                    const intervalleCell = document.createElement('td');
-                    if (lt.tempsMin === lt.tempsMax) {
-                        intervalleCell.textContent = `${lt.tempsMin} heure(s)`;
-                    } else {
-                        intervalleCell.textContent = `entre ${lt.tempsMin} et ${lt.tempsMax} heure(s)`;
-                    }
-                    row.appendChild(intervalleCell);
-                    const actionCell = document.createElement('td');
-                    const supprimerButton = document.createElement('button');
-                    supprimerButton.textContent = 'Supprimer';
-                    supprimerButton.onclick = () => {
-                        supprimerLien(index);
-                    };
-                    actionCell.appendChild(supprimerButton);
-                    row.appendChild(actionCell);
-                    lienListBody.appendChild(row);
-                    totalTempsMin += parseFloat(lt.tempsMin);
-                    totalTempsMax += parseFloat(lt.tempsMax);
-                });
-                const totalTempsValeur = document.getElementById('totalTempsValeur');
-                if (totalTempsMin === totalTempsMax) {
-                    totalTempsValeur.textContent = `${totalTempsMin.toFixed(1)} heure(s)`;
-                } else {
-                    totalTempsValeur.textContent = `entre ${totalTempsMin.toFixed(1)} et ${totalTempsMax.toFixed(1)} heure(s)`;
-                }
-            }
-
-            // Fonction pour supprimer un lien
-            function supprimerLien(index) {
-                const lienTempsList = JSON.parse(localStorage.getItem('lienTempsList') || '[]');
-                lienTempsList.splice(index, 1);
-                localStorage.setItem('lienTempsList', JSON.stringify(lienTempsList));
-                chargerLiens();
-            }
-
-
-            // Appel de la fonction chargerLiens() au chargement de la page
-            chargerLiens();
-
-            // Écouteur d'événement sur le formulaire
-            document.getElementById('lienForm').addEventListener('submit', (e) => {
-                // ... (même code que précédemment)
-                chargerLiens(); // Appel de la fonction chargerLiens() après l'ajout d'un nouveau lien
-            });
-        });
-
-
-    </script>
+    <script src="app.js"></script>
 </body>
 
 </html>

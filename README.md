@@ -1,1 +1,0 @@
-# padiwa.github.io
