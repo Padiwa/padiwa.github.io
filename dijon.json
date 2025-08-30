@@ -1,0 +1,64 @@
+{
+    "finalReward": {
+        "text": "https://www.youtube.com/watch?v=CS9OO0S5w2k",
+        "visibleText": "Ouvrir la récompense"
+    },
+    "steps": [
+        {
+            "title": "Le sculpteur du Puits",
+            "text": "Comment s’appelle le sculpteur flamand auteur du célèbre « Puits de Moïse » à la Chartreuse de Champmol ?",
+            "hint": "Maître gothique actif à Dijon vers 1400.",
+            "url": "https://fr.wikipedia.org/wiki/Claus_Sluter",
+            "answer": "claussluter"
+        },
+        {
+            "title": "La place royale",
+            "text": "Quelle place dijonnaise, dessinée par Jules Hardouin‑Mansart, s’appelait autrefois « place Royale » ?",
+            "hint": "Face au Palais, elle porte aujourd’hui un nom évoquant 1945.",
+            "url": "https://fr.wikipedia.org/wiki/Place_de_la_Lib%C3%A9ration_(Dijon)",
+            "answer": "placedelaliberation"
+        },
+        {
+            "title": "L’animal porte‑bonheur",
+            "text": "Quel animal sculpté sur Notre‑Dame de Dijon, que l’on touche de la main gauche, est devenu un symbole de la ville ?",
+            "hint": "Suis les plaques au sol du parcours touristique.",
+            "url": "https://fr.wikipedia.org/wiki/Chouette_de_Dijon",
+            "answer": "chouette"
+        },
+        {
+            "title": "Le duc et son ordre",
+            "text": "Quel ordre de chevalerie prestigieux fut fondé par Philippe le Bon, duc de Bourgogne, en 1430 ?",
+            "hint": "Son nom évoque une pièce de laine précieuse.",
+            "url": "https://fr.wikipedia.org/wiki/Ordre_de_la_Toison_d%27or",
+            "answer": "toisondor"
+        },
+        {
+            "title": "Le condiment fameux",
+            "text": "Quel condiment piquant a fait la renommée gastronomique de Dijon ?",
+            "hint": "Souvent préparée avec de la graine de brassica et du vinaigre.",
+            "url": "https://fr.wikipedia.org/wiki/Moutarde_de_Dijon",
+            "answer": "moutarde"
+        },
+        {
+            "title": "Le maire au cocktail",
+            "text": "Quel maire de Dijon a popularisé le cocktail à base de vin blanc et crème de cassis qui porte son nom ? Donne nom et prénom.",
+            "hint": "Résistant et député, son patronyme est aussi celui du cocktail.",
+            "url": "https://fr.wikipedia.org/wiki/F%C3%A9lix_Kir",
+            "answer": "felixkir"
+        },
+        {
+            "title": "Le canal dijonnais",
+            "text": "Quel canal reliant l’Yonne à la Saône traverse Dijon ?",
+            "hint": "Il porte le nom de la région historique qu’il irrigue.",
+            "url": "https://fr.wikipedia.org/wiki/Canal_de_Bourgogne",
+            "answer": "canaldebourgogne"
+        },
+        {
+            "title": "Rails modernes",
+            "text": "En quelle année le tramway moderne de Dijon a‑t‑il été mis en service commercialement ?",
+            "hint": "Début de la décennie 2010.",
+            "url": "https://fr.wikipedia.org/wiki/Tramway_de_Dijon",
+            "answer": "2012"
+        }
+    ]
+}

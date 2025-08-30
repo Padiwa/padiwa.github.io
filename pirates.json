@@ -1,0 +1,43 @@
+{
+    "finalReward": {
+        "text": "https://www.youtube.com/watch?v=CS9OO0S5w2k&ab_channel=VillagePeople",
+        "visibleText": "Ouvrir le coffre au trésor"
+    },
+    "steps": [
+        {
+            "title": "Le pavillon aux os croisés",
+            "text": "Cher moussaillon, trouve le nom anglais du célèbre drapeau pirate à tête de mort.",
+            "hint": "Drapeau pirate en anglais, deux mots.",
+            "url": "https://fr.wikipedia.org/wiki/Jolly_Roger",
+            "answer": "jollyroger"
+        },
+        {
+            "title": "Le navire de Barbe Noire",
+            "text": "Quel était le nom du vaisseau amiral de Barbe Noire ?",
+            "hint": "Le navire porte le nom d’une reine.",
+            "url": "https://fr.wikipedia.org/wiki/Queen_Anne%27s_Revenge",
+            "answer": "queenannesrevenge"
+        },
+        {
+            "title": "Frères de la côte",
+            "text": "Les flibustiers firent de l’« Île de la Tortue » leur repaire. De quel pays dépend-elle aujourd’hui ?",
+            "hint": "Pays des Caraïbes, langue française.",
+            "url": "https://fr.wikipedia.org/wiki/%C3%8Ele_de_la_Tortue_(Ha%C3%AFti)",
+            "answer": "haiti"
+        },
+        {
+            "title": "Cap sur le méridien",
+            "text": "Quel observatoire donne son nom au méridien d’origine utilisé par les cartes modernes ?",
+            "hint": "Observatoire au sud-est de Londres.",
+            "url": "https://fr.wikipedia.org/wiki/M%C3%A9ridien_de_Greenwich",
+            "answer": "greenwich"
+        },
+        {
+            "title": "Le butin des trois ingrédients",
+            "text": "Dans la chanson Wellerman, quels sont les trois produits que le navire apporte ? Donne le dernier des trois (en anglais).",
+            "hint": "Refrain: “sugar and tea and ___”.",
+            "url": "https://fr.wikipedia.org/wiki/Wellerman",
+            "answer": "rum"
+        }
+    ]
+}

@@ -284,3 +284,72 @@ button:disabled {
 .hidden {
     display: none !important;
 }
+
+.link-custom {
+    display: inline-flex;
+    /* bon alignement du contenu */
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: .65rem 1rem;
+    border: 1px solid var(--btn-border);
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+    text-decoration: none;
+    /* enlever le soulignement */
+    border-radius: .6rem;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    transition: background .15s ease, border-color .15s ease, transform .02s ease;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.link-custom:hover {
+    background: var(--btn-bg-hover);
+    border-color: var(--btn-border-hover);
+}
+
+.link-custom:active {
+    background: var(--btn-bg-active);
+    transform: translateY(1px);
+}
+
+.link-custom:focus-visible {
+    outline: none;
+    box-shadow:
+        0 0 0 3px color-mix(in oklab, rgb(var(--focus) / 35%), transparent),
+        0 0 0 6px color-mix(in oklab, rgb(var(--focus) / 60%), transparent),
+        var(--shadow);
+}
+
+/* Variantes optionnelles */
+.link-custom--primary {
+    --btn-bg: #2563eb;
+    /* bleu */
+    --btn-fg: #fff;
+    --btn-border: #1d4ed8;
+    --btn-bg-hover: #1e4fd6;
+    --btn-border-hover: #1b46c0;
+    --btn-bg-active: #1a46bf;
+}
+
+.link-custom--ghost {
+    --btn-bg: transparent;
+    --btn-bg-hover: rgba(0, 0, 0, .05);
+    --btn-bg-active: rgba(0, 0, 0, .08);
+    border-color: var(--btn-border);
+}
+
+/* Mise en page des cartes (facultatif) */
+.card {
+    display: grid;
+    grid-auto-flow: row;
+    gap: .75rem;
+}
+
+/* Pleine largeur (si désiré) */
+.btn-block {
+    width: 100%;
+}

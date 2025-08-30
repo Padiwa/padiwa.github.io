@@ -26,45 +26,9 @@
         </header>
 
         <div class="card">
-            <div class="nav">
-                <span class="badge">Étape <span id="step-num">1</span>/<span id="step-total">?</span></span>
-                <span class="badge" id="attempts"></span>
-            </div>
-            <div id="hint">
-
-                <h2 id="step-title">Cap au nord</h2>
-                <p id="step-text">Indice…</p>
-
-                <div class="hint">
-                    <strong>Astuce du quartier-maître:</strong>
-                    <span id="step-hint">Visite la page/lien indiqué pour trouver le mot de passe.</span>
-                    <div style="margin-top:.5rem">
-                        <a id="step-url" href="#" target="_blank" rel="noopener">Ouvrir l’indice sur la mer du Web</a>
-                    </div>
-                </div>
-
-                <label for="answer">Mot de passe (sésame du coffre)</label>
-                <input id="answer" type="text" placeholder="Tape ici le mot/phrase" autocomplete="off" />
-                <button id="check">Valider l’offrande</button>
-                <div id="msg" class="muted"></div>
-            </div>
-
-            <div id="completed" style="display:none">
-                <h2>Yo-ho-ho !</h2>
-                <p>Butin conquis. Voici ta récompense:</p>
-                <p><a id="final-link" href="#" target="_blank" rel="noopener"></a></p>
-            </div>
-            <div id="newgame" style="display:none">
-                <p><a id="restart-link" href="#" target="_blank" onclick="restart()" rel="noopener">Nouveau jeu</a>
-                </p>
-            </div>
-
-            <div class="footer">
-                Règle du navire: casse, accents et espace ignorés. Exemple: “Écume d’Or” = “ecumedor”.
-            </div>
+            <a class="link-custom link-custom--primary btn-block" href="chasse.html?steps=pirates.json">Pirates</a>
+            <a class=" link-custom link-custom--primary btn-block" href="chasse.html?steps=dijon.json">Dijon</a>
         </div>
-    </div>
-    <script src="appp.js"></script>
 </body>
 
 </html>
