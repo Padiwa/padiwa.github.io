@@ -1,34 +1,149 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Chasse au Trésor des Pirates</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résumé Aléatoire Wikipédia par Catégorie</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=IM+Fell+English:ital@0;1&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
 
+        input {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #36c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #447ff5;
+        }
+
+        #result {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        #result img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .loader {
+            display: none;
+            color: #666;
+            font-style: italic;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="map">
-        <div class="compass"></div>
 
-        <header>
-            <div class="jolly">
-                <span class="icon">☠️</span>
-                <span>Chasse au Trésor des Pirates</span>
-            </div>
-            <div class="ribbon">Par ordre du Capitaine</div>
-        </header>
+    <h1>Wikipédia Aléatoire</h1>
 
-        <div class="card">
-            <a class="link-custom link-custom--primary btn-block" href="chasse.html?steps=pirates.json">Pirates</a>
-            <a class=" link-custom link-custom--primary btn-block" href="chasse.html?steps=dijon.json">Dijon</a>
-        </div>
+    <div class="controls">
+        <input type="text" id="categoryInput" placeholder="Ex: Informatique, Paris, Cinéma..." value="">
+        <button onclick="getRandomArticle()">Chercher</button>
+    </div>
+
+    <div id="loader" class="loader">Recherche d'un article...</div>
+
+    <div id="result">
+        <img id="wikiImage" src="" alt="Image de l'article">
+        <h2 id="wikiTitle"></h2>
+        <p id="wikiExtract"></p>
+        <a id="wikiLink" href="" target="_blank">Lire l'article complet →</a>
+    </div>
+
+    <script>
+        async function getRandomArticle() {
+            const category = document.getElementById('categoryInput').value.trim();
+            const loader = document.getElementById('loader');
+            const resultDiv = document.getElementById('result');
+
+            if (!category) return alert("Veuillez entrer une catégorie");
+
+            loader.style.display = "block";
+            resultDiv.style.display = "none";
+
+            try {
+                // 1. Récupérer la liste des articles de la catégorie (max 500)
+                // Note: On ajoute "Catégorie:" si l'utilisateur ne l'a pas mis
+                const catName = category.startsWith('Catégorie:') ? category : 'Catégorie:' + category;
+
+                const listUrl = `https://fr.wikipedia.org/w/api.php?action=query&list=categorymembers&cmtitle=${encodeURIComponent(catName)}&cmlimit=500&format=json&origin=*`;
+
+                const listResponse = await fetch(listUrl);
+                const listData = await listResponse.json();
+                const members = listData.query.categorymembers;
+
+                if (!members || members.length === 0) {
+                    throw new Error("Aucun article trouvé dans cette catégorie.");
+                }
+
+                // 2. Choisir un article au hasard parmi les résultats
+                const randomArticle = members[Math.floor(Math.random() * members.length)];
+                const title = randomArticle.title;
+
+                // 3. Récupérer le résumé de l'article via la REST API
+                const summaryUrl = `https://fr.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title.replace(/ /g, '_'))}`;
+
+                const summaryResponse = await fetch(summaryUrl);
+                const data = await summaryResponse.json();
+
+                // 4. Affichage des données
+                document.getElementById('wikiTitle').innerText = data.title;
+                document.getElementById('wikiExtract').innerText = data.extract || "Pas de résumé disponible.";
+                document.getElementById('wikiLink').href = data.content_urls.desktop.page;
+
+                const img = document.getElementById('wikiImage');
+                if (data.thumbnail) {
+                    img.src = data.thumbnail.source;
+                    img.style.display = "block";
+                } else {
+                    img.style.display = "none";
+                }
+
+                resultDiv.style.display = "block";
+
+            } catch (error) {
+                alert(error.message);
+            } finally {
+                loader.style.display = "none";
+            }
+        }
+    </script>
+
 </body>
 
 </html>
