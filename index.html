@@ -304,7 +304,7 @@
 
 <body class="font-sans text-gray-800 antialiased bg-gray-100">
     <!-- ==================== HEADER ==================== -->
-    <header class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-200/50 shadow-sm">
+    <header class="fixed top-0 w-full bg-white backdrop-blur-md z-50 border-b border-gray-200/50 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
@@ -313,7 +313,7 @@
                             src="https://www.lacanne.fr/wp-content/uploads/2026/01/logo_LaCanne-RVB_long-sombre-32da19.svg"
                             alt="LaCanne" class="h-48 w-auto">
                     </a>    -->
-                    <a href="#laCanne"><img src="logo_LaCanne RVB_long-clair.svg" alt="LaCanne" class="h-48 w-auto">
+                    <a href="#logo"><img src="logo.svg" alt="LaCanne" class="h-12 w-auto">
                     </a>
 
                 </div>
@@ -423,11 +423,15 @@
                     </div>
                 </div>
 
-                <!-- Hero Image -->
-                <div class="scroll-reveal">
-                    <img src="https://www.lacanne.fr/wp-content/uploads/2024/09/lacanne-releves-1024.jpg"
-                        alt="LaCanne sur un chantier" class="rounded-2xl shadow-2xl w-full object-cover">
+                <!-- Hero Video -->
+                <div class="scroll-reveal md:mb-40">
+                    <video autoplay loop muted playsinline
+                        class=" aspect-video rounded-2xl shadow-2xl w-full object-cover"
+                        poster="ttps://www.lacanne.fr/wp-content/uploads/2024/09/lacanne-releves-1024.jpg">
+                        <source src="presensation.mp4" type="video/mp4">
+                    </video>
                 </div>
+
             </div>
         </div>
     </section>
@@ -765,56 +769,15 @@
             <!-- Cadoles expertise -->
 
     </section>
+    <!-- ==================== Confiance SECTION ==================== -->
+    <!-- <section class="py-20 bg-gray-100">
 
+    </section> -->
     <!-- ==================== PRESS SECTION ==================== -->
-    <section class="py-20 bg-gray-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 scroll-reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
-                    La presse en parle
-                </h2>
-            </div>
 
-            <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
-                <div class="flex flex-col items-center">
-                    <a target="_blank"
-                        href="https://journal-du-palais.fr/au-sommaire/entreprises/lacanne-l-innovation-qui-a-seduit-un-geant-du-btp">
-                        <img src="https://journal-du-palais.fr/squelettes/sq_journaldupalais/img/logo.svg"
-                            alt="Journal du Palais"
-                            class="h-12 md:h-14 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    </a>
-                </div>
-                <div class="flex flex-col items-center">
-                    <a target="_blank"
-                        href="https://www.constructionbtp.com/terrassements-carrieres/article/2025/02/11/151606/lacanne-facilite-les-releves-topographiques">
-                        <img src="https://www.constructionbtp.com/images/logos/logo_cc_12.png?id=10"
-                            alt="Construction BTP"
-                            class="h-10 md:h-12 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-
-                    </a>
-                </div>
-                <div class="flex flex-col items-center">
-                    <a href="https://www.lemoniteur.fr/article/lacanne-une-solution-pour-faciliter-les-implantations-des-ouvrages-lineaires.2342893"
-                        target="_blank">
-                        <img src="https://www.lemoniteur.fr/pf/resources/images/le-moniteur/logo.svg?d=59"
-                            alt="Le Moniteur"
-                            class="h-8 md:h-10 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    </a>
-                </div>
-                <div class="flex flex-col items-center">
-                    <a target="_blank"
-                        href="https://www.bienpublic.com/economie/2025/03/17/comment-lacanne-creee-a-dijon-pourrait-revolutionner-le-secteur-des-travaux-publics">
-                        <img src="https://media.licdn.com/dms/image/v2/D4E0BAQF5JSvYxnI_cg/img-crop_100/img-crop_100/0/1735807292785?e=1778716800&v=beta&t=jR8TfazfkOIGFzTlPRtAgwNRgA8GbK4oGa6xXW53DIw"
-                            alt="Le Bien Public"
-                            class="h-14 md:h-16 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ==================== FAQ SECTION ==================== -->
-    <section id="faq" class="py-20 bg-white">
+    <section id="faq" class="py-20 bg-gray-100">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
@@ -880,6 +843,97 @@
             </div>
         </div>
     </section>
+    <!-- ==================== TRUST SECTION ==================== -->
+
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Titre principal -->
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+                    Ils nous font confiance
+                </h2>
+            </div>
+
+            <!-- Sous-section: Fournisseurs -->
+            <div class="mb-16">
+                <h3 class="text-center text-gray-400 text-xs font-medium mb-8 tracking-widest uppercase">Nos
+                    fournisseurs</h3>
+                <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
+                    <a target="_blank" href="https://www.geobsys.com/" class="flex flex-col items-center p-4">
+                        <img src="https://www.geobsys.com/web/image/2486-3c1fab5f/geosbsysb%26w.png" alt="Geobsys"
+                            class="h-12 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    </a>
+                    <a target="_blank" href="https://natuition.com/" class="flex flex-col items-center p-4">
+                        <img src="https://natuition.com/wp-content/uploads/2019/11/2.png" alt="Natuition"
+                            class="h-20 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Séparateur -->
+            <div class="w-32 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mx-auto mb-16"></div>
+
+            <!-- Sous-section: Presse -->
+            <div class="mb-16">
+                <h3 class="text-center text-gray-400 text-xs font-medium mb-8 tracking-widest uppercase">La presse en
+                    parle</h3>
+                <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
+                    <a target="_blank"
+                        href="https://journal-du-palais.fr/au-sommaire/entreprises/lacanne-l-innovation-qui-a-seduit-un-geant-du-btp"
+                        class="flex flex-col items-center p-4">
+                        <img src="https://journal-du-palais.fr/squelettes/sq_journaldupalais/img/logo.svg"
+                            alt="Journal du Palais"
+                            class="h-12 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    </a>
+                    <a target="_blank"
+                        href="https://www.constructionbtp.com/terrassements-carrieres/article/2025/02/11/151606/lacanne-facilite-les-releves-topographiques"
+                        class="flex flex-col items-center p-4">
+                        <img src="https://www.constructionbtp.com/images/logos/logo_cc_12.png?id=10"
+                            alt="Construction BTP"
+                            class="h-10 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    </a>
+                    <a href="https://www.lemoniteur.fr/article/lacanne-une-solution-pour-faciliter-les-implantations-des-ouvrages-lineaires.2342893"
+                        target="_blank" class="flex flex-col items-center p-4">
+                        <img src="https://www.lemoniteur.fr/pf/resources/images/le-moniteur/logo.svg?d=59"
+                            alt="Le Moniteur"
+                            class="h-8 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    </a>
+                    <a target="_blank"
+                        href="https://www.bienpublic.com/economie/2025/03/17/comment-lacanne-creee-a-dijon-pourrait-revolutionner-le-secteur-des-travaux-publics"
+                        class="flex flex-col items-center p-4">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E0BAQF5JSvYxnI_cg/img-crop_100/img-crop_100/0/1735807292785?e=1778716800&v=beta&t=jR8TfazfkOIGFzTlPRtAgwNRgA8GbK4oGa6xXW53DIw"
+                            alt="Le Bien Public"
+                            class="h-14 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Séparateur -->
+            <div class="w-32 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mx-auto mb-16"></div>
+
+            <!-- Sous-section: Clients -->
+            <div>
+                <h3 class="text-center text-gray-400 text-xs font-medium mb-8 tracking-widest uppercase">Ils nous font
+                    confiance</h3>
+                <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
+                    <a target="_blank" href="https://carriontp.fr" class="flex flex-col items-center p-4">
+                        <img src="https://carriontp.fr/site/1/assets/img/carrion-travaux-public.svg" alt="CarrionTP"
+                            class="h-16 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    </a>
+                    <a target="_blank" href="https://www.jdprovence.com" class="flex flex-col items-center p-4">
+                        <img src="https://www.jdprovence.com/wp-content/uploads/2025/09/MEDITERRANEE.svg"
+                            alt="Jardin de Provence"
+                            class="h-16 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    </a>
+                    <a href="https://www.rogermartin.fr" target="_blank" class="flex flex-col items-center p-4">
+                        <img src="https://www.rogermartin.fr/content/uploads/2023/04/logo.svg" alt="Roger Martin"
+                            class="h-16 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="gradient-bg">
         <!-- ==================== CTA SECTION ==================== -->
         <section id="contact" class="py-20 ">
