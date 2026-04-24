@@ -358,15 +358,16 @@
         </div>
         <nav class="flex flex-col items-center justify-center h-full space-y-8">
             <a href="#fonctions"
-                class="text-2xl font-semibold text-gray-800 hover:text-lacanne-dark transition mobile-link">Fonctionnalités</a>
+                class="mobile-link text-gray-600 hover:text-lacanne-dark font-medium transition">Fonctionnalités</a>
             <a href="#avantages"
-                class="text-2xl font-semibold text-gray-800 hover:text-lacanne-dark transition mobile-link">Avantages</a>
+                class="mobile-link text-gray-600 hover:text-lacanne-dark font-medium transition">Avantages</a>
+            <a href="#offres" class="mobile-link text-gray-600 hover:text-lacanne-dark font-medium transition">Nos
+                Offres</a>
+            <a href="#faq" class="mobile-link text-gray-600 hover:text-lacanne-dark font-medium transition">FAQ</a>
             <a href="#temoignage"
-                class="text-2xl font-semibold text-gray-800 hover:text-lacanne-dark transition mobile-link">Témoignage</a>
-            <a href="#faq"
-                class="text-2xl font-semibold text-gray-800 hover:text-lacanne-dark transition mobile-link">FAQ</a>
-            <a href="#contact" class="btn-primary px-8 py-3 rounded-xl font-semibold text-white mt-4 mobile-link">Nous
-                contacter</a>
+                class="mobile-link text-gray-600 hover:text-lacanne-dark font-medium transition">Témoignage</a>
+            <a href="#cadoles" class="mobile-link text-gray-600 hover:text-lacanne-dark font-medium transition">Qui
+                sommes-nous ?</a>
         </nav>
     </div>
 
@@ -431,7 +432,7 @@
                 <div class="scroll-reveal md:mb-40">
                     <video autoplay loop muted playsinline
                         class=" aspect-video rounded-2xl shadow-2xl w-full object-cover"
-                        poster="ttps://www.lacanne.fr/wp-content/uploads/2024/09/lacanne-releves-1024.jpg">
+                        poster="https://www.lacanne.fr/wp-content/uploads/2024/09/lacanne-releves-1024.jpg">
                         <source src="presensation.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -1196,8 +1197,8 @@
 
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
                 document.body.style.overflow = '';
+                mobileMenu.classList.add('hidden');
             });
         });
 
