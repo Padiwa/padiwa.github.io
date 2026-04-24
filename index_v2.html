@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Explorer Aléatoire</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #loader {
+            display: none;
+            text-align: center;
+            margin: 20px;
+            color: #666;
+        }
+
+        #result {
+            display: none;
+        }
+
+        #wikiImage {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background: #eee;
+        }
+
+        h2 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .meta {
+            font-size: 0.8em;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .link-btn {
+            display: inline-block;
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>Article Aléatoire</h1>
+        <div class="controls">
+            <input type="text" id="categoryInput" placeholder="Catégorie (ex: Paris, Physique...)" value="Astronomie">
+            <button onclick="startSearch()">Lancer</button>
+        </div>
+
+        <div id="loader">🔍 Exploration des catégories...</div>
+
+        <div id="result">
+            <img id="wikiImage" src="" alt="Image">
+            <div id="breadCrumb" class="meta"></div>
+            <h2 id="wikiTitle"></h2>
+            <p id="wikiExtract"></p>
+            <a id="wikiLink" href="" target="_blank" class="link-btn">Lire l'article complet →</a>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = "https://fr.wikipedia.org/w/api.php";
+        const REST_URL = "https://fr.wikipedia.org/api/rest_v1/page/summary/";
+
+        async function startSearch() {
+            const category = document.getElementById('categoryInput').value.trim();
+            if (!category) return;
+
+            document.getElementById('loader').style.display = "block";
+            document.getElementById('result').style.display = "none";
+
+            try {
+                // On commence la recherche récursive
+                const articleTitle = await findArticleRecursive('Catégorie:' + category, 0);
+                await displaySummary(articleTitle);
+            } catch (error) {
+                alert(error.message);
+            } finally {
+                document.getElementById('loader').style.display = "none";
+            }
+        }
+
+        async function findArticleRecursive(categoryTitle, depth) {
+            // Limite de profondeur pour éviter de chercher indéfiniment (3 niveaux)
+            if (depth > 3) throw new Error("Trop profond, aucun article trouvé.");
+
+            const url = `${API_URL}?action=query&list=categorymembers&cmtitle=${encodeURIComponent(categoryTitle)}&cmlimit=100&format=json&origin=*`;
+
+            const response = await fetch(url);
+            const data = await response.json();
+            const members = data.query.categorymembers;
+
+            if (!members || members.length === 0) {
+                throw new Error("Cette catégorie est vide.");
+            }
+
+            // Séparer les articles (ns: 0) et les sous-catégories (ns: 14)
+            const articles = members.filter(m => m.ns === 0);
+            const subcats = members.filter(m => m.ns === 14);
+
+            // Logique de choix :
+            // 1. Priorité aux articles s'il y en a
+            if (articles.length > 0) {
+                const randomArticle = articles[Math.floor(Math.random() * articles.length)];
+                return randomArticle.title;
+            }
+            // 2. Sinon, on prend une sous-catégorie au hasard et on recommence
+            else if (subcats.length > 0) {
+                const randomSubCat = subcats[Math.floor(Math.random() * subcats.length)];
+                return await findArticleRecursive(randomSubCat.title, depth + 1);
+            }
+            else {
+                throw new Error("Aucun article trouvé dans cette branche.");
+            }
+        }
+
+        async function displaySummary(title) {
+            const response = await fetch(REST_URL + encodeURIComponent(title.replace(/ /g, '_')));
+            const data = await response.json();
+
+            document.getElementById('wikiTitle').innerText = data.title;
+            document.getElementById('wikiExtract').innerText = data.extract || "Pas de résumé disponible.";
+            document.getElementById('wikiLink').href = data.content_urls.desktop.page;
+            document.getElementById('breadCrumb').innerText = "Article trouvé dans : " + document.getElementById('categoryInput').value;
+
+            const img = document.getElementById('wikiImage');
+            if (data.thumbnail) {
+                img.src = data.thumbnail.source;
+                img.style.display = "block";
+            } else {
+                img.style.display = "none";
+            }
+
+            document.getElementById('result').style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>
