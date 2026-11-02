@@ -159,6 +159,11 @@
             background: linear-gradient(180deg, #ff974a 0%, #329aca 100%);
         }
 
+        .balise-tab.is-active {
+            border-color: #ff974a;
+            box-shadow: 0 0 0 2px #ff974a, 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
         .card-industrial:hover {
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
@@ -695,6 +700,347 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ==================== BALISES COMPARATIF ==================== -->
+    <section id="balises" class="pb-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+                    Quelle balise <span class="text-lacanne">pour vous</span> ?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Trois récepteurs GNSS RTK pour trois façons de travailler. Choisissez votre profil pour découvrir
+                    sa fiche technique.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-8 scroll-reveal" role="group" aria-label="Choisir une balise">
+                <button type="button" data-balise="rs3" aria-pressed="true"
+                    class="balise-tab is-active card-industrial rounded-2xl p-6 text-left w-full transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center">
+                            <i class="fas fa-hard-hat text-xl text-lacanne-dark"></i>
+                        </div>
+                        <img src="Balise/shopping.webp" alt="Emlid Reach RS3" class="h-14 w-auto">
+                    </div>
+                    <p class="text-xs font-semibold tracking-widest uppercase text-lacanne mb-1">RS3</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Le baroudeur polyvalent</h3>
+                    <p class="text-sm text-gray-500">Robuste, tout-en-un, rapide</p>
+                </button>
+                <button type="button" data-balise="geo" aria-pressed="false"
+                    class="balise-tab card-industrial rounded-2xl p-6 text-left w-full transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center">
+                            <i class="fas fa-tree text-xl text-lacanne-dark"></i>
+                        </div>
+                        <img src="Balise/GEOSTIX78.png" alt="Geobsys Geostix X5" class="h-14 w-auto">
+                    </div>
+                    <p class="text-xs font-semibold tracking-widest uppercase text-lacanne mb-1">Géostix X5</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">La précision Made in France</h3>
+                    <p class="text-sm text-gray-500">Précision chirurgicale, modularité</p>
+                </button>
+                <button type="button" data-balise="nav" aria-pressed="false"
+                    class="balise-tab card-industrial rounded-2xl p-6 text-left w-full transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center">
+                            <i class="fas fa-feather text-xl text-lacanne-dark"></i>
+                        </div>
+                        <img src="Balise/navX.png" alt="Natuition NavX" class="h-14 w-auto">
+                    </div>
+                    <p class="text-xs font-semibold tracking-widest uppercase text-lacanne mb-1">NavX</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Le léger et ouvert</h3>
+                    <p class="text-sm text-gray-500">Ultra-léger, Plug & Play</p>
+                </button>
+            </div>
+
+            <div class="bg-gray-50 rounded-2xl p-6 md:p-10 border border-gray-200 scroll-reveal">
+                <div data-panel="rs3" class="balise-panel grid md:grid-cols-5 gap-8">
+                    <div class="md:col-span-2">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-1">RS3</h3>
+                        <p class="text-lacanne font-semibold mb-4">Le baroudeur polyvalent</p>
+                        <p class="text-gray-600 mb-6">Le choix de la robustesse pour les conditions de travail extrêmes. La balise classique des chantiers, qui supporte la poussière et la boue.</p>
+                        <div class="bg-white rounded-xl p-4 border border-gray-200">
+                            <p class="text-xs uppercase tracking-wide text-gray-400 mb-1">Idéal pour</p>
+                            <p class="text-gray-700">Topographie de terrain, chantiers, SIG, levés rapides. Pour qui veut un outil professionnel tout-en-un, robuste et rapide.</p>
+                        </div>
+                    </div>
+                    <dl class="md:col-span-3 grid sm:grid-cols-2 gap-x-6 gap-y-5">
+                            <div class="flex items-start">
+                                <i class="fas fa-microchip text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Moteur GNSS</dt>
+                                    <dd class="font-semibold text-gray-900">Emlid (interne)</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-signal text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Fréquences</dt>
+                                    <dd class="font-semibold text-gray-900">Multi-bande (L1, L2)</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-satellite text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Canaux</dt>
+                                    <dd class="font-semibold text-gray-900">184</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-crosshairs text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Précision RTK</dt>
+                                    <dd class="font-semibold text-gray-900">H : 7 mm + 1 ppm<br>V : 14 mm + 1 ppm</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-stopwatch text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Initialisation (fix)</dt>
+                                    <dd class="font-semibold text-gray-900">~ 5 s</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-wifi text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Connectivité</dt>
+                                    <dd class="font-semibold text-gray-900">4G LTE, Wi-Fi, Bluetooth, LoRa</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-battery-three-quarters text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Autonomie</dt>
+                                    <dd class="font-semibold text-gray-900">18 h à 22 h</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-weight-hanging text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Poids</dt>
+                                    <dd class="font-semibold text-gray-900">950 g</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-shield-alt text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Protection</dt>
+                                    <dd class="font-semibold text-gray-900">IP67</dd>
+                                </div>
+                            </div>
+                    </dl>
+                </div>
+                <div data-panel="geo" class="balise-panel hidden grid md:grid-cols-5 gap-8">
+                    <div class="md:col-span-2">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-1">Géostix X5</h3>
+                        <p class="text-lacanne font-semibold mb-4">La précision Made in France</p>
+                        <p class="text-gray-600 mb-6">Basée sur la puce Septentrio Mosaic-X5, c'est la plus performante en qualité de fix dans les zones difficiles (sous canopée, milieu urbain dense) grâce à sa gestion avancée des interférences. 100 % Made in France.</p>
+                        <div class="bg-white rounded-xl p-4 border border-gray-200">
+                            <p class="text-xs uppercase tracking-wide text-gray-400 mb-1">Idéal pour</p>
+                            <p class="text-gray-700">Zones très boisées, intégration robotique ou sur vos propres engins, agriculture de précision, expertise géométrique complexe.</p>
+                        </div>
+                    </div>
+                    <dl class="md:col-span-3 grid sm:grid-cols-2 gap-x-6 gap-y-5">
+                            <div class="flex items-start">
+                                <i class="fas fa-microchip text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Moteur GNSS</dt>
+                                    <dd class="font-semibold text-gray-900">Septentrio Mosaic-X5</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-signal text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Fréquences</dt>
+                                    <dd class="font-semibold text-gray-900">Triple-bande (L1, L2, L5)</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-satellite text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Canaux</dt>
+                                    <dd class="font-semibold text-gray-900">448</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-crosshairs text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Précision RTK</dt>
+                                    <dd class="font-semibold text-gray-900">H : 6 mm + 0,5 ppm<br>V : 10 mm + 1 ppm</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-stopwatch text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Initialisation (fix)</dt>
+                                    <dd class="font-semibold text-gray-900">&lt; 1 s (cold start &lt; 45 s)</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-wifi text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Connectivité</dt>
+                                    <dd class="font-semibold text-gray-900">USB-C (Ethernet), LoRa, module 4G</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-battery-three-quarters text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Autonomie</dt>
+                                    <dd class="font-semibold text-gray-900">8 h à 20 h (selon batterie/module)</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-weight-hanging text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Poids</dt>
+                                    <dd class="font-semibold text-gray-900">300 g</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-shield-alt text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Protection</dt>
+                                    <dd class="font-semibold text-gray-900">IP67</dd>
+                                </div>
+                            </div>
+                    </dl>
+                </div>
+                <div data-panel="nav" class="balise-panel hidden grid md:grid-cols-5 gap-8">
+                    <div class="md:col-span-2">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-1">NavX</h3>
+                        <p class="text-lacanne font-semibold mb-4">Le léger et ouvert</p>
+                        <p class="text-gray-600 mb-6">Format compact qui tient dans une poche, optimisé pour le réseau collaboratif Centipede RTK. Connexion instantanée au carnet de terrain en Bluetooth Low Energy, et la bande L5 lui assure une meilleure stabilité.</p>
+                        <div class="bg-white rounded-xl p-4 border border-gray-200">
+                            <p class="text-xs uppercase tracking-wide text-gray-400 mb-1">Idéal pour</p>
+                            <p class="text-gray-700">Bureaux d'études, conception, devis, métrés, utilisateurs du réseau Centipede, budgets plus serrés et retour sur investissement rapide.</p>
+                        </div>
+                    </div>
+                    <dl class="md:col-span-3 grid sm:grid-cols-2 gap-x-6 gap-y-5">
+                            <div class="flex items-start">
+                                <i class="fas fa-microchip text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Moteur GNSS</dt>
+                                    <dd class="font-semibold text-gray-900">u-blox ZED-F9P</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-signal text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Fréquences</dt>
+                                    <dd class="font-semibold text-gray-900">Triple-bande (L1, L2, L5)</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-satellite text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Canaux</dt>
+                                    <dd class="font-semibold text-gray-900">184</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-crosshairs text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Précision RTK</dt>
+                                    <dd class="font-semibold text-gray-900">H : 10 mm + 1 ppm<br>V : 15 mm + 1 ppm</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-stopwatch text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Initialisation (fix)</dt>
+                                    <dd class="font-semibold text-gray-900">~ 10 s</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-wifi text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Connectivité</dt>
+                                    <dd class="font-semibold text-gray-900">Bluetooth LE</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-battery-three-quarters text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Autonomie</dt>
+                                    <dd class="font-semibold text-gray-900">~ 6 h</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-weight-hanging text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Poids</dt>
+                                    <dd class="font-semibold text-gray-900">200 g</dd>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-shield-alt text-lacanne-dark w-6 mt-1"></i>
+                                <div class="ml-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gray-400">Protection</dt>
+                                    <dd class="font-semibold text-gray-900">IP67</dd>
+                                </div>
+                            </div>
+                    </dl>
+                </div>
+            </div>
+
+            <details class="mt-8 group">
+                <summary
+                    class="cursor-pointer list-none text-center text-lacanne-dark font-semibold hover:text-lacanne transition">
+                    <i class="fas fa-table mr-2"></i>Voir le tableau comparatif complet
+                    <i class="fas fa-chevron-down ml-1 text-sm transition-transform group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-6 overflow-x-auto rounded-2xl border border-gray-200">
+                    <table class="w-full text-sm min-w-[640px]">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="py-3 pr-4 pl-0 text-left"></th>
+                                <th scope="col" class="py-3 px-4 text-left font-bold text-gray-900">RS3<span class="block text-xs font-normal text-gray-500">Le baroudeur polyvalent</span></th><th scope="col" class="py-3 px-4 text-left font-bold text-gray-900">Géostix X5<span class="block text-xs font-normal text-gray-500">La précision Made in France</span></th><th scope="col" class="py-3 px-4 text-left font-bold text-gray-900">NavX<span class="block text-xs font-normal text-gray-500">Le léger et ouvert</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="[&_th]:pl-4">
+                            <tr class="border-t border-gray-100">
+                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap"><i class="fas fa-microchip text-lacanne-dark mr-2"></i>Moteur GNSS</th>
+                                <td class="py-3 px-4 text-gray-900">Emlid (interne)</td><td class="py-3 px-4 text-gray-900">Septentrio Mosaic-X5</td><td class="py-3 px-4 text-gray-900">u-blox ZED-F9P</td>
+                            </tr>
+                            <tr class="border-t border-gray-100">
+                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap"><i class="fas fa-signal text-lacanne-dark mr-2"></i>Fréquences</th>
+                                <td class="py-3 px-4 text-gray-900">Multi-bande (L1, L2)</td><td class="py-3 px-4 text-gray-900">Triple-bande (L1, L2, L5)</td><td class="py-3 px-4 text-gray-900">Triple-bande (L1, L2, L5)</td>
+                            </tr>
+                            <tr class="border-t border-gray-100">
+                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap"><i class="fas fa-satellite text-lacanne-dark mr-2"></i>Canaux</th>
+                                <td class="py-3 px-4 text-gray-900">184</td><td class="py-3 px-4 text-gray-900">448</td><td class="py-3 px-4 text-gray-900">184</td>
+                            </tr>
+                            <tr class="border-t border-gray-100">
+                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap"><i class="fas fa-crosshairs text-lacanne-dark mr-2"></i>Précision RTK</th>
+                                <td class="py-3 px-4 text-gray-900">H : 7 mm + 1 ppm<br>V : 14 mm + 1 ppm</td><td class="py-3 px-4 text-gray-900">H : 6 mm + 0,5 ppm<br>V : 10 mm + 1 ppm</td><td class="py-3 px-4 text-gray-900">H : 10 mm + 1 ppm<br>V : 15 mm + 1 ppm</td>
+                            </tr>
+                            <tr class="border-t border-gray-100">
+                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap"><i class="fas fa-stopwatch text-lacanne-dark mr-2"></i>Initialisation (fix)</th>
+                                <td class="py-3 px-4 text-gray-900">~ 5 s</td><td class="py-3 px-4 text-gray-900">&lt; 1 s (cold start &lt; 45 s)</td><td class="py-3 px-4 text-gray-900">~ 10 s</td>
+                            </tr>
+                            <tr class="border-t border-gray-100">
+                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap"><i class="fas fa-wifi text-lacanne-dark mr-2"></i>Connectivité</th>
+                                <td class="py-3 px-4 text-gray-900">4G LTE, Wi-Fi, Bluetooth, LoRa</td><td class="py-3 px-4 text-gray-900">USB-C (Ethernet), LoRa, module 4G</td><td class="py-3 px-4 text-gray-900">Bluetooth LE</td>
+                            </tr>
+                            <tr class="border-t border-gray-100">
+                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap"><i class="fas fa-battery-three-quarters text-lacanne-dark mr-2"></i>Autonomie</th>
+                                <td class="py-3 px-4 text-gray-900">18 h à 22 h</td><td class="py-3 px-4 text-gray-900">8 h à 20 h (selon batterie/module)</td><td class="py-3 px-4 text-gray-900">~ 6 h</td>
+                            </tr>
+                            <tr class="border-t border-gray-100">
+                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap"><i class="fas fa-weight-hanging text-lacanne-dark mr-2"></i>Poids</th>
+                                <td class="py-3 px-4 text-gray-900">950 g</td><td class="py-3 px-4 text-gray-900">300 g</td><td class="py-3 px-4 text-gray-900">200 g</td>
+                            </tr>
+                            <tr class="border-t border-gray-100">
+                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap"><i class="fas fa-shield-alt text-lacanne-dark mr-2"></i>Protection</th>
+                                <td class="py-3 px-4 text-gray-900">IP67</td><td class="py-3 px-4 text-gray-900">IP67</td><td class="py-3 px-4 text-gray-900">IP67</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
         </div>
     </section>
 
@@ -1254,6 +1600,22 @@
                     + '&body=' + encodeURIComponent(body);
             });
         }
+
+        // Comparatif balises
+        const baliseTabs = document.querySelectorAll('.balise-tab');
+        baliseTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const id = tab.dataset.balise;
+                baliseTabs.forEach(t => {
+                    const on = t === tab;
+                    t.setAttribute('aria-pressed', on);
+                    t.classList.toggle('is-active', on);
+                });
+                document.querySelectorAll('.balise-panel').forEach(p => {
+                    p.classList.toggle('hidden', p.dataset.panel !== id);
+                });
+            });
+        });
 
         // Dynamic year
         document.getElementById('current-year').textContent = new Date().getFullYear();
