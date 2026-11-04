@@ -151,11 +151,12 @@ html:not(.js) .workflow__tabs-wrap { display: none; }
 .mode-tab__state { margin-top: var(--space-sm); font-size: var(--text-sm); font-weight: 600; }
 .mode-tab__state > span { display: inline-flex; align-items: center; gap: var(--space-xs); }
 .mode-tab__state i { font-size: var(--text-lg); }
-.mode-tab__state .state--off { color: var(--color-sky); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 0.3em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.mode-tab__state .state--off { color: var(--color-sky); }
+.mode-tab__state .state__txt { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 0.3em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
 .mode-tab__state .state--on { display: none; color: var(--color-accent); }
 .mode-tab.is-active .state--off { display: none; }
 .mode-tab.is-active .state--on { display: inline-flex; }
-.mode-tab:hover .state--off { text-decoration-color: currentColor; }
+.mode-tab:hover .state__txt { text-decoration-color: currentColor; }
 .mode-tab:hover { border-color: var(--color-field-ink-2); }
 .mode-tab:active { transform: translateY(1px); }
 .mode-tab:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; transition: none; }
@@ -508,7 +509,7 @@ html:not(.js) .offer-tabs-wrap { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .devis-bar, .press__item, .btn, .icon-btn, .balise-tab, .mode-tab, .mode-tab__state .state--off, .link, .logo-link, .compare summary, .compare summary .fa-chevron-down, .nav__links a, .menu__links a { transition: none; }
+  .devis-bar, .press__item, .btn, .icon-btn, .balise-tab, .mode-tab, .mode-tab__state .state__txt, .link, .logo-link, .compare summary, .compare summary .fa-chevron-down, .nav__links a, .menu__links a { transition: none; }
   .workflow__shot img, .js .steps li, .workflow__index button { transition: none; }
   .js .steps li { transform: none; }
   .btn:active, .icon-btn:active, .balise-tab:active, .mode-tab:active { transform: none; }
