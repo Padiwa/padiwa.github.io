@@ -23,12 +23,13 @@
     <meta name="twitter:title" content="LaCanne - Kit GPS RTK pour Chantier">
     <meta name="twitter:description" content="Donnez de l'autonomie à vos chantiers avec le kit GPS RTK.">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script>document.documentElement.classList.add('js');</script>
 
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600&family=Outfit:wght@400;600&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome -->
@@ -36,208 +37,8 @@
     <link rel="icon"
         href="https://www.lacanne.fr/wp-content/uploads/2026/01/cropped-logo_LaCanne-RVB_carre-sombre-32x32.png"
         sizes="32x32" />
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'lacanne': '#ff974a',
-                        // 'lacanne': '#11252e',
-                        //'lacanne-dark': '#11252e',
-                        'lacanne-dark': '#329aca',
-                        'lacanne-blue-dark': '#11252e',
-                        'primary': '#1a1a2e',
-                        'secondary': '#16213e',
-                    },
-                    fontFamily: {
-                        sans: ['DM Sans', 'sans-serif'],
-                        display: ['Outfit', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        .font-display {
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .scroll-reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .scroll-reveal-delay-1 {
-            transition-delay: 0.1s;
-        }
-
-        .scroll-reveal-delay-2 {
-            transition-delay: 0.2s;
-        }
-
-        .scroll-reveal-delay-3 {
-            transition-delay: 0.3s;
-        }
-
-        .scroll-reveal-delay-4 {
-            transition-delay: 0.4s;
-        }
-
-        .gradient-bg {
-            background:
-                radial-gradient(circle at 20% 80%, rgba(50, 154, 202, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 151, 74, 0.1) 0%, transparent 40%),
-                linear-gradient(135deg, #0d1a1f 0%, #0f2129 50%, #0a1518 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .gradient-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events: none;
-        }
-
-        .gradient-bg::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 151, 74, 0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .footer-bg {
-            background: #0d1419;
-        }
-
-        .card-industrial {
-            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
-            border: 1px solid #e5e7eb;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-industrial::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, #ff974a 0%, #329aca 100%);
-        }
-
-        .balise-tab.is-active {
-            border-color: #ff974a;
-            box-shadow: 0 0 0 2px #ff974a, 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .card-industrial:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .badge-tech {
-            background: linear-gradient(135deg, rgba(255, 151, 74, 0.15) 0%, rgba(255, 151, 74, 0.05) 100%);
-            border: 1px solid rgba(255, 151, 74, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #ff974a 0%, #e8853a 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .feature-icon {
-            background: linear-gradient(135deg, #f0f4f8 0%, #e8eef4 100%);
-            border: 1px solid #d1d9e0;
-        }
-
-        .section-connector {
-            position: relative;
-        }
-
-        .section-connector::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
-        }
-
-        .text-gradient {
-            background: linear-gradient(135deg, #ff974a 0%, #ffb380 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        @keyframes pulse-subtle {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.7;
-            }
-        }
-
-        .animate-pulse-subtle {
-            animation: pulse-subtle 3s ease-in-out infinite;
-        }
-    </style>
+    <link rel="stylesheet" href="css/site.css">
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -308,1298 +109,814 @@
     </script>
 </head>
 
-<body class="font-sans text-gray-800 antialiased bg-gray-100">
+<body>
+    <a class="skip" href="#main">Aller au contenu</a>
+
     <!-- ==================== HEADER ==================== -->
-    <header class="fixed top-0 w-full bg-white backdrop-blur-md z-50 border-b border-gray-200/50 shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <!-- <a href="#laCanne"><img
-                            src="https://www.lacanne.fr/wp-content/uploads/2026/01/logo_LaCanne-RVB_long-sombre-32da19.svg"
-                            alt="LaCanne" class="h-48 w-auto">
-                    </a>    -->
-                    <a href="#laCanne"><img src="logo.svg" alt="LaCanne" class="h-12 w-auto mr-8">
-                    </a>
-                </div>
+    <header class="nav">
+        <div class="container nav__bar">
+            <a href="#laCanne" class="nav__brand" aria-label="LaCanne, retour en haut de page"><img src="logo.svg"
+                    alt="LaCanne" width="176" height="48"></a>
 
-                <!-- Navigation -->
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#fonctions"
-                        class="text-gray-600 hover:text-lacanne-dark font-medium transition">Fonctionnalités</a>
-                    <a href="#avantages"
-                        class="text-gray-600 hover:text-lacanne-dark font-medium transition">Avantages</a>
-                    <a href="#cadoles" class="text-gray-600 hover:text-lacanne-dark font-medium transition">Qui
-                        sommes-nous ?</a>
-                    <a href="#offres" class="text-gray-600 hover:text-lacanne-dark font-medium transition">Nos
-                        offres</a>
-                    <a href="#faq" class="text-gray-600 hover:text-lacanne-dark font-medium transition">FAQ</a>
-                    <a href="#temoignage"
-                        class="text-gray-600 hover:text-lacanne-dark font-medium transition">Témoignage</a>
+            <nav class="nav__links" aria-label="Navigation principale">
+                <a href="#fonctions">Fonctionnalités</a>
+                <a href="#avantages">Avantages</a>
+                <a href="#cadoles">Qui sommes-nous ?</a>
+                <a href="#offres">Nos offres</a>
+                <a href="#faq">FAQ</a>
+            </nav>
 
-                </nav>
-
-                <!-- CTA -->
-                <div class="flex items-center space-x-4">
-                    <a href="#contact"
-                        class="inline-flex items-center lg:px-5 px-3 lg:py-2.5 py-2 bg-lacanne text-white rounded-lg font-semibold hover:bg-lacanne-dark transition shadow-md text-sm lg:text-base">
-                        Nous contacter
-                    </a>
-
-                    <!-- Burger Menu Button -->
-                    <button id="burger-menu" class="md:hidden p-2 text-gray-600 hover:text-lacanne-dark transition">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
+            <div class="nav__cta">
+                <a href="#contact" class="btn btn--quiet btn--sm">Nous contacter</a>
+                <button type="button" id="burger-menu" class="icon-btn" aria-label="Ouvrir le menu"
+                    aria-controls="mobile-menu">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
             </div>
         </div>
     </header>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white/70 backdrop-blur-md z-50 hidden">
-        <div class="flex justify-end p-4">
-            <button id="close-menu" class="p-2 text-gray-600 hover:text-lacanne-dark transition">
-                <i class="fas fa-times text-2xl"></i>
+    <div id="mobile-menu" class="menu hidden">
+        <div class="menu__top">
+            <button type="button" id="close-menu" class="icon-btn" aria-label="Fermer le menu">
+                <i class="fas fa-times" aria-hidden="true"></i>
             </button>
         </div>
-        <nav class="flex flex-col items-center justify-center h-full space-y-8">
-            <a href="#fonctions"
-                class="mobile-link text-gray-600 hover:text-lacanne-dark font-medium transition">Fonctionnalités</a>
-            <a href="#avantages"
-                class="mobile-link text-gray-600 hover:text-lacanne-dark font-medium transition">Avantages</a>
-            <a href="#cadoles" class="mobile-link text-gray-600 hover:text-lacanne-dark font-medium transition">Qui
-                sommes-nous ?</a>
-            <a href="#offres" class="mobile-link text-gray-600 hover:text-lacanne-dark font-medium transition">Nos
-                offres</a>
-            <a href="#faq" class="mobile-link text-gray-600 hover:text-lacanne-dark font-medium transition">FAQ</a>
-            <a href="#temoignage"
-                class="mobile-link text-gray-600 hover:text-lacanne-dark font-medium transition">Témoignage</a>
+        <nav class="menu__links" aria-label="Navigation mobile">
+            <a href="#fonctions" class="mobile-link">Fonctionnalités</a>
+            <a href="#avantages" class="mobile-link">Avantages</a>
+            <a href="#cadoles" class="mobile-link">Qui sommes-nous ?</a>
+            <a href="#offres" class="mobile-link">Nos offres</a>
+            <a href="#faq" class="mobile-link">FAQ</a>
         </nav>
     </div>
 
-    <!-- ==================== HERO SECTION ==================== -->
-    <section id="laCanne" class="pt-32 pb-20 gradient-bg">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="scroll-reveal">
-                    <div
-                        class="inline-flex items-center px-4 py-2 badge-tech text-lacanne rounded-full text-sm font-semibold mb-6 tracking-wide">
-                        <i class="fas fa-satellite-dish mr-2"></i>
-                        Technologie GPS RTK
+    <main id="main">
+        <!-- ==================== HERO ==================== -->
+        <section id="laCanne" class="hero">
+            <div class="container grid-12 hero__grid">
+                <h1>Donnez de l’autonomie <span class="h1__line">à vos chantiers&nbsp;!</span></h1>
+
+                <div class="hero__side">
+                    <p class="lead">Du TP au paysagisme, du gros œuvre à l’aménagement extérieur&nbsp;: un seul kit GPS
+                        RTK pour simplifier vos chantiers et gagner en précision au quotidien.</p>
+                    <div class="hero__actions">
+                        <a href="#contact" class="btn">Demander un devis</a>
+                        <a href="#fonctions" class="btn btn--quiet">Voir les fonctionnalités</a>
                     </div>
-
-
-                    <h1
-                        class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-                        Donnez de l'autonomie<br>
-                        <span class="text-gradient">à vos chantiers !</span>
-                    </h1>
-
-                    <p class="text-xl text-gray-300 mb-8 max-w-lg">
-                        Du TP au paysagisme, du gros œuvre à l'aménagement extérieur : un seul kit GPS RTK pour
-                        simplifier vos chantiers et gagner en précision au quotidien.
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#contact"
-                            class="btn-primary inline-flex items-center justify-center px-8 py-4 text-white rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300">
-                            <i class="fas fa-envelope mr-6"></i>
-                            Demander un devis
-                        </a>
-                        <a href="#fonctions"
-                            class="inline-flex items-center justify-center px-8 py-4 bg-white/5 text-white border border-white/20 rounded-xl font-semibold text-lg hover:bg-white/10 transition backdrop-blur-sm">
-                            <i class="fas fa-play-circle mr-6"></i>
-                            Voir les fonctionnalités
-                        </a>
-                    </div>
-
-                    <div class="mt-10 flex flex-wrap gap-6 text-gray-400 text-sm">
-                        <div
-                            class="flex items-center bg-white/5 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/10">
-                            <i class="fas fa-crosshairs text-lacanne mr-2"></i>
-                            <span class="font-medium">Précision <span class="text-white">cm</span></span>
-                        </div>
-                        <div
-                            class="flex items-center bg-white/5 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/10">
-                            <i class="fas fa-sliders-h text-lacanne mr-2"></i>
-                            <span class="font-medium">Usage <span class="text-white">simple</span></span>
-                        </div>
-
-
-                    </div>
+                    <ul class="hero__facts">
+                        <li>Technologie <b>GPS RTK</b></li>
+                        <li>Précision <b>cm</b></li>
+                        <li>Usage <b>simple</b></li>
+                    </ul>
                 </div>
 
-                <!-- Hero Video -->
-                <div class="scroll-reveal md:mb-40">
-                    <div class="scroll-reveal md:mb-40 relative group">
-                        <video id="hero-video" autoplay loop muted
-                            class="aspect-video rounded-2xl shadow-2xl w-full object-cover"
-                            poster="https://www.lacanne.fr/wp-content/uploads/2024/09/lacanne-releves-1024.jpg">
-                            <source src="presensation.mp4" type="video/mp4">
-                        </video>
-                        <button id="fullscreen-btn"
-                            class="absolute bottom-4 right-4 bg-black/50 group-hover:bg-black/70 text-white p-3 rounded-lg transition opacity-0 group-hover:opacity-100">
-                            <i class="fas fa-expand"></i>
+                <figure class="hero__media" data-loop>
+                    <video id="hero-video" autoplay loop muted playsinline preload="auto"
+                        poster="images/hero-poster.jpg"
+                        aria-label="Présentation de LaCanne : du bureau au chantier">
+                        <source src="presensation.mp4" type="video/mp4">
+                    </video>
+                    <div class="media-controls">
+                        <button type="button" class="icon-btn" data-loop-toggle aria-label="Mettre la vidéo en pause">
+                            <i class="fas fa-pause" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" id="fullscreen-btn" class="icon-btn" aria-label="Voir la vidéo en plein écran">
+                            <i class="fas fa-expand" aria-hidden="true"></i>
                         </button>
                     </div>
-                </div>
-
+                </figure>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ==================== WORKFLOW SECTION ==================== -->
-    <section id="fonctions" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
-                    <span class="text-lacanne-dark">La</span><span class="text-lacanne">Canne</span>
-                </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Un workflow complet conçu pour le terrain au quotidien et en temps réel grâce à la
-                    synchronisation des données entre le bureau et le terrain.
-                </p>
-                <div class="card-industrial rounded-2xl p-8 md:p-12 scroll-reveal visible mt-8">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
-                        <div class="flex-shrink-0">
-                            <div class="w-24 h-24 bg-lacanne rounded-full flex items-center justify-center">
-                                <i class="fas fa-user-tie text-white text-3xl"></i>
-                            </div>
-                        </div>
-
-                        <div class="text-center md:text-left">
-
-                            <p class="text-lg text-gray-700 mb-6 italic">
-                                "Après deux décennies en tant que Chef de chantier dans le secteur des travaux publics,
-                                j'ai
-                                eu l'opportunité de travailler sur une grande variété de projets (VRD, autoroutiers,
-                                éoliens…). Cependant, des contraintes récurrentes ralentissaient souvent nos chantiers.
-                                En
-                                2020, je me suis tourné vers Cadoles pour développer une solution qui m'aiderait dans
-                                mes
-                                tâches quotidiennes."
-                            </p>
-
-                            <p class="font-bold text-gray-900">Yann Szemro</p>
-                            <p class="text-sm text-gray-500">Chef de produit, Cadoles</p>
-                        </div>
-                    </div>
+        <!-- ==================== WORKFLOW ==================== -->
+        <section id="fonctions" class="section">
+            <div class="container grid-12">
+                <div class="head">
+                    <h2>LaCanne</h2>
+                    <p class="lead">Un workflow complet conçu pour le terrain au quotidien et en temps réel grâce à la
+                        synchronisation des données entre le bureau et le terrain.</p>
                 </div>
             </div>
+            <div class="container grid-12 workflow__body">
+                <figure class="workflow__shot" data-kind="product" aria-label="Images tirées de la vidéo de présentation">
+                    <img class="is-active" src="images/workflow-integrer.jpg" width="1382" height="576" loading="lazy"
+                        alt="Le plan du chantier ouvert dans le logiciel LaCanne, au bureau" style="object-position: 30% 50%">
+                    <img src="images/workflow-guider.jpg" width="1382" height="576" loading="lazy"
+                        alt="Le carnet de terrain affiche le plan, fixé sur la canne" style="object-position: 25% 50%">
+                    <img src="images/workflow-implanter.jpg" width="1382" height="576" loading="lazy"
+                        alt="Un opérateur plante un repère à côté de la canne" style="object-position: 75% 50%">
+                    <img src="images/workflow-collecter.jpg" width="1382" height="576" loading="lazy"
+                        alt="Un opérateur en gilet relève un point avec la balise sur sa canne" style="object-position: 65% 40%">
+                    <img src="images/workflow-mesurer.jpg" width="1382" height="576" loading="lazy"
+                        alt="Vue d’ensemble d’un chantier de terrassement avec pelles et camions" style="object-position: 40% 50%">
+                    <img src="images/workflow-extraire.jpg" width="1382" height="576" loading="lazy"
+                        alt="Les points relevés reportés sur un plan au bureau" style="object-position: 50% 50%">
+                    <figcaption data-step-caption>Intégrer</figcaption>
+                </figure>
 
-            <!-- Workflow Steps -->
-            <div class="grid md:grid-cols-3 gap-8 gap-y-16">
-                <div class="text-center scroll-reveal scroll-reveal-delay-1">
-                    <div
-                        class="relative w-24 h-24 bg-gradient-to-br from-lacanne/10 to-lacanne/5 rounded-2xl border border-lacanne/20 flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-file-import text-4xl text-lacanne-dark"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Intégrer</h3>
-                    <p class="text-gray-600">
-                        Intégrez votre plan pour préparer votre chantier avec les informations nécessaires à son
-                        exécution.
-                    </p>
-                </div>
+                <ol class="steps">
+                    <li data-step="0">
+                        <h3>Intégrer</h3>
+                        <p>Intégrez votre plan pour préparer votre chantier avec les informations nécessaires à son
+                            exécution.</p>
+                    </li>
+                    <li data-step="1">
+                        <h3>Guider</h3>
+                        <p>Orientez-vous facilement sur le chantier grâce au fond de carte.</p>
+                    </li>
+                    <li data-step="2">
+                        <h3>Implanter</h3>
+                        <p>Repositionnez vos points de repères perdus.</p>
+                    </li>
+                    <li data-step="3">
+                        <h3>Collecter</h3>
+                        <p>Relevez vos points au fur et à mesure de vos travaux.</p>
+                    </li>
+                    <li data-step="4">
+                        <h3>Mesurer</h3>
+                        <p>Contrôlez vos surfaces et vos linéaires facilement.</p>
+                    </li>
+                    <li data-step="5">
+                        <h3>Extraire</h3>
+                        <p>Récupérez vos collectes pour effectuer vos plans.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
 
-                <div class="text-center scroll-reveal scroll-reveal-delay-2">
-                    <div
-                        class="relative w-24 h-24 bg-gradient-to-br from-lacanne/10 to-lacanne/5 rounded-2xl border border-lacanne/20 flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-compass text-4xl text-lacanne-dark"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Guider</h3>
-                    <p class="text-gray-600">
-                        Orientez-vous facilement sur le chantier grâce au fond de carte.
-                    </p>
-                </div>
-
-                <div class="text-center scroll-reveal scroll-reveal-delay-3">
-                    <div
-                        class="relative w-24 h-24 bg-gradient-to-br from-lacanne/10 to-lacanne/5 rounded-2xl border border-lacanne/20 flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-map-marker-alt text-4xl text-lacanne-dark"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Implanter</h3>
-                    <p class="text-gray-600">
-                        Repositionnez vos points de repères perdus.
-                    </p>
-                </div>
-
-                <div class="text-center scroll-reveal scroll-reveal-delay-1">
-                    <div
-                        class="relative w-24 h-24 bg-gradient-to-br from-lacanne/10 to-lacanne/5 rounded-2xl border border-lacanne/20 flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-crosshairs text-4xl text-lacanne-dark"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Collecter</h3>
-                    <p class="text-gray-600">
-                        Relevez vos points au fur et à mesure de vos travaux.
-                    </p>
-                </div>
-
-                <div class="text-center scroll-reveal scroll-reveal-delay-2">
-                    <div
-                        class="relative w-24 h-24 bg-gradient-to-br from-lacanne/10 to-lacanne/5 rounded-2xl border border-lacanne/20 flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-ruler-combined text-4xl text-lacanne-dark"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Mesurer</h3>
-                    <p class="text-gray-600">
-                        Contrôlez vos surfaces et vos linéaires facilement.
-                    </p>
-                </div>
-
-                <div class="text-center scroll-reveal scroll-reveal-delay-3">
-                    <div
-                        class="relative w-24 h-24 bg-gradient-to-br from-lacanne/10 to-lacanne/5 rounded-2xl border border-lacanne/20 flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-download text-4xl text-lacanne-dark"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Extraire</h3>
-                    <p class="text-gray-600">
-                        Récupérez vos collectes pour effectuer vos plans.
-                    </p>
+        <!-- ==================== AVANTAGES ==================== -->
+        <section id="avantages" class="section section--well">
+            <div class="container grid-12">
+                <div class="head">
+                    <h2>Simple, Rapide, Précis&nbsp;: les avantages du GPS RTK</h2>
+                    <p class="lead">Quels que soient votre métier, vos chantiers et vos usages, nous avons un récepteur
+                        qui répond à vos attentes, sans perdre en efficacité.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- ==================== AVANTAGES SECTION ==================== -->
-    <section id="avantages" class="py-20 bg-gray-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
-                    <span class="text-lacanne-dark">
-                        Simple
-                    </span>,
-                    <span>
-                        Rapide
-                    </span>,
-                    <span class="text-lacanne">
-                        Précis
-                    </span>
-                    : les avantages du GPS RTK
-                </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Quels que soient votre métier, vos chantiers et vos usages, nous avons un récepteur qui répond à
-                    vos attentes, sans perdre en efficacité.
-                </p>
+            <div class="container">
+                <dl class="benefits">
+                    <div>
+                        <dt>Précision</dt>
+                        <dd>Précision de l’ordre du centimètre grâce à la technologie RTK.</dd>
+                    </div>
+                    <div>
+                        <dt>Rapidité</dt>
+                        <dd>Configuration rapide, pas besoin d’être topographe.</dd>
+                    </div>
+                    <div>
+                        <dt>Simplicité</dt>
+                        <dd>Application intuitive et software synchronisé.</dd>
+                    </div>
+                    <div>
+                        <dt>Autonomie</dt>
+                        <dd>De la journée à 3&nbsp;jours, selon le récepteur.</dd>
+                    </div>
+                </dl>
             </div>
+        </section>
 
-
-            <!-- Benefits Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="card-industrial rounded-2xl p-8 scroll-reveal">
-                    <div class="w-14 h-14 feature-icon rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-bullseye text-2xl text-lacanne-dark"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3">Précision</h3>
-                    <p class="text-gray-600">
-                        Précision de l'ordre du centimètre grâce à la technologie RTK.
-                    </p>
-                </div>
-
-                <div class="card-industrial rounded-2xl p-8 scroll-reveal">
-                    <div class="w-14 h-14 feature-icon rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-bolt text-2xl text-lacanne-dark"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3">Rapidité</h3>
-                    <p class="text-gray-600">
-                        Configuration rapide, pas besoin d'être topographe.
-                    </p>
-                </div>
-
-                <div class="card-industrial rounded-2xl p-8 scroll-reveal">
-                    <div class="w-14 h-14 feature-icon rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-mobile-alt text-2xl text-lacanne-dark"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3">Simplicité</h3>
-                    <p class="text-gray-600">
-                        Application intuitive et software synchronisé.
-                    </p>
-                </div>
-
-                <div class="card-industrial rounded-2xl p-8 scroll-reveal">
-                    <div class="w-14 h-14 feature-icon rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-wifi text-2xl text-lacanne-dark"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3">Autonomie</h3>
-                    <p class="text-gray-600">
-                        De la journée à 3 jours, selon le récepteur.
-                    </p>
+        <!-- ==================== TECHNOLOGIE : two modes, two maps ==================== -->
+        <section id="technologie" class="section section--field">
+            <div class="container grid-12">
+                <div class="head">
+                    <h2>Technologie GPS RTK innovante</h2>
+                    <p class="lead">Deux façons de recevoir les corrections RTK. Choisissez un mode pour voir comment il fonctionne.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-
-    <!-- ==================== TECHNICAL SECTION ==================== -->
-    <section class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="scroll-reveal">
-                    <img src="balises.png" alt="GPS RTK" class="rounded-2xl  w-full">
+            <div class="container">
+                <div class="modes" role="group" aria-label="Choisir un mode de fonctionnement">
+                    <button type="button" class="mode-tab is-active" data-mode="mono" aria-pressed="true">
+                        <span class="tab__id">Mode mono-balise</span>
+                        <span class="tab__name">Une balise, corrigée par internet</span>
+                        <span class="tab__sub">Kit mono-balise, avec carte SIM ou correction Satinfo</span>
+                        <span class="mode-tab__pics"><img src="Balise/shopping.webp" alt="" width="1000" height="1000"></span>
+                    </button>
+                    <button type="button" class="mode-tab" data-mode="base" aria-pressed="false">
+                        <span class="tab__id">Mode base + rover</span>
+                        <span class="tab__name">Deux balises reliées par radio</span>
+                        <span class="tab__sub">Kit complet, idéal sans couverture réseau</span>
+                        <span class="mode-tab__pics"><img src="Balise/shopping.webp" alt="" width="1000" height="1000"><span aria-hidden="true">+</span><img src="Balise/shopping.webp" alt="" width="1000" height="1000"></span>
+                    </button>
                 </div>
 
-                <div class="scroll-reveal">
-                    <h2 class="font-display text-3xl md:text-4xl font-bold text-primary mb-6">
-                        Technologie GPS RTK <span class="text-lacanne">innovante</span>
-                    </h2>
-
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div
-                                class="w-12 h-12 feature-icon rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-satellite text-lacanne-dark"></i>
+                <div class="mode-panel" data-mode-panel="mono">
+                    <figure class="map" aria-label="Schéma du mode mono-balise : satellites, réseau de correction, balise, carnet de terrain, bureau">
+                        <div class="map__sky">
+                            <strong><i class="fas fa-satellite" aria-hidden="true"></i>Satellites</strong>
+                            <span>GPS/QZSS, GLONASS, BeiDou, Galileo (L1, L2, L5)</span>
+                        </div>
+                        <div class="map__row">
+                            <div class="node">
+                                <i class="fas fa-tower-broadcast node__icon" aria-hidden="true"></i>
+                                <h3>Réseau de correction</h3>
+                                <p>Correction NTRIP Satinfo, ou réseau Centipede</p>
                             </div>
-                            <div class="ml-4">
-                                <h4 class="font-semibold text-gray-900">Multi-constellation</h4>
-                                <p class="text-sm text-gray-600">GPS/QZSS, GLONASS, BeiDou, Galileo (L1, L2, L5)</p>
+                            <div class="edge edge--key"><b>Corrections RTK</b><span>par internet, en 4G</span></div>
+                            <div class="node node--lead node--sky">
+                                <div class="node__pic"><img src="balises.png" width="1097" height="652" loading="lazy" alt="Les trois balises : Géostix X5, RS3 et NavX"></div>
+                                <h3>Balise sur la canne</h3>
+                                <p>Précision de l’ordre du centimètre</p>
+                            </div>
+                            <div class="edge"><b>Bluetooth BLE</b><span>sans fil</span></div>
+                            <div class="node">
+                                <i class="fas fa-mobile-screen node__icon" aria-hidden="true"></i>
+                                <h3>Carnet de terrain</h3>
+                                <p>Application intuitive</p>
+                            </div>
+                            <div class="edge"><b>Synchronisation</b><span>temps réel</span></div>
+                            <div class="node">
+                                <i class="fas fa-desktop node__icon" aria-hidden="true"></i>
+                                <h3>Bureau</h3>
+                                <p>Software synchronisé, export DAO/CAO</p>
                             </div>
                         </div>
+                    </figure>
+                    <p class="map__note"><b>Une seule balise à porter.</b> Les données de correction RTK ne sont pas incluses&nbsp;: abonnement Correction Satinfo en ligne, ou Carte SIM et données mobiles 1&nbsp;Go/mois.</p>
+                </div>
 
-                        <div class="flex items-start">
-                            <div
-                                class="w-12 h-12 feature-icon rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-battery-three-quarters text-lacanne-dark"></i>
+                <div class="mode-panel hidden" data-mode-panel="base">
+                    <figure class="map" aria-label="Schéma du mode base + rover : satellites, base sur trépied, rover sur la canne, carnet de terrain, bureau">
+                        <div class="map__sky">
+                            <strong><i class="fas fa-satellite" aria-hidden="true"></i>Satellites</strong>
+                            <span>GPS/QZSS, GLONASS, BeiDou, Galileo (L1, L2, L5)</span>
+                        </div>
+                        <div class="map__row">
+                            <div class="node node--lead node--sky">
+                                <div class="node__pic node__pic--single"><img src="Balise/shopping.webp" width="1000" height="1000" loading="lazy" alt="La balise RS3 utilisée comme base"></div>
+                                <h3>Base sur trépied</h3>
+                                <p>Station de référence fixe</p>
                             </div>
-                            <div class="ml-4">
-                                <h4 class="font-semibold text-gray-900">Autonomie</h4>
-                                <p class="text-sm text-gray-600">De la journée à 3 jours</p>
+                            <div class="edge edge--key"><b>LoRa</b><span>radio, format RTCM3, sans internet</span></div>
+                            <div class="node node--lead node--sky">
+                                <div class="node__pic node__pic--single"><img src="Balise/shopping.webp" width="1000" height="1000" loading="lazy" alt="La balise RS3 utilisée comme rover sur la canne"></div>
+                                <h3>Rover sur la canne</h3>
+                                <p>Précision de l’ordre du centimètre</p>
+                            </div>
+                            <div class="edge"><b>Bluetooth BLE</b><span>sans fil</span></div>
+                            <div class="node">
+                                <i class="fas fa-mobile-screen node__icon" aria-hidden="true"></i>
+                                <h3>Carnet de terrain</h3>
+                                <p>Application intuitive</p>
+                            </div>
+                            <div class="edge"><b>Synchronisation</b><span>temps réel</span></div>
+                            <div class="node">
+                                <i class="fas fa-desktop node__icon" aria-hidden="true"></i>
+                                <h3>Bureau</h3>
+                                <p>Software synchronisé, export DAO/CAO</p>
                             </div>
                         </div>
+                    </figure>
+                    <p class="map__note"><b>Idéal sans couverture réseau.</b> La base et le rover communiquent par radio LoRa, sans internet&nbsp;: le kit complet comprend 2 balises, un trépied et 2 cannes.</p>
+                </div>
 
-                        <div class="flex items-start">
-                            <div
-                                class="w-12 h-12 feature-icon rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-wave-square text-lacanne-dark"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-semibold text-gray-900">Technologie LoRa</h4>
-                                <p class="text-sm text-gray-600">Communication radio entre balises, sans internet</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start">
-                            <div
-                                class="w-12 h-12 feature-icon rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-cube text-lacanne-dark"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-semibold text-gray-900">Format RTCM3</h4>
-                                <p class="text-sm text-gray-600">Compatible avec tous les systèmes supportant ce format
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start">
-                            <div
-                                class="w-12 h-12 feature-icon rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-brands fa-bluetooth text-lacanne-dark"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-semibold text-gray-900">Compatible Bluetooth BLE</h4>
-                                <p class="text-sm text-gray-600">Connexion sans fil vers votre balise BLE</p>
-                            </div>
-                        </div>
+                <dl class="specs">
+                    <div>
+                        <dt><i class="fas fa-wave-square" aria-hidden="true"></i>Technologie LoRa</dt>
+                        <dd>Communication radio entre balises, sans internet</dd>
                     </div>
+                    <div>
+                        <dt><i class="fas fa-cube" aria-hidden="true"></i>Format RTCM3</dt>
+                        <dd>Compatible avec tous les systèmes supportant ce format</dd>
+                    </div>
+                    <div>
+                        <dt><i class="fa-brands fa-bluetooth" aria-hidden="true"></i>Compatible Bluetooth BLE</dt>
+                        <dd>Connexion sans fil vers votre balise BLE</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- ==================== BALISES COMPARATIF ==================== -->
+        <section id="balises" class="section section--rule">
+            <div class="container grid-12">
+                <div class="head">
+                    <h2>Quelle balise pour vous&nbsp;?</h2>
+                    <p class="lead">Trois récepteurs GNSS RTK pour trois façons de travailler. Choisissez votre profil
+                        pour découvrir sa fiche technique.</p>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="container">
+                <div class="choices" role="group" aria-label="Choisir une balise">
+                    <button type="button" data-balise="rs3" aria-pressed="true" class="balise-tab is-active">
+                        <span class="tab__id">RS3</span>
+                        <span class="tab__name">Le baroudeur polyvalent</span>
+                        <span class="tab__sub">Robuste, tout-en-un, rapide</span>
+                        <img src="Balise/shopping.webp" alt="" width="1000" height="1000">
+                    </button>
+                    <button type="button" data-balise="geo" aria-pressed="false" class="balise-tab">
+                        <span class="tab__id">Géostix X5</span>
+                        <span class="tab__name">La précision Made in France</span>
+                        <span class="tab__sub">Précision chirurgicale, modularité</span>
+                        <img src="Balise/GEOSTIX78.png" alt="" width="690" height="690">
+                    </button>
+                    <button type="button" data-balise="nav" aria-pressed="false" class="balise-tab">
+                        <span class="tab__id">NavX</span>
+                        <span class="tab__name">Le léger et ouvert</span>
+                        <span class="tab__sub">Ultra-léger, Plug &amp; Play</span>
+                        <img src="Balise/navX.png" alt="" width="1024" height="1024">
+                    </button>
+                </div>
 
-    <!-- ==================== BALISES COMPARATIF ==================== -->
-    <section id="balises" class="pb-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 scroll-reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
-                    Quelle balise <span class="text-lacanne">pour vous</span> ?
-                </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Trois récepteurs GNSS RTK pour trois façons de travailler. Choisissez votre profil pour découvrir
-                    sa fiche technique.
-                </p>
+                <div class="panels">
+                    <div data-panel="rs3" class="balise-panel">
+                        <div class="panel__intro">
+                            <h3>RS3</h3>
+                            <p class="panel__tag">Le baroudeur polyvalent</p>
+                            <p>Le choix de la robustesse pour les conditions de travail extrêmes. La balise classique des
+                                chantiers, qui supporte la poussière et la boue.</p>
+                            <p class="panel__ideal"><b>Idéal pour</b>Topographie de terrain, chantiers, SIG, levés
+                                rapides. Pour qui veut un outil professionnel tout-en-un, robuste et rapide.</p>
+                        </div>
+                        <dl class="panel__specs">
+                            <div><dt>Moteur GNSS</dt><dd>Emlid (interne)</dd></div>
+                            <div><dt>Fréquences</dt><dd>Multi-bande (L1, L2)</dd></div>
+                            <div><dt>Canaux</dt><dd>184</dd></div>
+                            <div><dt>Précision RTK</dt><dd>H&nbsp;: 7&nbsp;mm + 1&nbsp;ppm<br>V&nbsp;: 14&nbsp;mm + 1&nbsp;ppm</dd></div>
+                            <div><dt>Initialisation (fix)</dt><dd>~ 5&nbsp;s</dd></div>
+                            <div><dt>Connectivité</dt><dd>4G LTE, Wi-Fi, Bluetooth, LoRa</dd></div>
+                            <div><dt>Autonomie</dt><dd>18&nbsp;h à 22&nbsp;h</dd></div>
+                            <div><dt>Poids</dt><dd>950&nbsp;g</dd></div>
+                            <div><dt>Protection</dt><dd>IP67</dd></div>
+                        </dl>
+                    </div>
+                    <div data-panel="geo" class="balise-panel hidden">
+                        <div class="panel__intro">
+                            <h3>Géostix X5</h3>
+                            <p class="panel__tag">La précision Made in France</p>
+                            <p>Basée sur la puce Septentrio Mosaic-X5, c’est la plus performante en qualité de fix dans
+                                les zones difficiles (sous canopée, milieu urbain dense) grâce à sa gestion avancée des
+                                interférences. 100&nbsp;% Made in France.</p>
+                            <p class="panel__ideal"><b>Idéal pour</b>Zones très boisées, intégration robotique ou sur vos
+                                propres engins, agriculture de précision, expertise géométrique complexe.</p>
+                        </div>
+                        <dl class="panel__specs">
+                            <div><dt>Moteur GNSS</dt><dd>Septentrio Mosaic-X5</dd></div>
+                            <div><dt>Fréquences</dt><dd>Triple-bande (L1, L2, L5)</dd></div>
+                            <div><dt>Canaux</dt><dd>448</dd></div>
+                            <div><dt>Précision RTK</dt><dd>H&nbsp;: 6&nbsp;mm + 0,5&nbsp;ppm<br>V&nbsp;: 10&nbsp;mm + 1&nbsp;ppm</dd></div>
+                            <div><dt>Initialisation (fix)</dt><dd>&lt; 1&nbsp;s (cold start &lt; 45&nbsp;s)</dd></div>
+                            <div><dt>Connectivité</dt><dd>USB-C (Ethernet), LoRa, module 4G</dd></div>
+                            <div><dt>Autonomie</dt><dd>8&nbsp;h à 20&nbsp;h (selon batterie/module)</dd></div>
+                            <div><dt>Poids</dt><dd>300&nbsp;g</dd></div>
+                            <div><dt>Protection</dt><dd>IP67</dd></div>
+                        </dl>
+                    </div>
+                    <div data-panel="nav" class="balise-panel hidden">
+                        <div class="panel__intro">
+                            <h3>NavX</h3>
+                            <p class="panel__tag">Le léger et ouvert</p>
+                            <p>Format compact qui tient dans une poche, optimisé pour le réseau collaboratif Centipede
+                                RTK. Connexion instantanée au carnet de terrain en Bluetooth Low Energy, et la bande L5
+                                lui assure une meilleure stabilité.</p>
+                            <p class="panel__ideal"><b>Idéal pour</b>Bureaux d’études, conception, devis, métrés,
+                                utilisateurs du réseau Centipede, budgets plus serrés et retour sur investissement
+                                rapide.</p>
+                        </div>
+                        <dl class="panel__specs">
+                            <div><dt>Moteur GNSS</dt><dd>u-blox ZED-F9P</dd></div>
+                            <div><dt>Fréquences</dt><dd>Triple-bande (L1, L2, L5)</dd></div>
+                            <div><dt>Canaux</dt><dd>184</dd></div>
+                            <div><dt>Précision RTK</dt><dd>H&nbsp;: 10&nbsp;mm + 1&nbsp;ppm<br>V&nbsp;: 15&nbsp;mm + 1&nbsp;ppm</dd></div>
+                            <div><dt>Initialisation (fix)</dt><dd>~ 10&nbsp;s</dd></div>
+                            <div><dt>Connectivité</dt><dd>Bluetooth LE</dd></div>
+                            <div><dt>Autonomie</dt><dd>~ 6&nbsp;h</dd></div>
+                            <div><dt>Poids</dt><dd>200&nbsp;g</dd></div>
+                            <div><dt>Protection</dt><dd>IP67</dd></div>
+                        </dl>
+                    </div>
+                </div>
+
+                <details class="compare">
+                    <summary>Voir le tableau comparatif complet <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><span class="visually-hidden">Caractéristique</span></th>
+                                    <th scope="col">RS3<span>Le baroudeur polyvalent</span></th>
+                                    <th scope="col">Géostix X5<span>La précision Made in France</span></th>
+                                    <th scope="col">NavX<span>Le léger et ouvert</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Moteur GNSS</th>
+                                    <td>Emlid (interne)</td>
+                                    <td>Septentrio Mosaic-X5</td>
+                                    <td>u-blox ZED-F9P</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fréquences</th>
+                                    <td>Multi-bande (L1, L2)</td>
+                                    <td>Triple-bande (L1, L2, L5)</td>
+                                    <td>Triple-bande (L1, L2, L5)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Canaux</th>
+                                    <td>184</td>
+                                    <td>448</td>
+                                    <td>184</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Précision RTK</th>
+                                    <td>H&nbsp;: 7&nbsp;mm + 1&nbsp;ppm<br>V&nbsp;: 14&nbsp;mm + 1&nbsp;ppm</td>
+                                    <td>H&nbsp;: 6&nbsp;mm + 0,5&nbsp;ppm<br>V&nbsp;: 10&nbsp;mm + 1&nbsp;ppm</td>
+                                    <td>H&nbsp;: 10&nbsp;mm + 1&nbsp;ppm<br>V&nbsp;: 15&nbsp;mm + 1&nbsp;ppm</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Initialisation (fix)</th>
+                                    <td>~ 5&nbsp;s</td>
+                                    <td>&lt; 1&nbsp;s (cold start &lt; 45&nbsp;s)</td>
+                                    <td>~ 10&nbsp;s</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Connectivité</th>
+                                    <td>4G LTE, Wi-Fi, Bluetooth, LoRa</td>
+                                    <td>USB-C (Ethernet), LoRa, module 4G</td>
+                                    <td>Bluetooth LE</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Autonomie</th>
+                                    <td>18&nbsp;h à 22&nbsp;h</td>
+                                    <td>8&nbsp;h à 20&nbsp;h (selon batterie/module)</td>
+                                    <td>~ 6&nbsp;h</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Poids</th>
+                                    <td>950&nbsp;g</td>
+                                    <td>300&nbsp;g</td>
+                                    <td>200&nbsp;g</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Protection</th>
+                                    <td>IP67</td>
+                                    <td>IP67</td>
+                                    <td>IP67</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
             </div>
+        </section>
 
-            <div class="grid md:grid-cols-3 gap-6 mb-8 scroll-reveal" role="group" aria-label="Choisir une balise">
-                <button type="button" data-balise="rs3" aria-pressed="true"
-                    class="balise-tab is-active card-industrial rounded-2xl p-6 text-left w-full transition">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center">
-                            <i class="fas fa-hard-hat text-xl text-lacanne-dark"></i>
+        <!-- ==================== CADOLES ==================== -->
+        <section id="cadoles" class="section">
+            <div class="container grid-12">
+                <div class="about__left">
+                    <h2>Un produit développé par</h2>
+                    <img src="./logo-fonce.png" alt="Cadoles" class="about__logo" width="846" height="212">
+                    <dl class="about__rows">
+                        <div>
+                            <dt>Expertise Numérique</dt>
+                            <dd>Développement open source garantissant transparence, flexibilité et évolutivité</dd>
                         </div>
-                        <img src="Balise/shopping.webp" alt="Emlid Reach RS3" class="h-14 w-auto">
-                    </div>
-                    <p class="text-xs font-semibold tracking-widest uppercase text-lacanne mb-1">RS3</p>
-                    <h3 class="text-xl font-bold text-gray-900 mb-1">Le baroudeur polyvalent</h3>
-                    <p class="text-sm text-gray-500">Robuste, tout-en-un, rapide</p>
-                </button>
-                <button type="button" data-balise="geo" aria-pressed="false"
-                    class="balise-tab card-industrial rounded-2xl p-6 text-left w-full transition">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center">
-                            <i class="fas fa-tree text-xl text-lacanne-dark"></i>
+                        <div>
+                            <dt>Expertise Terrain</dt>
+                            <dd>Conçu par des professionnels du BTP pour répondre aux vraies contraintes</dd>
                         </div>
-                        <img src="Balise/GEOSTIX78.png" alt="Geobsys Geostix X5" class="h-14 w-auto">
-                    </div>
-                    <p class="text-xs font-semibold tracking-widest uppercase text-lacanne mb-1">Géostix X5</p>
-                    <h3 class="text-xl font-bold text-gray-900 mb-1">La précision Made in France</h3>
-                    <p class="text-sm text-gray-500">Précision chirurgicale, modularité</p>
-                </button>
-                <button type="button" data-balise="nav" aria-pressed="false"
-                    class="balise-tab card-industrial rounded-2xl p-6 text-left w-full transition">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center">
-                            <i class="fas fa-feather text-xl text-lacanne-dark"></i>
-                        </div>
-                        <img src="Balise/navX.png" alt="Natuition NavX" class="h-14 w-auto">
-                    </div>
-                    <p class="text-xs font-semibold tracking-widest uppercase text-lacanne mb-1">NavX</p>
-                    <h3 class="text-xl font-bold text-gray-900 mb-1">Le léger et ouvert</h3>
-                    <p class="text-sm text-gray-500">Ultra-léger, Plug & Play</p>
-                </button>
-            </div>
-
-            <div class="bg-gray-50 rounded-2xl p-6 md:p-10 border border-gray-200 scroll-reveal">
-                <div data-panel="rs3" class="balise-panel grid md:grid-cols-5 gap-8">
-                    <div class="md:col-span-2">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-1">RS3</h3>
-                        <p class="text-lacanne font-semibold mb-4">Le baroudeur polyvalent</p>
-                        <p class="text-gray-600 mb-6">Le choix de la robustesse pour les conditions de travail extrêmes.
-                            La balise classique des chantiers, qui supporte la poussière et la boue.</p>
-                        <div class="bg-white rounded-xl p-4 border border-gray-200">
-                            <p class="text-xs uppercase tracking-wide text-gray-400 mb-1">Idéal pour</p>
-                            <p class="text-gray-700">Topographie de terrain, chantiers, SIG, levés rapides. Pour qui
-                                veut un outil professionnel tout-en-un, robuste et rapide.</p>
-                        </div>
-                    </div>
-                    <dl class="md:col-span-3 grid sm:grid-cols-2 gap-x-6 gap-y-5">
-                        <div class="flex items-start">
-                            <i class="fas fa-microchip text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Moteur GNSS</dt>
-                                <dd class="font-semibold text-gray-900">Emlid (interne)</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-signal text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Fréquences</dt>
-                                <dd class="font-semibold text-gray-900">Multi-bande (L1, L2)</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-satellite text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Canaux</dt>
-                                <dd class="font-semibold text-gray-900">184</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-crosshairs text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Précision RTK</dt>
-                                <dd class="font-semibold text-gray-900">H : 7 mm + 1 ppm<br>V : 14 mm + 1 ppm</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-stopwatch text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Initialisation (fix)</dt>
-                                <dd class="font-semibold text-gray-900">~ 5 s</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-wifi text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Connectivité</dt>
-                                <dd class="font-semibold text-gray-900">4G LTE, Wi-Fi, Bluetooth, LoRa</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-battery-three-quarters text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Autonomie</dt>
-                                <dd class="font-semibold text-gray-900">18 h à 22 h</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-weight-hanging text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Poids</dt>
-                                <dd class="font-semibold text-gray-900">950 g</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-shield-alt text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Protection</dt>
-                                <dd class="font-semibold text-gray-900">IP67</dd>
-                            </div>
+                        <div>
+                            <dt>Communauté</dt>
+                            <dd>Une communauté d’utilisateurs qui contribue à l’amélioration continue</dd>
                         </div>
                     </dl>
                 </div>
-                <div data-panel="geo" class="balise-panel hidden grid md:grid-cols-5 gap-8">
-                    <div class="md:col-span-2">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-1">Géostix X5</h3>
-                        <p class="text-lacanne font-semibold mb-4">La précision Made in France</p>
-                        <p class="text-gray-600 mb-6">Basée sur la puce Septentrio Mosaic-X5, c'est la plus performante
-                            en qualité de fix dans les zones difficiles (sous canopée, milieu urbain dense) grâce à sa
-                            gestion avancée des interférences. 100 % Made in France.</p>
-                        <div class="bg-white rounded-xl p-4 border border-gray-200">
-                            <p class="text-xs uppercase tracking-wide text-gray-400 mb-1">Idéal pour</p>
-                            <p class="text-gray-700">Zones très boisées, intégration robotique ou sur vos propres
-                                engins, agriculture de précision, expertise géométrique complexe.</p>
-                        </div>
-                    </div>
-                    <dl class="md:col-span-3 grid sm:grid-cols-2 gap-x-6 gap-y-5">
-                        <div class="flex items-start">
-                            <i class="fas fa-microchip text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Moteur GNSS</dt>
-                                <dd class="font-semibold text-gray-900">Septentrio Mosaic-X5</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-signal text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Fréquences</dt>
-                                <dd class="font-semibold text-gray-900">Triple-bande (L1, L2, L5)</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-satellite text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Canaux</dt>
-                                <dd class="font-semibold text-gray-900">448</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-crosshairs text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Précision RTK</dt>
-                                <dd class="font-semibold text-gray-900">H : 6 mm + 0,5 ppm<br>V : 10 mm + 1 ppm</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-stopwatch text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Initialisation (fix)</dt>
-                                <dd class="font-semibold text-gray-900">&lt; 1 s (cold start &lt; 45 s)</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-wifi text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Connectivité</dt>
-                                <dd class="font-semibold text-gray-900">USB-C (Ethernet), LoRa, module 4G</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-battery-three-quarters text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Autonomie</dt>
-                                <dd class="font-semibold text-gray-900">8 h à 20 h (selon batterie/module)</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-weight-hanging text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Poids</dt>
-                                <dd class="font-semibold text-gray-900">300 g</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-shield-alt text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Protection</dt>
-                                <dd class="font-semibold text-gray-900">IP67</dd>
-                            </div>
-                        </div>
-                    </dl>
-                </div>
-                <div data-panel="nav" class="balise-panel hidden grid md:grid-cols-5 gap-8">
-                    <div class="md:col-span-2">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-1">NavX</h3>
-                        <p class="text-lacanne font-semibold mb-4">Le léger et ouvert</p>
-                        <p class="text-gray-600 mb-6">Format compact qui tient dans une poche, optimisé pour le réseau
-                            collaboratif Centipede RTK. Connexion instantanée au carnet de terrain en Bluetooth Low
-                            Energy, et la bande L5 lui assure une meilleure stabilité.</p>
-                        <div class="bg-white rounded-xl p-4 border border-gray-200">
-                            <p class="text-xs uppercase tracking-wide text-gray-400 mb-1">Idéal pour</p>
-                            <p class="text-gray-700">Bureaux d'études, conception, devis, métrés, utilisateurs du réseau
-                                Centipede, budgets plus serrés et retour sur investissement rapide.</p>
-                        </div>
-                    </div>
-                    <dl class="md:col-span-3 grid sm:grid-cols-2 gap-x-6 gap-y-5">
-                        <div class="flex items-start">
-                            <i class="fas fa-microchip text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Moteur GNSS</dt>
-                                <dd class="font-semibold text-gray-900">u-blox ZED-F9P</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-signal text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Fréquences</dt>
-                                <dd class="font-semibold text-gray-900">Triple-bande (L1, L2, L5)</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-satellite text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Canaux</dt>
-                                <dd class="font-semibold text-gray-900">184</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-crosshairs text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Précision RTK</dt>
-                                <dd class="font-semibold text-gray-900">H : 10 mm + 1 ppm<br>V : 15 mm + 1 ppm</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-stopwatch text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Initialisation (fix)</dt>
-                                <dd class="font-semibold text-gray-900">~ 10 s</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-wifi text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Connectivité</dt>
-                                <dd class="font-semibold text-gray-900">Bluetooth LE</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-battery-three-quarters text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Autonomie</dt>
-                                <dd class="font-semibold text-gray-900">~ 6 h</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-weight-hanging text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Poids</dt>
-                                <dd class="font-semibold text-gray-900">200 g</dd>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-shield-alt text-lacanne-dark w-6 mt-1"></i>
-                            <div class="ml-2">
-                                <dt class="text-xs uppercase tracking-wide text-gray-400">Protection</dt>
-                                <dd class="font-semibold text-gray-900">IP67</dd>
-                            </div>
-                        </div>
-                    </dl>
-                </div>
+
+                <figure class="quote">
+                    <blockquote>
+                        <p>«&nbsp;Après deux décennies en tant que Chef de chantier dans le secteur des travaux publics,
+                            j’ai eu l’opportunité de travailler sur une grande variété de projets (VRD, autoroutiers,
+                            éoliens…). Cependant, des contraintes récurrentes ralentissaient souvent nos chantiers. En
+                            2020, je me suis tourné vers Cadoles pour développer une solution qui m’aiderait dans mes
+                            tâches quotidiennes.&nbsp;»</p>
+                    </blockquote>
+                    <figcaption><b>Yann Szemro</b>Chef de produit, Cadoles</figcaption>
+                </figure>
             </div>
+        </section>
 
-            <details class="mt-8 group">
-                <summary
-                    class="cursor-pointer list-none text-center text-lacanne-dark font-semibold hover:text-lacanne transition">
-                    <i class="fas fa-table mr-2"></i>Voir le tableau comparatif complet
-                    <i class="fas fa-chevron-down ml-1 text-sm transition-transform group-open:rotate-180"></i>
-                </summary>
-                <div class="mt-6 overflow-x-auto rounded-2xl border border-gray-200">
-                    <table class="w-full text-sm min-w-[640px]">
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th class="py-3 pr-4 pl-0 text-left"></th>
-                                <th scope="col" class="py-3 px-4 text-left font-bold text-gray-900">RS3<span
-                                        class="block text-xs font-normal text-gray-500">Le baroudeur polyvalent</span>
-                                </th>
-                                <th scope="col" class="py-3 px-4 text-left font-bold text-gray-900">Géostix X5<span
-                                        class="block text-xs font-normal text-gray-500">La précision Made in
-                                        France</span></th>
-                                <th scope="col" class="py-3 px-4 text-left font-bold text-gray-900">NavX<span
-                                        class="block text-xs font-normal text-gray-500">Le léger et ouvert</span></th>
-                            </tr>
-                        </thead>
-                        <tbody class="[&_th]:pl-4">
-                            <tr class="border-t border-gray-100">
-                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap">
-                                    <i class="fas fa-microchip text-lacanne-dark mr-2"></i>Moteur GNSS
-                                </th>
-                                <td class="py-3 px-4 text-gray-900">Emlid (interne)</td>
-                                <td class="py-3 px-4 text-gray-900">Septentrio Mosaic-X5</td>
-                                <td class="py-3 px-4 text-gray-900">u-blox ZED-F9P</td>
-                            </tr>
-                            <tr class="border-t border-gray-100">
-                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap">
-                                    <i class="fas fa-signal text-lacanne-dark mr-2"></i>Fréquences
-                                </th>
-                                <td class="py-3 px-4 text-gray-900">Multi-bande (L1, L2)</td>
-                                <td class="py-3 px-4 text-gray-900">Triple-bande (L1, L2, L5)</td>
-                                <td class="py-3 px-4 text-gray-900">Triple-bande (L1, L2, L5)</td>
-                            </tr>
-                            <tr class="border-t border-gray-100">
-                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap">
-                                    <i class="fas fa-satellite text-lacanne-dark mr-2"></i>Canaux
-                                </th>
-                                <td class="py-3 px-4 text-gray-900">184</td>
-                                <td class="py-3 px-4 text-gray-900">448</td>
-                                <td class="py-3 px-4 text-gray-900">184</td>
-                            </tr>
-                            <tr class="border-t border-gray-100">
-                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap">
-                                    <i class="fas fa-crosshairs text-lacanne-dark mr-2"></i>Précision RTK
-                                </th>
-                                <td class="py-3 px-4 text-gray-900">H : 7 mm + 1 ppm<br>V : 14 mm + 1 ppm</td>
-                                <td class="py-3 px-4 text-gray-900">H : 6 mm + 0,5 ppm<br>V : 10 mm + 1 ppm</td>
-                                <td class="py-3 px-4 text-gray-900">H : 10 mm + 1 ppm<br>V : 15 mm + 1 ppm</td>
-                            </tr>
-                            <tr class="border-t border-gray-100">
-                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap">
-                                    <i class="fas fa-stopwatch text-lacanne-dark mr-2"></i>Initialisation (fix)
-                                </th>
-                                <td class="py-3 px-4 text-gray-900">~ 5 s</td>
-                                <td class="py-3 px-4 text-gray-900">&lt; 1 s (cold start &lt; 45 s)</td>
-                                <td class="py-3 px-4 text-gray-900">~ 10 s</td>
-                            </tr>
-                            <tr class="border-t border-gray-100">
-                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap">
-                                    <i class="fas fa-wifi text-lacanne-dark mr-2"></i>Connectivité
-                                </th>
-                                <td class="py-3 px-4 text-gray-900">4G LTE, Wi-Fi, Bluetooth, LoRa</td>
-                                <td class="py-3 px-4 text-gray-900">USB-C (Ethernet), LoRa, module 4G</td>
-                                <td class="py-3 px-4 text-gray-900">Bluetooth LE</td>
-                            </tr>
-                            <tr class="border-t border-gray-100">
-                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap">
-                                    <i class="fas fa-battery-three-quarters text-lacanne-dark mr-2"></i>Autonomie
-                                </th>
-                                <td class="py-3 px-4 text-gray-900">18 h à 22 h</td>
-                                <td class="py-3 px-4 text-gray-900">8 h à 20 h (selon batterie/module)</td>
-                                <td class="py-3 px-4 text-gray-900">~ 6 h</td>
-                            </tr>
-                            <tr class="border-t border-gray-100">
-                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap">
-                                    <i class="fas fa-weight-hanging text-lacanne-dark mr-2"></i>Poids
-                                </th>
-                                <td class="py-3 px-4 text-gray-900">950 g</td>
-                                <td class="py-3 px-4 text-gray-900">300 g</td>
-                                <td class="py-3 px-4 text-gray-900">200 g</td>
-                            </tr>
-                            <tr class="border-t border-gray-100">
-                                <th scope="row" class="py-3 pr-4 text-left font-medium text-gray-500 whitespace-nowrap">
-                                    <i class="fas fa-shield-alt text-lacanne-dark mr-2"></i>Protection
-                                </th>
-                                <td class="py-3 px-4 text-gray-900">IP67</td>
-                                <td class="py-3 px-4 text-gray-900">IP67</td>
-                                <td class="py-3 px-4 text-gray-900">IP67</td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <!-- ==================== OFFRES ==================== -->
+        <section id="offres" class="section section--well">
+            <div class="container grid-12">
+                <div class="head offer-head">
+                    <h2>Nos offres</h2>
+                    <p class="lead">Quel que soit votre besoin, nous avons une solution.</p>
+                    <p class="note">Pour accompagner LaCanne, logiciel terrain et bureau, nos kits sont complets&nbsp;:
+                        mallette, cannes, carnets de terrain…</p>
                 </div>
-            </details>
-        </div>
-    </section>
-
-    <!-- ==================== ABOUT SECTION ==================== -->
-    <section id="cadoles" class="py-20 bg-gray-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center scroll-reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-12">
-                    Un produit développé par
-                </h2>
-
-                <div class="flex flex-col md:flex-row items-center justify-center gap-10 mb-12">
-                    <!-- Logo Cadoles -->
-
-                    <!-- SCOP Texte -->
-                    <div class="text-gray-600">
-                        <img src="./logo-fonce.png" alt=" Cadoles" class="h-28 w-auto">
-                    </div>
-                </div>
-
-                <!-- Expertise Cards -->
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="text-center p-6 scroll-reveal">
-                        <div
-                            class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-code text-white text-2xl"></i>
-                        </div>
-                        <h3 class="font-bold text-gray-900 mb-2">Expertise Numérique</h3>
-                        <p class="text-lg text-gray-600">
-                            Développement open source garantissant transparence, flexibilité et évolutivité
-                        </p>
-                    </div>
-
-                    <div class="text-center p-6 scroll-reveal">
-                        <div
-                            class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-hard-hat text-white text-2xl"></i>
-                        </div>
-                        <h3 class="font-bold text-gray-900 mb-2">Expertise Terrain</h3>
-                        <p class="text-lg text-gray-600">
-                            Conçu par des professionnels du BTP pour répondre aux vraies contraintes
-                        </p>
-                    </div>
-
-                    <div class="text-center p-6 scroll-reveal">
-                        <div
-                            class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-users text-white text-2xl"></i>
-                        </div>
-                        <h3 class="font-bold text-gray-900 mb-2">Communauté</h3>
-                        <p class="text-lg text-gray-600">
-                            Une communauté d'utilisateurs qui contribue à l'amélioration continue
-                        </p>
-                    </div>
-                </div>
-                <!-- Séparateur -->
-
-            </div>
-        </div>
-
-        <!-- Cadoles expertise -->
-
-    </section>
-    <!-- ==================== Confiance SECTION ==================== -->
-    <!-- <section class="py-20 bg-gray-100">
-
-    </section> -->
-    <!-- ==================== PRESS SECTION ==================== -->
-
-    <section id="offres" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
-                    Nos offres
-                </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-2">
-                    Quel que soit votre besoin, nous avons une solution.
-                </p>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Pour accompagner LaCanne, logiciel terrain et bureau, nos kits sont complets : mallette, cannes,
-                    carnets de terrain…
-                </p>
             </div>
 
             <!-- ACHETER -->
-            <div class="mb-16">
-                <h3 class="text-center text-gray-400 text-xs font-medium mb-8 tracking-widest uppercase">Acheter LaCanne
-                </h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Kit mono-balise -->
-                    <div class="card-industrial rounded-2xl p-6 scroll-reveal">
-                        <div class="flex justify-between items-start mb-4">
-                            <h4 class="font-bold text-gray-900">Kit mono-balise GPS/RTK</h4>
-                            <img src="Balise/shopping.webp" alt="Emlid rs3" class="h-12">
+            <div class="container grid-12 offer-group">
+                <h3>Acheter LaCanne</h3>
+                <div class="offer-grid">
+                    <div class="card-industrial">
+                        <div class="card__top">
+                            <h4>Kit mono-balise GPS/RTK</h4>
+                            <img src="Balise/shopping.webp" alt="Emlid rs3" width="1000" height="1000" loading="lazy">
                         </div>
-                        <p class="text-sm text-gray-600 mb-4">Mallette Peli Case IP67 avec 1 balise GPS/RTK, carnet de
-                            terrain IP68/IP69K, pince articulée, cane en aluminium avec nivelle.</p>
-                        <p class="text-xs text-gray-500">Données de correction RTK non incluses</p>
+                        <p>Mallette Peli Case IP67 avec 1 balise GPS/RTK, carnet de terrain IP68/IP69K, pince articulée,
+                            cane en aluminium avec nivelle.</p>
+                        <p class="note">Données de correction RTK non incluses</p>
                     </div>
 
-                    <!-- Kit Géostix X5 -->
-                    <div class="card-industrial rounded-2xl p-6 scroll-reveal">
-                        <div class="flex justify-between items-start mb-4">
-                            <h4 class="font-bold text-gray-900">Kit Géostix X5 mobile RTK</h4>
-                            <img src="Balise/GEOSTIX78.png" alt="Geobsys Geostix" class="h-12">
+                    <div class="card-industrial">
+                        <div class="card__top">
+                            <h4>Kit Géostix X5 mobile RTK</h4>
+                            <img src="Balise/GEOSTIX78.png" alt="Geobsys Geostix" width="690" height="690" loading="lazy">
                         </div>
-                        <p class="text-sm text-gray-600 mb-4">Mallette Peli Case IP67 avec balise GPS/RTK Geostix RTK
-                            (fabriquée en France), carnet de terrain IP68/IP69K, fixation, cane avec nivelle.</p>
-                        <p class="text-xs text-gray-500">Données de correction RTK non incluses</p>
+                        <p>Mallette Peli Case IP67 avec balise GPS/RTK Geostix RTK (fabriquée en France), carnet de
+                            terrain IP68/IP69K, fixation, cane avec nivelle.</p>
+                        <p class="note">Données de correction RTK non incluses</p>
                     </div>
 
-                    <!-- Kit NavX -->
-                    <div class="card-industrial rounded-2xl p-6 scroll-reveal">
-                        <div class="flex justify-between items-start mb-4">
-                            <h4 class="font-bold text-gray-900">Kit NavX mobile RTK</h4>
-                            <img src="Balise/navX.png" alt="Natuition NavX" class="h-12">
+                    <div class="card-industrial">
+                        <div class="card__top">
+                            <h4>Kit NavX mobile RTK</h4>
+                            <img src="Balise/navX.png" alt="Natuition NavX" width="1024" height="1024" loading="lazy">
                         </div>
-                        <p class="text-sm text-gray-600 mb-4">Mallette Peli Case IP67 avec balise GPS/RTK NavX (conçu en
-                            France), carnet de terrain IP68/IP69K, fixation, cane avec nivelle.</p>
-                        <p class="text-xs text-gray-500">Données de correction RTK non incluses</p>
+                        <p>Mallette Peli Case IP67 avec balise GPS/RTK NavX (conçu en France), carnet de terrain
+                            IP68/IP69K, fixation, cane avec nivelle.</p>
+                        <p class="note">Données de correction RTK non incluses</p>
                     </div>
 
-                    <!-- Kit complet -->
-                    <div class="card-industrial rounded-2xl p-6 scroll-reveal">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="flex justify-between items-start mb-4">
-                                <h4 class="font-bold text-gray-900">Kit complet GPS/RTK </h4>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <img src="Balise/shopping.webp" alt="Emlid rs3" class="h-12">
-                                <div>+</div><img src="Balise/shopping.webp" alt="Emlid rs3" class="h-12">
+                    <div class="card-industrial card--wide">
+                        <div class="card__top">
+                            <h4>Kit complet GPS/RTK <span>(base + rover)</span></h4>
+                            <div class="card__pair">
+                                <img src="Balise/shopping.webp" alt="Emlid rs3" width="1000" height="1000" loading="lazy">
+                                <span aria-hidden="true">+</span>
+                                <img src="Balise/shopping.webp" alt="Emlid rs3" width="1000" height="1000" loading="lazy">
                             </div>
                         </div>
-                        <span class="text-sm font-normal">(base + rover)</span>
-                        <p class="text-sm text-gray-600 mb-4">Mallette Peli Case IP67 avec 2 balises GPS/RTK IP67,
-                            carnet de terrain, pince articulée, trépied, 2 cannes avec nivelle.</p>
-                        <p class="text-xs text-gray-500">Idéal sans couverture réseau</p>
+                        <p>Mallette Peli Case IP67 avec 2 balises GPS/RTK IP67, carnet de terrain, pince articulée,
+                            trépied, 2 cannes avec nivelle.</p>
+                        <p class="note">Idéal sans couverture réseau</p>
                     </div>
 
-                    <!-- Option tablette -->
-                    <div class="card-industrial rounded-2xl p-6 scroll-reveal">
-                        <div class="mb-4">
-                            <h4 class="font-bold text-gray-900">Option tablette durcie</h4>
+                    <div class="card-industrial">
+                        <div class="card__top">
+                            <h4>Option tablette durcie</h4>
                         </div>
-                        <p class="text-sm text-gray-600 mb-4">Tablette 10,36″ Noir IP68/IP69K, Dual SIM/4G LTE, 8 Go RAM
-                            / 256 Go stockage.</p>
-                        <p class="text-xs text-gray-500">Écran 10″ pour plus de confort</p>
+                        <p>Tablette 10,36″ Noir IP68/IP69K, Dual SIM/4G LTE, 8&nbsp;Go RAM / 256&nbsp;Go stockage.</p>
+                        <p class="note">Écran 10″ pour plus de confort</p>
                     </div>
                 </div>
             </div>
 
             <!-- Abonnements -->
-            <div class="mb-16">
-                <h3 class="text-center text-gray-400 text-xs font-medium mb-8 tracking-widest uppercase">Abonnements
-                </h3>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Serveur gestion -->
-                    <div class="card-industrial rounded-2xl p-6 scroll-reveal">
-                        <h4 class="font-bold text-gray-900 mb-2">Serveur gestion de chantier</h4>
-                        <p class="text-sm text-gray-600 mb-4">Synchronisation, sauvegarde, gestion utilisateurs, export
-                            DAO/CAO, support technique, jusqu'à 10 kits.</p>
+            <div class="container grid-12 offer-group">
+                <h3>Abonnements</h3>
+                <div class="offer-grid">
+                    <div class="card-industrial">
+                        <h4>Serveur gestion de chantier</h4>
+                        <p>Synchronisation, sauvegarde, gestion utilisateurs, export DAO/CAO, support technique,
+                            jusqu’à 10 kits.</p>
                     </div>
 
-                    <!-- Carte SIM -->
-                    <div class="card-industrial rounded-2xl p-6 scroll-reveal">
-                        <h4 class="font-bold text-gray-900 mb-2">Carte SIM et données mobiles</h4>
-                        <p class="text-sm text-gray-600 mb-4">1 Go/mois. Pour base automatique ou kit mono-balise.</p>
-                        <p class="text-xs text-gray-500">En partenariat avec Satinfo</p>
+                    <div class="card-industrial">
+                        <h4>Carte SIM et données mobiles</h4>
+                        <p>1&nbsp;Go/mois. Pour base automatique ou kit mono-balise.</p>
+                        <p class="note">En partenariat avec Satinfo</p>
                     </div>
 
-                    <!-- Correction Satinfo -->
-                    <div class="card-industrial rounded-2xl p-6 scroll-reveal">
-                        <h4 class="font-bold text-gray-900 mb-2">Correction Satinfo en ligne</h4>
-                        <p class="text-sm text-gray-600 mb-4">Abonnement de correction NTRIP du réseau Satinfo pour
-                            géolocalisation automatique.</p>
+                    <div class="card-industrial">
+                        <h4>Correction Satinfo en ligne</h4>
+                        <p>Abonnement de correction NTRIP du réseau Satinfo pour géolocalisation automatique.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Formations -->
-            <div class="mb-16">
-                <h3 class="text-center text-gray-400 text-xs font-medium mb-8 tracking-widest uppercase">Formations</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Formation gestion -->
-                    <div class="card-industrial rounded-2xl p-6 scroll-reveal">
-                        <h4 class="font-bold text-gray-900 mb-2">Formation gestion de chantier</h4>
-                        <p class="text-sm text-gray-400 mb-4">Pour Chef de chantier — 1/2 journée</p>
-                        <p class="text-sm text-gray-600 mb-4">Intégration/extraction des plans, création nomenclatures,
-                            synchronisation, présentation carnet de terrain.</p>
-                        <p class="text-xs text-gray-500">Modalités : à distance, dans nos locaux, ou sur site</p>
+            <div class="container grid-12 offer-group">
+                <h3>Formations</h3>
+                <div class="offer-grid offer-grid--2">
+                    <div class="card-industrial">
+                        <h4>Formation gestion de chantier <span>Pour Chef de chantier, 1/2&nbsp;journée</span></h4>
+                        <p>Intégration/extraction des plans, création nomenclatures, synchronisation, présentation
+                            carnet de terrain.</p>
+                        <p class="note">Modalités&nbsp;: à distance, dans nos locaux, ou sur site</p>
                     </div>
 
-                    <!-- Formation GPS -->
-                    <div class="card-industrial rounded-2xl p-6 scroll-reveal">
-                        <h4 class="font-bold text-gray-900 mb-2">Formation utilisation GPS</h4>
-                        <p class="text-sm text-gray-400 mb-4">Pour Opérateurs et géomètres — 1/2 journée</p>
-                        <p class="text-sm text-gray-600 mb-4">Démarrage des balises, utilisation application :
-                            implantation, collecte de données, synchronisation.</p>
-                        <p class="text-xs text-gray-500">Modalités : à distance, dans nos locaux, ou sur site</p>
+                    <div class="card-industrial">
+                        <h4>Formation utilisation GPS <span>Pour Opérateurs et géomètres, 1/2&nbsp;journée</span></h4>
+                        <p>Démarrage des balises, utilisation application&nbsp;: implantation, collecte de données,
+                            synchronisation.</p>
+                        <p class="note">Modalités&nbsp;: à distance, dans nos locaux, ou sur site</p>
                     </div>
                 </div>
             </div>
 
             <!-- Location -->
-            <div>
-                <h3 class="text-center text-gray-400 text-xs font-medium mb-8 tracking-widest uppercase">Location</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Location complet -->
-                    <div class="card-industrial rounded-2xl p-6 scroll-reveal">
-                        <h4 class="font-bold text-gray-900 mb-2">Kit complet GPS/RTK<br><span
-                                class="text-sm font-normal">(base + rover)</span></h4>
+            <div class="container grid-12 offer-group">
+                <h3>Location</h3>
+                <div class="offer-grid offer-grid--2">
+                    <div class="card-industrial">
+                        <h4>Kit complet GPS/RTK <span>(base + rover)</span></h4>
                     </div>
 
-                    <!-- Location mono-balise -->
-                    <div class="card-industrial rounded-2xl p-6 scroll-reveal">
-                        <h4 class="font-bold text-gray-900 mb-2">Kit mono-balise GPS/RTK</h4>
-
+                    <div class="card-industrial">
+                        <h4>Kit mono-balise GPS/RTK</h4>
                     </div>
                 </div>
             </div>
 
             <!-- CTA -->
-            <div class="text-center mt-16">
-                <a href="#contact"
-                    class="btn-primary inline-flex items-center justify-center px-8 py-4 text-white rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300">
-                    <i class="fas fa-envelope mr-2"></i>
-                    Demander un devis
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-gray-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Sous-section: Clients -->
-            <div class="mb-16">
-                <h3 class="text-center text-gray-400 text-xs font-medium mb-8 tracking-widest uppercase">Ils nous font
-                    confiance</h3>
-                <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
-                    <a target="_blank" href="https://carriontp.fr" class="flex flex-col items-center p-4">
-                        <img src="https://media.licdn.com/dms/image/v2/D4E0BAQEj33ypifOvLQ/company-logo_200_200/company-logo_200_200/0/1706611761809/carrion_travaux_publics_logo?e=1778716800&v=beta&t=4tQcbBplC4O5edKMYHXKyx5DIyQ55gFmruYKX_7CTjE"
-                            alt="CarrionTP"
-                            class="h-28 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    </a>
-                    <a target="_blank" href="https://www.jdprovence.com" class="flex flex-col items-center p-4">
-                        <img src="https://www.jdprovence.com/wp-content/uploads/2025/09/MEDITERRANEE.svg"
-                            alt="Jardin de Provence"
-                            class="h-16 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    </a>
-                    <a href="https://www.rogermartin.fr" target="_blank" class="flex flex-col items-center p-4">
-                        <img src="https://www.rogermartin.fr/content/uploads/2023/04/logo.svg" alt="Roger Martin"
-                            class="h-16 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <!-- ==================== FAQ SECTION ==================== -->
-    <section id="faq" class="py-20 bg-white">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
-                    Des questions ?
-                </h2>
-            </div>
-
-            <div class="space-y-6 scroll-reveal">
-                <!-- FAQ 1 -->
-                <div
-                    class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition duration-300">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">
-                        <i class="fas fa-question-circle text-lacanne-dark mr-2"></i>
-                        Qu'est-ce que le GPS RTK ?
-                    </h3>
-                    <p class="text-gray-600">
-                        La cinématique temps réel (RTK) est une technique de positionnement par satellite basée sur
-                        l'utilisation de mesures de phase des ondes porteuses GPS, GLONASS ou Galileo. Une station de
-                        référence fournit des corrections en temps réel permettant d'atteindre une précision de l'ordre
-                        du centimètre.
-                    </p>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div
-                    class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition duration-300">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">
-                        <i class="fas fa-question-circle text-lacanne-dark mr-2"></i>
-                        LaCanne, qu'est-ce que c'est ?
-                    </h3>
-                    <p class="text-gray-600">
-                        LaCanne est un kit complet comprenant une mallette de transport, deux balises GPS RTK fiables et
-                        robustes, deux cannes et un tripode. Le tout est accompagné d'un software et d'une application
-                        synchronisés pour gagner en efficacité sur vos chantiers.
-                    </p>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div
-                    class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition duration-300">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">
-                        <i class="fas fa-question-circle text-lacanne-dark mr-2"></i>
-                        Ai-je besoin de compétences techniques ?
-                    </h3>
-                    <p class="text-gray-600">
-                        Non ! LaCanne est conçu pour les non-initiés à la topographie. L'application guide l'utilisateur
-                        étape par étape, même sans expérience technique préalable.
-                    </p>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div
-                    class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition duration-300">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">
-                        <i class="fas fa-question-circle text-lacanne-dark mr-2"></i>
-                        Puis-je créer ma propre nomenclature ?
-                    </h3>
-                    <p class="text-gray-600">
-                        Oui ! LaCanne vous permet de créer une nomenclature personnalisée en fonction de votre activité
-                        et de vos besoins spécifiques.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ==================== TRUST SECTION ==================== -->
-
-    <section class="py-20 bg-gray-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Titre principal -->
-            <!-- Sous-section: Fournisseurs -->
-            <div class="mb-16">
-                <h3 class="text-center text-gray-400 text-xs font-medium mb-8 tracking-widest uppercase">Nos
-                    partenaires</h3>
-                <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
-                    <a target="_blank" href="https://www.geobsys.com/" class="flex flex-col items-center p-4">
-                        <img src="https://www.geobsys.com/web/image/2486-3c1fab5f/geosbsysb%26w.png" alt="Geobsys"
-                            class="h-8 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    </a>
-                    <a target="_blank" href="https://natuition.com/" class="flex flex-col items-center p-4">
-                        <img src="https://natuition.com/wp-content/uploads/2019/11/2.png" alt="Natuition"
-                            class="h-20 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    </a>
-                    <a target="_blank" href="https://satinfo.fr" class="flex flex-col items-center p-4">
-                        <img src="https://satinfo.fr/wp-content/uploads/logo-satinfo.svg" alt="Satinfo"
-                            class="h-28 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    </a>
-                </div>
-            </div>
-
-            <!-- Séparateur -->
-            <div class="w-32 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mx-auto mb-16"></div>
-
-            <!-- Sous-section: Presse -->
-            <div>
-                <h3 class="text-center text-gray-400 text-xs font-medium mb-8 tracking-widest uppercase">La presse en
-                    parle</h3>
-                <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
-                    <a href="https://www.lemoniteur.fr/article/lacanne-une-solution-pour-faciliter-les-implantations-des-ouvrages-lineaires.2342893"
-                        target="_blank" class="flex flex-col items-center p-4">
-                        <img src="https://www.lemoniteur.fr/pf/resources/images/le-moniteur/logo.svg?d=59"
-                            alt="Le Moniteur"
-                            class="h-8 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    </a>
-                    <a target="_blank"
-                        href="https://journal-du-palais.fr/au-sommaire/entreprises/lacanne-l-innovation-qui-a-seduit-un-geant-du-btp"
-                        class="flex flex-col items-center p-4">
-                        <img src="https://journal-du-palais.fr/squelettes/sq_journaldupalais/img/logo.svg"
-                            alt="Journal du Palais"
-                            class="h-12 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    </a>
-                    <a target="_blank"
-                        href="https://www.constructionbtp.com/terrassements-carrieres/article/2025/02/11/151606/lacanne-facilite-les-releves-topographiques"
-                        class="flex flex-col items-center p-4">
-                        <img src="https://www.constructionbtp.com/images/logos/logo_cc_12.png?id=10"
-                            alt="Construction BTP"
-                            class="h-10 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    </a>
-                    <a target="_blank"
-                        href="https://www.bienpublic.com/economie/2025/03/17/comment-lacanne-creee-a-dijon-pourrait-revolutionner-le-secteur-des-travaux-publics"
-                        class="flex flex-col items-center p-4">
-                        <img src="https://media.licdn.com/dms/image/v2/D4E0BAQF5JSvYxnI_cg/img-crop_100/img-crop_100/0/1735807292785?e=1778716800&v=beta&t=jR8TfazfkOIGFzTlPRtAgwNRgA8GbK4oGa6xXW53DIw"
-                            alt="Le Bien Public"
-                            class="h-14 w-auto opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <div class="gradient-bg">
-        <!-- ==================== CTA SECTION ==================== -->
-        <section id="contact" class="pt-10 ">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-                    Prêt à transformer vos chantiers ?
-                </h2>
-                <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-                    Demandez un devis personnalisé ou contactez-nous pour en savoir plus.
-                </p>
-
-                <form id="contact-form" class="max-w-md mx-auto space-y-4">
-                    <input type="hidden" name="offre" id="offre-input">
-                    <div id="offre-chip"
-                        class="hidden items-center justify-between gap-3 px-4 py-3 rounded-xl bg-lacanne/15 border border-lacanne/40 text-white text-left">
-                        <span class="text-sm"><i class="fas fa-file-invoice text-lacanne mr-2"></i>Devis pour :
-                            <strong id="offre-label"></strong></span>
-                        <button type="button" id="offre-clear" aria-label="Retirer l'offre"
-                            class="text-white/60 hover:text-white transition"><i class="fas fa-times"></i></button>
-                    </div>
-                    <input type="text" name="nom" required placeholder="Votre nom"
-                        class="w-full px-6 py-4 rounded-xl text-gray-900 border border-white/10 bg-white/5 focus:ring-2 focus:ring-lacanne focus:bg-white/10 transition backdrop-blur-sm">
-                    <input type="email" name="email" required placeholder="Votre email"
-                        class="w-full px-6 py-4 rounded-xl text-gray-900 border border-white/10 bg-white/5 focus:ring-2 focus:ring-lacanne focus:bg-white/10 transition backdrop-blur-sm">
-                    <input type="tel" name="telephone" placeholder="Votre téléphone"
-                        class="w-full px-6 py-4 rounded-xl text-gray-900 border border-white/10 bg-white/5 focus:ring-2 focus:ring-lacanne focus:bg-white/10 transition backdrop-blur-sm">
-                    <textarea name="message" required placeholder="Votre message" rows="4"
-                        class="w-full px-6 py-4 rounded-xl text-gray-900 border border-white/10 bg-white/5 focus:ring-2 focus:ring-lacanne focus:bg-white/10 transition backdrop-blur-sm"></textarea>
-                    <button type="submit"
-                        class="btn-primary w-full py-4 text-white rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300">
-                        Envoyer ma demande
-                    </button>
-                </form>
-
-                <p class="mt-6 text-gray-400 text-sm">
-                    <i class="fas fa-envelope mr-1"></i>
-                    contact@lacanne.fr · <i class="fas fa-phone ml-2 mr-1"></i> 03 73 27 02 86
-                </p>
+            <div class="container grid-12 offer-cta">
+                <a href="#contact" class="btn">Demander un devis</a>
             </div>
         </section>
 
-        <!-- ==================== FOOTER ==================== -->
-        <footer class="text-gray-400 py-10 border-t border-gray-800/50">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-4 gap-6">
-                    <!-- Brand -->
-                    <div class="col-span-2">
-                        <a href="#laCanne">
-                            <img src="./logo.svg" alt="LaCanne" class="h-24 w-auto mb-4">
-                        </a>
-                        <p class="text-sm">
-                            Le kit GPS RTK complet pour donner de l'autonomie à vos chantiers.
-                        </p>
-                    </div>
-
-                    <!-- Links -->
-                    <div>
-                        <h4 class="text-white font-semibold mb-4">Produit</h4>
-                        <ul class="space-y-2 text-sm">
-                            <li><a href="#fonctions" class="hover:text-lacanne transition">Fonctionnalités</a></li>
-                            <li><a href="#avantages" class="hover:text-lacanne transition">Avantages</a></li>
-                            <li><a href="#cadoles" class="hover:text-lacanne transition">
-                                    Qui sommes-nous ?</a></li>
-                            <li><a href="#cadoles" class="hover:text-lacanne transition">
-                                    Nos offres</a></li>
-                            <li><a href="#faq" class="hover:text-lacanne transition">FAQ</a></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 class="text-white font-semibold mb-4">Contact</h4>
-                        <ul class="space-y-2 text-sm">
-                            <li><i class="fas fa-map-marker-alt mr-2"></i>Dijon</li>
-                            <li><i class="fas fa-phone mr-2"></i>03 73 27 02 86</li>
-                            <li><i class="fas fa-envelope mr-2"></i>contact@lacanne.fr</li>
-                        </ul>
-                    </div>
-
+        <!-- ==================== RÉFÉRENCES ==================== -->
+        <section class="section refs">
+            <div class="container">
+                <h2>Ils nous font confiance</h2>
+                <div class="refs__clients">
+                    <a target="_blank" rel="noopener" href="https://carriontp.fr" class="logo-link logo-link--dark">
+                        <img src="https://carriontp.fr/site/1/assets/img/carrion-travaux-public.svg" alt="CarrionTP"
+                            width="240" height="64" loading="lazy">
+                    </a>
+                    <a target="_blank" rel="noopener" href="https://www.jdprovence.com" class="logo-link">
+                        <img src="https://www.jdprovence.com/wp-content/uploads/2025/09/MEDITERRANEE.svg"
+                            alt="Jardin de Provence" width="240" height="64" loading="lazy">
+                    </a>
+                    <a href="https://www.rogermartin.fr" target="_blank" rel="noopener" class="logo-link">
+                        <img src="https://www.rogermartin.fr/content/uploads/2023/04/logo.svg" alt="Roger Martin"
+                            width="240" height="64" loading="lazy">
+                    </a>
                 </div>
-                <div class="border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-sm">© <span id="current-year"></span> LaCanne. Tous droits réservés.</p>
-                    <p class="text-sm mt-4 md:mt-0">Développé par <a href="https://www.cadoles.com"
-                            class="text-lacanne hover:underline">Cadoles</a></p>
-                    <!-- Soutien -->
-                    <div class="flex flex-col items-center mt-6">
-                        <p class="text-gray-500 text-xs font-medium mb-3 tracking-widest uppercase">Avec le soutien de
-                        </p>
-                        <img src="https://www.lacanne.fr/wp-content/uploads/2026/01/region-bfc-logo-fond-blanc-cmjn-scaled-1-1024x812.jpg"
-                            alt="Région Bourgogne-Franche-Comté"
-                            class="h-16 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
-                    </div>
-                </div>
-
-
             </div>
-        </footer>
-    </div>
+
+            <div class="container grid-12 refs__row">
+                <h3>Nos partenaires</h3>
+                <div class="refs__logos">
+                    <a target="_blank" rel="noopener" href="https://www.geobsys.com/" class="logo-link">
+                        <img src="https://www.geobsys.com/web/image/2486-3c1fab5f/geosbsysb%26w.png" alt="Geobsys"
+                            width="200" height="44" loading="lazy">
+                    </a>
+                    <a target="_blank" rel="noopener" href="https://natuition.com/" class="logo-link">
+                        <img src="https://natuition.com/wp-content/uploads/2019/11/2.png" alt="Natuition" width="200"
+                            height="44" loading="lazy">
+                    </a>
+                    <a target="_blank" rel="noopener" href="https://satinfo.fr" class="logo-link">
+                        <img src="https://satinfo.fr/wp-content/uploads/logo-satinfo.svg" alt="Satinfo" width="200"
+                            height="44" loading="lazy">
+                    </a>
+                </div>
+            </div>
+
+            <div class="container grid-12 refs__row">
+                <h3>La presse en parle</h3>
+                <div class="refs__logos">
+                    <a href="https://www.lemoniteur.fr/article/lacanne-une-solution-pour-faciliter-les-implantations-des-ouvrages-lineaires.2342893"
+                        target="_blank" rel="noopener" class="logo-link">
+                        <img src="https://www.lemoniteur.fr/pf/resources/images/le-moniteur/logo.svg?d=59"
+                            alt="Le Moniteur" width="200" height="44" loading="lazy">
+                    </a>
+                    <a target="_blank" rel="noopener"
+                        href="https://journal-du-palais.fr/au-sommaire/entreprises/lacanne-l-innovation-qui-a-seduit-un-geant-du-btp"
+                        class="logo-link">
+                        <img src="https://journal-du-palais.fr/squelettes/sq_journaldupalais/img/logo.svg"
+                            alt="Journal du Palais" width="200" height="44" loading="lazy">
+                    </a>
+                    <a target="_blank" rel="noopener"
+                        href="https://www.constructionbtp.com/terrassements-carrieres/article/2025/02/11/151606/lacanne-facilite-les-releves-topographiques"
+                        class="logo-link">
+                        <img src="https://www.constructionbtp.com/images/logos/logo_cc_12.png?id=10"
+                            alt="Construction BTP" width="200" height="44" loading="lazy">
+                    </a>
+                    <a target="_blank" rel="noopener"
+                        href="https://www.bienpublic.com/economie/2025/03/17/comment-lacanne-creee-a-dijon-pourrait-revolutionner-le-secteur-des-travaux-publics"
+                        class="logo-link">
+                        <span class="logo-word">Le Bien Public</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FAQ ==================== -->
+        <section id="faq" class="section">
+            <div class="container grid-12 faq">
+                <h2>Des questions&nbsp;?</h2>
+                <dl class="faq__list">
+                    <div>
+                        <dt>Qu’est-ce que le GPS RTK&nbsp;?</dt>
+                        <dd>La cinématique temps réel (RTK) est une technique de positionnement par satellite basée sur
+                            l’utilisation de mesures de phase des ondes porteuses GPS, GLONASS ou Galileo. Une station
+                            de référence fournit des corrections en temps réel permettant d’atteindre une précision de
+                            l’ordre du centimètre.</dd>
+                    </div>
+                    <div>
+                        <dt>LaCanne, qu’est-ce que c’est&nbsp;?</dt>
+                        <dd>LaCanne est un kit complet comprenant une mallette de transport, deux balises GPS RTK
+                            fiables et robustes, deux cannes et un tripode. Le tout est accompagné d’un software et
+                            d’une application synchronisés pour gagner en efficacité sur vos chantiers.</dd>
+                    </div>
+                    <div>
+                        <dt>Ai-je besoin de compétences techniques&nbsp;?</dt>
+                        <dd>Non&nbsp;! LaCanne est conçu pour les non-initiés à la topographie. L’application guide
+                            l’utilisateur étape par étape, même sans expérience technique préalable.</dd>
+                    </div>
+                    <div>
+                        <dt>Puis-je créer ma propre nomenclature&nbsp;?</dt>
+                        <dd>Oui&nbsp;! LaCanne vous permet de créer une nomenclature personnalisée en fonction de votre
+                            activité et de vos besoins spécifiques.</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT ==================== -->
+        <section id="contact" class="section section--rule">
+            <div class="container grid-12">
+                <div class="contact__left">
+                    <h2>Prêt à transformer vos chantiers&nbsp;?</h2>
+                    <p class="lead">Demandez un devis personnalisé ou contactez-nous pour en savoir plus.</p>
+                    <ul class="contact__facts">
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i>contact@lacanne.fr</li>
+                        <li><i class="fas fa-phone" aria-hidden="true"></i>03 73 27 02 86</li>
+                    </ul>
+                </div>
+
+                <form id="contact-form" class="form">
+                    <input type="hidden" name="offre" id="offre-input">
+                    <div id="offre-chip" class="hidden">
+                        <span><i class="fas fa-file-invoice" aria-hidden="true"></i>Devis pour&nbsp;:
+                            <strong id="offre-label"></strong></span>
+                        <button type="button" id="offre-clear" class="icon-btn" aria-label="Retirer l'offre"><i
+                                class="fas fa-times" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="field">
+                        <label for="f-nom">Nom</label>
+                        <input id="f-nom" type="text" name="nom" required autocomplete="name" placeholder="Votre nom">
+                    </div>
+                    <div class="field">
+                        <label for="f-email">Email</label>
+                        <input id="f-email" type="email" name="email" required autocomplete="email"
+                            placeholder="Votre email">
+                    </div>
+                    <div class="field">
+                        <label for="f-tel">Téléphone (facultatif)</label>
+                        <input id="f-tel" type="tel" name="telephone" autocomplete="tel" inputmode="tel"
+                            placeholder="Votre téléphone">
+                    </div>
+                    <div class="field">
+                        <label for="f-message">Message</label>
+                        <textarea id="f-message" name="message" required placeholder="Votre message"
+                            rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Envoyer ma demande</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container grid-12">
+            <div class="footer__sign">
+                <a href="#laCanne" class="nav__brand" aria-label="LaCanne, retour en haut de page">
+                    <img src="./logo.svg" alt="LaCanne" width="235" height="64">
+                </a>
+                <p>Le kit GPS RTK complet pour donner de l’autonomie à vos chantiers.</p>
+            </div>
+
+            <div class="footer__col">
+                <h2>Produit</h2>
+                <ul>
+                    <li><a href="#fonctions">Fonctionnalités</a></li>
+                    <li><a href="#avantages">Avantages</a></li>
+                    <li><a href="#cadoles">Qui sommes-nous ?</a></li>
+                    <li><a href="#offres">Nos offres</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h2>Contact</h2>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Dijon</li>
+                    <li><i class="fas fa-phone" aria-hidden="true"></i>03 73 27 02 86</li>
+                    <li><i class="fas fa-envelope" aria-hidden="true"></i>contact@lacanne.fr</li>
+                </ul>
+            </div>
+
+            <div class="footer__base">
+                <p>© <span id="current-year"></span> LaCanne. Tous droits réservés.</p>
+                <p>Développé par <a href="https://www.cadoles.com" class="link">Cadoles</a></p>
+                <div class="footer__support">
+                    <p>Avec le soutien de</p>
+                    <img src="https://www.lacanne.fr/wp-content/uploads/2026/01/region-bfc-logo-fond-blanc-cmjn-scaled-1-1024x812.jpg"
+                        alt="Région Bourgogne-Franche-Comté" width="71" height="56" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- ==================== SCRIPTS ==================== -->
     <script>
-        // Scroll reveal animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            observer.observe(el);
-        });
-
         // Burger menu toggle
         const burgerBtn = document.getElementById('burger-menu');
         const closeBtn = document.getElementById('close-menu');
@@ -1609,11 +926,13 @@
         burgerBtn.addEventListener('click', () => {
             mobileMenu.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
+            closeBtn.focus();
         });
 
         closeBtn.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
             document.body.style.overflow = '';
+            burgerBtn.focus();
         });
 
         mobileLinks.forEach(link => {
@@ -1638,6 +957,41 @@
                 }
             });
         }
+
+        // Vidéo en boucle : pause visible, arrêt hors écran et en mouvement réduit
+        document.querySelectorAll('[data-loop]').forEach((el) => {
+            const btn = el.querySelector('[data-loop-toggle]');
+            const icon = btn.querySelector('i');
+            const s = { seen: false, focus: false, held: matchMedia('(prefers-reduced-motion: reduce)').matches };
+            const sync = () => {
+                const run = s.seen && !s.focus && !s.held;
+                el.classList.toggle('is-running', run);
+                el.querySelectorAll('video').forEach((v) => (run ? v.play().catch(() => {}) : v.pause()));
+                btn.setAttribute('aria-label', s.held ? 'Lire la vidéo' : 'Mettre la vidéo en pause');
+                icon.className = s.held ? 'fas fa-play' : 'fas fa-pause';
+            };
+            btn.addEventListener('click', () => { s.held = !s.held; sync(); });
+            new IntersectionObserver(([e]) => { s.seen = e.isIntersecting; sync(); }).observe(el);
+            sync();
+        });
+
+        // Workflow : l'image suit l'étape en cours
+        const shot = document.querySelector('.workflow__shot');
+        if (shot) {
+            const imgs = shot.querySelectorAll('img');
+            const caption = shot.querySelector('[data-step-caption]');
+            const steps = document.querySelectorAll('.steps li');
+            const show = (i) => {
+                imgs.forEach((im, k) => im.classList.toggle('is-active', k === i));
+                steps.forEach((li, k) => li.classList.toggle('is-current', k === i));
+                caption.textContent = steps[i].querySelector('h3').textContent;
+            };
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((e) => { if (e.isIntersecting) show(Number(e.target.dataset.step)); });
+            }, { rootMargin: '-45% 0px -45% 0px' });
+            steps.forEach((li) => io.observe(li));
+        }
+
         // Formulaire de contact -> mailto
         const contactForm = document.getElementById('contact-form');
         if (contactForm) {
@@ -1691,13 +1045,28 @@
 
             const btn = document.createElement('a');
             btn.href = '#contact';
-            btn.className = 'mt-auto self-start inline-flex items-center px-4 py-2 rounded-lg text-sm font-semibold text-lacanne-dark border border-lacanne-dark/30 hover:bg-lacanne-dark hover:text-white transition';
-            btn.innerHTML = '<i class="fas fa-file-invoice mr-2"></i>Devis';
+            btn.className = 'btn btn--quiet btn--sm offer-btn';
+            btn.innerHTML = '<i class="fas fa-file-invoice" aria-hidden="true"></i>Devis';
             btn.setAttribute('aria-label', `Demander un devis : ${offre}`);
             btn.addEventListener('click', () => setOffre(offre));
 
             card.classList.add('flex', 'flex-col');
             card.appendChild(btn);
+        });
+
+        // Technologie : mono-balise ou base + rover
+        const modeTabs = document.querySelectorAll('.mode-tab');
+        modeTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                modeTabs.forEach(t => {
+                    const on = t === tab;
+                    t.setAttribute('aria-pressed', on);
+                    t.classList.toggle('is-active', on);
+                });
+                document.querySelectorAll('.mode-panel').forEach(p => {
+                    p.classList.toggle('hidden', p.dataset.modePanel !== tab.dataset.mode);
+                });
+            });
         });
 
         // Comparatif balises
