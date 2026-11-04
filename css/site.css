@@ -139,8 +139,16 @@ html:not(.js) .workflow__index { display: none; }
 .mode-tab .tab__id { font-size: var(--text-sm); font-weight: 600; color: var(--color-sky); }
 .mode-tab .tab__name { font: 600 var(--text-xl)/1.2 var(--font-display); }
 .mode-tab .tab__sub { font-size: var(--text-sm); color: var(--color-field-ink-2); }
-.mode-tab__pics { grid-column: 2; grid-row: 1 / span 3; display: flex; align-items: center; gap: var(--space-2xs); padding: var(--space-xs); border-radius: var(--radius-inner); background: var(--color-raised); color: var(--color-ink-2); }
+.mode-tab__pics { grid-column: 2; grid-row: 1 / span 4; display: flex; align-items: center; gap: var(--space-2xs); padding: var(--space-xs); border-radius: var(--radius-inner); background: var(--color-raised); color: var(--color-ink-2); }
 .mode-tab__pics img { width: 72px; height: 72px; object-fit: contain; mix-blend-mode: multiply; }
+.mode-tab__state { margin-top: var(--space-sm); font-size: var(--text-sm); font-weight: 600; }
+.mode-tab__state > span { display: inline-flex; align-items: center; gap: var(--space-xs); }
+.mode-tab__state i { font-size: var(--text-lg); }
+.mode-tab__state .state--off { color: var(--color-sky); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 0.3em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.mode-tab__state .state--on { display: none; color: var(--color-accent); }
+.mode-tab.is-active .state--off { display: none; }
+.mode-tab.is-active .state--on { display: inline-flex; }
+.mode-tab:hover .state--off { text-decoration-color: currentColor; }
 .mode-tab:hover { border-color: var(--color-field-ink-2); }
 .mode-tab:active { transform: translateY(1px); }
 .mode-tab:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; transition: none; }
@@ -257,8 +265,8 @@ html:not(.js) .workflow__index { display: none; }
 .offer-cta .btn { grid-column: 4 / span 4; justify-self: start; }
 
 /* ---------- References ---------- */
-.refs__clients { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-columns); margin-top: var(--space-xl); }
-.refs__clients .logo-link { justify-content: center; min-height: 200px; padding: var(--space-xl); border-radius: var(--radius-card); background: var(--color-raised); border: 1px solid var(--color-rule); }
+.refs__clients { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-md); margin-top: var(--space-xl); }
+.refs__clients .logo-link { justify-content: center; min-height: 168px; padding: var(--space-lg); border-radius: var(--radius-card); background: var(--color-raised); border: 1px solid var(--color-rule); }
 .refs__row { align-items: center; padding-bottom: var(--space-xl); }
 .refs > .container:first-child { margin-bottom: var(--space-2xl); }
 .refs__row h3 { grid-column: 1 / span 3; font-size: var(--text-xl); }
@@ -267,8 +275,14 @@ html:not(.js) .workflow__index { display: none; }
 .logo-link img { height: 44px; width: auto; max-width: 200px; object-fit: contain; mix-blend-mode: multiply; }
 .logo-link img[alt="Satinfo"] { height: 72px; max-width: 220px; }
 .logo-link img[alt="Natuition"] { height: 64px; }
-.refs__clients .logo-link img { height: 88px; max-width: 100%; filter: none; opacity: 1; mix-blend-mode: normal; }
-.refs__clients .logo-link--dark { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-paper); }
+.refs__clients .logo-link img { height: 80px; max-width: 100%; filter: none; opacity: 1; mix-blend-mode: normal; }
+.refs__clients .logo-link:nth-child(even) img { mix-blend-mode: multiply; }
+.refs__clients .logo-link--named { flex-direction: column; gap: var(--space-2xs); }
+.refs__clients .logo-link--named img { height: 96px; }
+.refs__clients .logo-link--named { gap: var(--space-sm); }
+.refs__clients .logo-link--named .logo-wordmark { height: auto; width: 100%; max-width: 180px; }
+.refs__clients img[alt="AxeTP"] { height: 104px; }
+.refs__clients .logo-link:nth-child(odd) { background: var(--color-field); border-color: var(--color-field); color: var(--color-field-ink); }
 .logo-link:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
 .logo-link .logo-word { font: 600 var(--text-xl)/1 var(--font-display); color: var(--color-ink-2); }
 .logo-link:hover .logo-word { color: var(--color-ink); }
@@ -325,6 +339,7 @@ html:not(.js) .workflow__index { display: none; }
   .nav__links { gap: var(--space-md); font-size: var(--text-sm); }
 }
 @media (max-width: 64rem) {
+  .refs__clients { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .nav__links { display: none; }
   #burger-menu { display: inline-grid; }
   .nav__cta { margin-left: auto; }
@@ -373,8 +388,13 @@ html:not(.js) .workflow__index { display: none; }
   .hero__facts { gap: var(--space-xs) var(--space-sm); font-size: var(--text-xs); }
   .hero__grid { row-gap: var(--space-lg); }
   .nav__brand img { height: 40px; }
-  .refs__clients { grid-template-columns: minmax(0, 1fr); }
-  .refs__clients .logo-link { min-height: 140px; }
+  .refs__clients { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .refs__clients .logo-link { min-height: 120px; }
+  .refs__clients .logo-link img { height: 64px; }
+  .refs__clients .logo-link--named img { height: 72px; }
+  .refs__clients .logo-link--named .logo-wordmark { max-width: 130px; }
+  .refs__clients img[alt="AxeTP"] { height: 80px; }
+  .refs__clients .logo-link:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .nav__cta .btn { padding: 0 var(--space-sm); font-size: var(--text-sm); }
   .benefits, .specs, .offer-grid, .panel__specs { grid-template-columns: minmax(0, 1fr); }
   .card--wide { grid-column: auto; }
@@ -382,7 +402,7 @@ html:not(.js) .workflow__index { display: none; }
   .refs__clients, .refs__logos { gap: var(--space-lg) var(--space-xl); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .btn, .icon-btn, .balise-tab, .mode-tab, .link, .logo-link, .compare summary, .compare summary .fa-chevron-down, .nav__links a, .menu__links a { transition: none; }
+  .btn, .icon-btn, .balise-tab, .mode-tab, .mode-tab__state .state--off, .link, .logo-link, .compare summary, .compare summary .fa-chevron-down, .nav__links a, .menu__links a { transition: none; }
   .workflow__shot img, .js .steps li, .workflow__index button { transition: none; }
   .js .steps li { transform: none; }
   .btn:active, .icon-btn:active, .balise-tab:active, .mode-tab:active { transform: none; }
