@@ -95,19 +95,36 @@
 [data-loop]:not(.is-running) *, [data-loop]:not(.is-running) *::before, [data-loop]:not(.is-running) *::after { animation-play-state: paused !important; }
 html:not(.js) [data-loop-toggle] { display: none; }
 
-/* ---------- Workflow: a pinned run ---------- */
-.workflow__body { align-items: start; }
-.workflow__shot { grid-column: 1 / span 6; position: sticky; top: calc(var(--nav-height) + var(--space-xl)); margin: 0; aspect-ratio: 4 / 3; border-radius: var(--radius-card); overflow: hidden; background: var(--color-paper-3); }
+/* ---------- Workflow: pinned, one step per scroll ---------- */
+.workflow { padding-block: var(--section-gap); }
+.workflow__head .head { margin-bottom: var(--space-xl); }
+.workflow__stage { align-items: start; }
+.workflow__shot { grid-column: 1 / span 7; position: relative; margin: 0; aspect-ratio: 4 / 3; border-radius: var(--radius-card); overflow: hidden; background: var(--color-paper-3); }
 .workflow__shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity var(--dur-long) var(--ease-in-out); outline: 1px solid var(--color-shade); outline-offset: -1px; }
 .workflow__shot img.is-active { opacity: 1; }
-.workflow__shot figcaption { position: absolute; left: var(--space-md); bottom: var(--space-md); z-index: var(--z-raised); padding: var(--space-2xs) var(--space-sm); border-radius: var(--radius-inner); background: var(--color-overlay); color: var(--color-paper); font-size: var(--text-sm); }
-.steps { grid-column: 8 / span 5; margin: 0; padding: 0; list-style: none; counter-reset: step; }
-.steps li { counter-increment: step; display: grid; grid-template-columns: 3rem minmax(0, 1fr); column-gap: var(--space-md); align-content: center; min-height: 220px; padding-block: var(--space-xl); border-top: 1px solid var(--color-rule); }
-.steps li:last-child { border-bottom: 1px solid var(--color-rule); }
-.steps li::before { content: counter(step); grid-row: span 2; font: 600 var(--text-2xl)/1 var(--font-display); color: var(--color-seal); font-variant-numeric: tabular-nums; }
-.steps h3 { font-size: var(--text-2xl); margin-bottom: var(--space-xs); }
-.steps p { font-size: var(--text-md); color: var(--color-ink); max-width: 36ch; }
-.steps li.is-current h3 { color: var(--color-ink); }
+.workflow__text { grid-column: 9 / span 4; display: grid; gap: var(--space-xl); align-content: center; align-self: stretch; }
+.steps { display: grid; gap: var(--space-xl); margin: 0; padding: 0; list-style: none; counter-reset: step; }
+.steps li { counter-increment: step; display: grid; gap: var(--space-sm); }
+.steps li::before { content: counter(step); font: 600 var(--text-xl)/1 var(--font-display); color: var(--color-seal); font-variant-numeric: tabular-nums; }
+.steps h3 { font-size: var(--text-section); }
+.steps p { font-size: var(--text-lead); line-height: 1.45; color: var(--color-ink-2); max-width: 30ch; }
+.workflow__index { display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-md); margin: 0; padding: var(--space-md) 0 0; list-style: none; border-top: 1px solid var(--color-rule); }
+.workflow__index button { min-height: 44px; padding: 0; border: 0; background: none; color: var(--color-muted); font: 400 var(--text-sm)/1 var(--font-body); cursor: pointer; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 0.35em; transition: color var(--dur-short) var(--ease-out), text-decoration-color var(--dur-short) var(--ease-out); }
+.workflow__index button:hover { color: var(--color-ink); }
+.workflow__index button:active { transform: translateY(1px); }
+.workflow__index button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; border-radius: var(--space-2xs); transition: none; }
+.workflow__index button:disabled { opacity: 0.55; cursor: not-allowed; }
+.workflow__index button[aria-current="step"] { color: var(--color-ink); font-weight: 600; text-decoration-color: var(--color-accent); }
+html:not(.js) .workflow__index { display: none; }
+
+/* With script: the section is a tall track, its content pinned under the nav, one step shown per slice */
+.js .workflow { height: calc(var(--steps) * 70svh + 100svh); padding-block: 0; }
+.js .workflow__pin { position: sticky; top: var(--nav-height); height: calc(100svh - var(--nav-height)); display: grid; grid-template-rows: auto minmax(0, 1fr); padding-block: var(--space-xl); }
+.js .workflow__stage { align-items: stretch; min-height: 0; }
+.js .workflow__shot { aspect-ratio: auto; height: 100%; min-height: 0; }
+.js .steps { gap: 0; }
+.js .steps li { grid-area: 1 / 1; opacity: 0; transform: translateY(12px); transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out); visibility: hidden; }
+.js .steps li.is-current { opacity: 1; transform: none; visibility: visible; }
 
 /* ---------- Benefits ---------- */
 .benefits { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap-columns); margin: 0; }
@@ -306,10 +323,16 @@ html:not(.js) [data-loop-toggle] { display: none; }
   .nav__cta { margin-left: auto; }
 }
 @media (max-width: 60rem) {
-  .head, .hero h1, .hero__side, .workflow__shot, .steps, .about__left, .quote, .offer-head, .offer-group > h3, .offer-grid, .refs__row h3, .refs__logos, .faq h2, .faq__list, .contact__left, .form, .footer__sign, .footer__col, .footer__col:first-of-type, .offer-cta .btn { grid-column: 1 / -1; }
+  .head, .hero h1, .hero__side, .workflow__shot, .about__left, .quote, .offer-head, .offer-group > h3, .offer-grid, .refs__row h3, .refs__logos, .faq h2, .faq__list, .contact__left, .form, .footer__sign, .footer__col, .footer__col:first-of-type, .offer-cta .btn { grid-column: 1 / -1; }
   .hero__media video { height: auto; aspect-ratio: 16 / 9; }
-  .workflow__shot { position: relative; top: auto; margin-bottom: var(--space-xl); }
-  .steps li { min-height: 0; }
+  .workflow__text { grid-column: 1 / -1; margin-top: var(--space-xl); }
+  .js .workflow__stage { grid-template-rows: minmax(0, 1fr) auto; row-gap: var(--space-lg); }
+  .js .workflow__text { margin-top: 0; }
+  .js .workflow__head .head { margin-bottom: var(--space-lg); }
+  .js .workflow__pin { padding-block: var(--space-lg); }
+  .workflow__index { display: none; }
+  .steps h3 { font-size: var(--text-2xl); }
+  .steps p { font-size: var(--text-md); }
   .benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-xl); }
   .map__row { grid-template-columns: minmax(0, 1fr); padding-top: var(--space-xl); }
   .node--sky::before, .map__row .node--sky:not(.node--lead)::before { height: var(--space-xl); }
@@ -353,6 +376,7 @@ html:not(.js) [data-loop-toggle] { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .btn, .icon-btn, .balise-tab, .mode-tab, .link, .logo-link, .compare summary, .compare summary .fa-chevron-down, .nav__links a, .menu__links a { transition: none; }
-  .workflow__shot img { transition: none; }
+  .workflow__shot img, .js .steps li, .workflow__index button { transition: none; }
+  .js .steps li { transform: none; }
   .btn:active, .icon-btn:active, .balise-tab:active, .mode-tab:active { transform: none; }
 }

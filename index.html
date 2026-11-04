@@ -190,17 +190,18 @@
             </div>
         </section>
 
-        <!-- ==================== WORKFLOW ==================== -->
-        <section id="fonctions" class="section">
-            <div class="container grid-12">
-                <div class="head">
-                    <h2>LaCanne</h2>
-                    <p class="lead">Un workflow complet conçu pour le terrain au quotidien et en temps réel grâce à la
-                        synchronisation des données entre le bureau et le terrain.</p>
+        <!-- ==================== WORKFLOW : pinned, one step per scroll ==================== -->
+        <section id="fonctions" class="workflow" style="--steps: 6">
+            <div class="workflow__pin">
+                <div class="container grid-12 workflow__head">
+                    <div class="head">
+                        <h2>LaCanne</h2>
+                        <p class="lead">Un workflow complet conçu pour le terrain au quotidien et en temps réel grâce à la
+                            synchronisation des données entre le bureau et le terrain.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="container grid-12 workflow__body">
-                <figure class="workflow__shot" data-kind="product" aria-label="Images tirées de la vidéo de présentation">
+                <div class="container grid-12 workflow__stage">
+                    <figure class="workflow__shot" data-kind="product" aria-label="Images tirées de la vidéo de présentation">
                     <img class="is-active" src="images/workflow-integrer.jpg" width="1382" height="576" loading="lazy"
                         alt="Le plan du chantier ouvert dans le logiciel LaCanne, au bureau" style="object-position: 30% 50%">
                     <img src="images/workflow-guider.jpg" width="1382" height="576" loading="lazy"
@@ -213,36 +214,44 @@
                         alt="Vue d’ensemble d’un chantier de terrassement avec pelles et camions" style="object-position: 40% 50%">
                     <img src="images/workflow-extraire.jpg" width="1382" height="576" loading="lazy"
                         alt="Les points relevés reportés sur un plan au bureau" style="object-position: 50% 50%">
-                    <figcaption data-step-caption>Intégrer</figcaption>
-                </figure>
-
-                <ol class="steps">
-                    <li data-step="0">
-                        <h3>Intégrer</h3>
-                        <p>Intégrez votre plan pour préparer votre chantier avec les informations nécessaires à son
-                            exécution.</p>
-                    </li>
-                    <li data-step="1">
-                        <h3>Guider</h3>
-                        <p>Orientez-vous facilement sur le chantier grâce au fond de carte.</p>
-                    </li>
-                    <li data-step="2">
-                        <h3>Implanter</h3>
-                        <p>Repositionnez vos points de repères perdus.</p>
-                    </li>
-                    <li data-step="3">
-                        <h3>Collecter</h3>
-                        <p>Relevez vos points au fur et à mesure de vos travaux.</p>
-                    </li>
-                    <li data-step="4">
-                        <h3>Mesurer</h3>
-                        <p>Contrôlez vos surfaces et vos linéaires facilement.</p>
-                    </li>
-                    <li data-step="5">
-                        <h3>Extraire</h3>
-                        <p>Récupérez vos collectes pour effectuer vos plans.</p>
-                    </li>
-                </ol>
+                    </figure>
+                    <div class="workflow__text">
+                        <ol class="steps">
+                        <li data-step="0" class="is-current">
+                            <h3>Intégrer</h3>
+                            <p>Intégrez votre plan pour préparer votre chantier avec les informations nécessaires à son exécution.</p>
+                        </li>
+                        <li data-step="1">
+                            <h3>Guider</h3>
+                            <p>Orientez-vous facilement sur le chantier grâce au fond de carte.</p>
+                        </li>
+                        <li data-step="2">
+                            <h3>Implanter</h3>
+                            <p>Repositionnez vos points de repères perdus.</p>
+                        </li>
+                        <li data-step="3">
+                            <h3>Collecter</h3>
+                            <p>Relevez vos points au fur et à mesure de vos travaux.</p>
+                        </li>
+                        <li data-step="4">
+                            <h3>Mesurer</h3>
+                            <p>Contrôlez vos surfaces et vos linéaires facilement.</p>
+                        </li>
+                        <li data-step="5">
+                            <h3>Extraire</h3>
+                            <p>Récupérez vos collectes pour effectuer vos plans.</p>
+                        </li>
+                        </ol>
+                        <ol class="workflow__index" aria-label="Aller à une étape">
+                        <li><button type="button" data-goto="0" aria-current="step">Intégrer</button></li>
+                        <li><button type="button" data-goto="1">Guider</button></li>
+                        <li><button type="button" data-goto="2">Implanter</button></li>
+                        <li><button type="button" data-goto="3">Collecter</button></li>
+                        <li><button type="button" data-goto="4">Mesurer</button></li>
+                        <li><button type="button" data-goto="5">Extraire</button></li>
+                        </ol>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -975,21 +984,38 @@
             sync();
         });
 
-        // Workflow : l'image suit l'étape en cours
-        const shot = document.querySelector('.workflow__shot');
-        if (shot) {
-            const imgs = shot.querySelectorAll('img');
-            const caption = shot.querySelector('[data-step-caption]');
-            const steps = document.querySelectorAll('.steps li');
+        // Workflow : section figée, une étape (image + texte) par palier de défilement
+        const workflow = document.querySelector('.workflow');
+        if (workflow) {
+            const pin = workflow.querySelector('.workflow__pin');
+            const imgs = workflow.querySelectorAll('.workflow__shot img');
+            const steps = workflow.querySelectorAll('.steps li');
+            const gotos = workflow.querySelectorAll('[data-goto]');
+            const n = steps.length;
+            let current = 0, ticking = false;
             const show = (i) => {
+                if (i === current) return;
+                current = i;
                 imgs.forEach((im, k) => im.classList.toggle('is-active', k === i));
                 steps.forEach((li, k) => li.classList.toggle('is-current', k === i));
-                caption.textContent = steps[i].querySelector('h3').textContent;
+                gotos.forEach((b, k) => (k === i ? b.setAttribute('aria-current', 'step') : b.removeAttribute('aria-current')));
             };
-            const io = new IntersectionObserver((entries) => {
-                entries.forEach((e) => { if (e.isIntersecting) show(Number(e.target.dataset.step)); });
-            }, { rootMargin: '-45% 0px -45% 0px' });
-            steps.forEach((li) => io.observe(li));
+            const track = () => workflow.offsetHeight - pin.offsetHeight;
+            const update = () => {
+                ticking = false;
+                const t = track();
+                if (t <= 0) return;
+                const progress = Math.min(Math.max(-workflow.getBoundingClientRect().top / t, 0), 0.9999);
+                show(Math.floor(progress * n));
+            };
+            window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+            window.addEventListener('resize', update);
+            gotos.forEach((b) => b.addEventListener('click', () => {
+                const i = Number(b.dataset.goto);
+                const top = workflow.getBoundingClientRect().top + window.scrollY + (track() * (i + 0.5)) / n;
+                window.scrollTo({ top, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+            }));
+            update();
         }
 
         // Formulaire de contact -> mailto
