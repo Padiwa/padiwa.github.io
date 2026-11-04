@@ -115,14 +115,14 @@
     <!-- ==================== HEADER ==================== -->
     <header class="nav">
         <div class="container nav__bar">
-            <a href="#laCanne" class="nav__brand" aria-label="LaCanne, retour en haut de page"><img src="logo.svg"
+            <a href="#laCanne" class="nav__brand" aria-label="LaCanne, retour en haut de page"><img src="assets/logos/logo.svg"
                     alt="LaCanne" width="176" height="48"></a>
 
             <nav class="nav__links" aria-label="Navigation principale">
                 <a href="#fonctions">Fonctionnalités</a>
                 <a href="#avantages">Avantages</a>
-                <a href="#cadoles">Qui sommes-nous ?</a>
                 <a href="#offres">Nos offres</a>
+                <a href="#cadoles">Qui sommes-nous ?</a>
                 <a href="#faq">FAQ</a>
             </nav>
 
@@ -146,8 +146,8 @@
         <nav class="menu__links" aria-label="Navigation mobile">
             <a href="#fonctions" class="mobile-link">Fonctionnalités</a>
             <a href="#avantages" class="mobile-link">Avantages</a>
-            <a href="#cadoles" class="mobile-link">Qui sommes-nous ?</a>
             <a href="#offres" class="mobile-link">Nos offres</a>
+            <a href="#cadoles" class="mobile-link">Qui sommes-nous ?</a>
             <a href="#faq" class="mobile-link">FAQ</a>
         </nav>
     </div>
@@ -174,9 +174,9 @@
 
                 <figure class="hero__media" data-loop>
                     <video id="hero-video" autoplay loop muted playsinline preload="auto"
-                        poster="images/hero-poster.jpg"
+                        poster="assets/video/hero-poster.jpg"
                         aria-label="Présentation de LaCanne : du bureau au chantier">
-                        <source src="presensation.mp4" type="video/mp4">
+                        <source src="assets/video/presensation.mp4" type="video/mp4">
                     </video>
                     <div class="media-controls">
                         <button type="button" class="icon-btn" data-loop-toggle aria-label="Mettre la vidéo en pause">
@@ -190,59 +190,68 @@
             </div>
         </section>
 
-        <!-- ==================== WORKFLOW ==================== -->
-        <section id="fonctions" class="section">
-            <div class="container grid-12">
-                <div class="head">
-                    <h2>LaCanne</h2>
-                    <p class="lead">Un workflow complet conçu pour le terrain au quotidien et en temps réel grâce à la
-                        synchronisation des données entre le bureau et le terrain.</p>
+        <!-- ==================== WORKFLOW : pinned, one step per scroll ==================== -->
+        <section id="fonctions" class="workflow" style="--steps: 6">
+            <div class="workflow__pin">
+                <div class="container grid-12 workflow__head">
+                    <div class="head">
+                        <h2>LaCanne</h2>
+                        <p class="lead">Un workflow complet conçu pour le terrain au quotidien et en temps réel grâce à la
+                            synchronisation des données entre le bureau et le terrain.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="container grid-12 workflow__body">
-                <figure class="workflow__shot" data-kind="product" aria-label="Images tirées de la vidéo de présentation">
-                    <img class="is-active" src="images/workflow-integrer.jpg" width="1382" height="576" loading="lazy"
+                <div class="container grid-12 workflow__stage">
+                    <figure class="workflow__shot" data-kind="product" aria-label="Images tirées de la vidéo de présentation">
+                    <img class="is-active" src="assets/workflow/workflow-integrer.jpg" width="1382" height="576" loading="lazy"
                         alt="Le plan du chantier ouvert dans le logiciel LaCanne, au bureau" style="object-position: 30% 50%">
-                    <img src="images/workflow-guider.jpg" width="1382" height="576" loading="lazy"
+                    <img src="assets/workflow/workflow-guider.jpg" width="1382" height="576" loading="lazy"
                         alt="Le carnet de terrain affiche le plan, fixé sur la canne" style="object-position: 25% 50%">
-                    <img src="images/workflow-implanter.jpg" width="1382" height="576" loading="lazy"
+                    <img src="assets/workflow/workflow-implanter.jpg" width="1382" height="576" loading="lazy"
                         alt="Un opérateur plante un repère à côté de la canne" style="object-position: 75% 50%">
-                    <img src="images/workflow-collecter.jpg" width="1382" height="576" loading="lazy"
+                    <img src="assets/workflow/workflow-collecter.jpg" width="1382" height="576" loading="lazy"
                         alt="Un opérateur en gilet relève un point avec la balise sur sa canne" style="object-position: 65% 40%">
-                    <img src="images/workflow-mesurer.jpg" width="1382" height="576" loading="lazy"
+                    <img src="assets/workflow/workflow-mesurer.jpg" width="1382" height="576" loading="lazy"
                         alt="Vue d’ensemble d’un chantier de terrassement avec pelles et camions" style="object-position: 40% 50%">
-                    <img src="images/workflow-extraire.jpg" width="1382" height="576" loading="lazy"
+                    <img src="assets/workflow/workflow-extraire.jpg" width="1382" height="576" loading="lazy"
                         alt="Les points relevés reportés sur un plan au bureau" style="object-position: 50% 50%">
-                    <figcaption data-step-caption>Intégrer</figcaption>
-                </figure>
-
-                <ol class="steps">
-                    <li data-step="0">
-                        <h3>Intégrer</h3>
-                        <p>Intégrez votre plan pour préparer votre chantier avec les informations nécessaires à son
-                            exécution.</p>
-                    </li>
-                    <li data-step="1">
-                        <h3>Guider</h3>
-                        <p>Orientez-vous facilement sur le chantier grâce au fond de carte.</p>
-                    </li>
-                    <li data-step="2">
-                        <h3>Implanter</h3>
-                        <p>Repositionnez vos points de repères perdus.</p>
-                    </li>
-                    <li data-step="3">
-                        <h3>Collecter</h3>
-                        <p>Relevez vos points au fur et à mesure de vos travaux.</p>
-                    </li>
-                    <li data-step="4">
-                        <h3>Mesurer</h3>
-                        <p>Contrôlez vos surfaces et vos linéaires facilement.</p>
-                    </li>
-                    <li data-step="5">
-                        <h3>Extraire</h3>
-                        <p>Récupérez vos collectes pour effectuer vos plans.</p>
-                    </li>
-                </ol>
+                    </figure>
+                    <div class="workflow__text">
+                        <ol class="steps">
+                        <li data-step="0" class="is-current">
+                            <h3>Intégrer</h3>
+                            <p>Intégrez votre plan pour préparer votre chantier avec les informations nécessaires à son exécution.</p>
+                        </li>
+                        <li data-step="1">
+                            <h3>Guider</h3>
+                            <p>Orientez-vous facilement sur le chantier grâce au fond de carte.</p>
+                        </li>
+                        <li data-step="2">
+                            <h3>Implanter</h3>
+                            <p>Repositionnez vos points de repères perdus.</p>
+                        </li>
+                        <li data-step="3">
+                            <h3>Collecter</h3>
+                            <p>Relevez vos points au fur et à mesure de vos travaux.</p>
+                        </li>
+                        <li data-step="4">
+                            <h3>Mesurer</h3>
+                            <p>Contrôlez vos surfaces et vos linéaires facilement.</p>
+                        </li>
+                        <li data-step="5">
+                            <h3>Extraire</h3>
+                            <p>Récupérez vos collectes pour effectuer vos plans.</p>
+                        </li>
+                        </ol>
+                        <ol class="workflow__index" aria-label="Aller à une étape">
+                        <li><button type="button" data-goto="0" aria-current="step">Intégrer</button></li>
+                        <li><button type="button" data-goto="1">Guider</button></li>
+                        <li><button type="button" data-goto="2">Implanter</button></li>
+                        <li><button type="button" data-goto="3">Collecter</button></li>
+                        <li><button type="button" data-goto="4">Mesurer</button></li>
+                        <li><button type="button" data-goto="5">Extraire</button></li>
+                        </ol>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -291,13 +300,15 @@
                         <span class="tab__id">Mode mono-balise</span>
                         <span class="tab__name">Une balise, corrigée par internet</span>
                         <span class="tab__sub">Kit mono-balise, avec carte SIM ou correction Satinfo</span>
-                        <span class="mode-tab__pics"><img src="Balise/shopping.webp" alt="" width="1000" height="1000"></span>
+                        <span class="mode-tab__state"><span class="state--off"><i class="fa-regular fa-circle" aria-hidden="true"></i>Voir ce schéma</span><span class="state--on"><i class="fas fa-circle-check" aria-hidden="true"></i>Schéma affiché</span></span>
+                        <span class="mode-tab__pics"><img src="assets/balises/shopping.webp" alt="" width="1000" height="1000"></span>
                     </button>
                     <button type="button" class="mode-tab" data-mode="base" aria-pressed="false">
                         <span class="tab__id">Mode base + rover</span>
                         <span class="tab__name">Deux balises reliées par radio</span>
                         <span class="tab__sub">Kit complet, idéal sans couverture réseau</span>
-                        <span class="mode-tab__pics"><img src="Balise/shopping.webp" alt="" width="1000" height="1000"><span aria-hidden="true">+</span><img src="Balise/shopping.webp" alt="" width="1000" height="1000"></span>
+                        <span class="mode-tab__state"><span class="state--off"><i class="fa-regular fa-circle" aria-hidden="true"></i>Voir ce schéma</span><span class="state--on"><i class="fas fa-circle-check" aria-hidden="true"></i>Schéma affiché</span></span>
+                        <span class="mode-tab__pics"><img src="assets/balises/shopping.webp" alt="" width="1000" height="1000"><span aria-hidden="true">+</span><img src="assets/balises/shopping.webp" alt="" width="1000" height="1000"></span>
                     </button>
                 </div>
 
@@ -315,7 +326,7 @@
                             </div>
                             <div class="edge edge--key"><b>Corrections RTK</b><span>par internet, en 4G</span></div>
                             <div class="node node--lead node--sky">
-                                <div class="node__pic"><img src="balises.png" width="1097" height="652" loading="lazy" alt="Les trois balises : Géostix X5, RS3 et NavX"></div>
+                                <div class="node__pic"><img src="assets/balises/balises.png" width="1097" height="652" loading="lazy" alt="Les trois balises : Géostix X5, RS3 et NavX"></div>
                                 <h3>Balise sur la canne</h3>
                                 <p>Précision de l’ordre du centimètre</p>
                             </div>
@@ -344,13 +355,13 @@
                         </div>
                         <div class="map__row">
                             <div class="node node--lead node--sky">
-                                <div class="node__pic node__pic--single"><img src="Balise/shopping.webp" width="1000" height="1000" loading="lazy" alt="La balise RS3 utilisée comme base"></div>
+                                <div class="node__pic node__pic--single"><img src="assets/balises/shopping.webp" width="1000" height="1000" loading="lazy" alt="La balise RS3 utilisée comme base"></div>
                                 <h3>Base sur trépied</h3>
                                 <p>Station de référence fixe</p>
                             </div>
                             <div class="edge edge--key"><b>LoRa</b><span>radio, format RTCM3, sans internet</span></div>
                             <div class="node node--lead node--sky">
-                                <div class="node__pic node__pic--single"><img src="Balise/shopping.webp" width="1000" height="1000" loading="lazy" alt="La balise RS3 utilisée comme rover sur la canne"></div>
+                                <div class="node__pic node__pic--single"><img src="assets/balises/shopping.webp" width="1000" height="1000" loading="lazy" alt="La balise RS3 utilisée comme rover sur la canne"></div>
                                 <h3>Rover sur la canne</h3>
                                 <p>Précision de l’ordre du centimètre</p>
                             </div>
@@ -403,19 +414,19 @@
                         <span class="tab__id">RS3</span>
                         <span class="tab__name">Le baroudeur polyvalent</span>
                         <span class="tab__sub">Robuste, tout-en-un, rapide</span>
-                        <img src="Balise/shopping.webp" alt="" width="1000" height="1000">
+                        <img src="assets/balises/shopping.webp" alt="" width="1000" height="1000">
                     </button>
                     <button type="button" data-balise="geo" aria-pressed="false" class="balise-tab">
                         <span class="tab__id">Géostix X5</span>
                         <span class="tab__name">La précision Made in France</span>
                         <span class="tab__sub">Précision chirurgicale, modularité</span>
-                        <img src="Balise/GEOSTIX78.png" alt="" width="690" height="690">
+                        <img src="assets/balises/GEOSTIX78.png" alt="" width="690" height="690">
                     </button>
                     <button type="button" data-balise="nav" aria-pressed="false" class="balise-tab">
                         <span class="tab__id">NavX</span>
                         <span class="tab__name">Le léger et ouvert</span>
                         <span class="tab__sub">Ultra-léger, Plug &amp; Play</span>
-                        <img src="Balise/navX.png" alt="" width="1024" height="1024">
+                        <img src="assets/balises/navX.png" alt="" width="1024" height="1024">
                     </button>
                 </div>
 
@@ -562,41 +573,6 @@
             </div>
         </section>
 
-        <!-- ==================== CADOLES ==================== -->
-        <section id="cadoles" class="section">
-            <div class="container grid-12">
-                <div class="about__left">
-                    <h2>Un produit développé par</h2>
-                    <img src="./logo-fonce.png" alt="Cadoles" class="about__logo" width="846" height="212">
-                    <dl class="about__rows">
-                        <div>
-                            <dt>Expertise Numérique</dt>
-                            <dd>Développement open source garantissant transparence, flexibilité et évolutivité</dd>
-                        </div>
-                        <div>
-                            <dt>Expertise Terrain</dt>
-                            <dd>Conçu par des professionnels du BTP pour répondre aux vraies contraintes</dd>
-                        </div>
-                        <div>
-                            <dt>Communauté</dt>
-                            <dd>Une communauté d’utilisateurs qui contribue à l’amélioration continue</dd>
-                        </div>
-                    </dl>
-                </div>
-
-                <figure class="quote">
-                    <blockquote>
-                        <p>«&nbsp;Après deux décennies en tant que Chef de chantier dans le secteur des travaux publics,
-                            j’ai eu l’opportunité de travailler sur une grande variété de projets (VRD, autoroutiers,
-                            éoliens…). Cependant, des contraintes récurrentes ralentissaient souvent nos chantiers. En
-                            2020, je me suis tourné vers Cadoles pour développer une solution qui m’aiderait dans mes
-                            tâches quotidiennes.&nbsp;»</p>
-                    </blockquote>
-                    <figcaption><b>Yann Szemro</b>Chef de produit, Cadoles</figcaption>
-                </figure>
-            </div>
-        </section>
-
         <!-- ==================== OFFRES ==================== -->
         <section id="offres" class="section section--well">
             <div class="container grid-12">
@@ -615,7 +591,7 @@
                     <div class="card-industrial">
                         <div class="card__top">
                             <h4>Kit mono-balise GPS/RTK</h4>
-                            <img src="Balise/shopping.webp" alt="Emlid rs3" width="1000" height="1000" loading="lazy">
+                            <img src="assets/balises/shopping.webp" alt="Emlid rs3" width="1000" height="1000" loading="lazy">
                         </div>
                         <p>Mallette Peli Case IP67 avec 1 balise GPS/RTK, carnet de terrain IP68/IP69K, pince articulée,
                             cane en aluminium avec nivelle.</p>
@@ -625,7 +601,7 @@
                     <div class="card-industrial">
                         <div class="card__top">
                             <h4>Kit Géostix X5 mobile RTK</h4>
-                            <img src="Balise/GEOSTIX78.png" alt="Geobsys Geostix" width="690" height="690" loading="lazy">
+                            <img src="assets/balises/GEOSTIX78.png" alt="Geobsys Geostix" width="690" height="690" loading="lazy">
                         </div>
                         <p>Mallette Peli Case IP67 avec balise GPS/RTK Geostix RTK (fabriquée en France), carnet de
                             terrain IP68/IP69K, fixation, cane avec nivelle.</p>
@@ -635,7 +611,7 @@
                     <div class="card-industrial">
                         <div class="card__top">
                             <h4>Kit NavX mobile RTK</h4>
-                            <img src="Balise/navX.png" alt="Natuition NavX" width="1024" height="1024" loading="lazy">
+                            <img src="assets/balises/navX.png" alt="Natuition NavX" width="1024" height="1024" loading="lazy">
                         </div>
                         <p>Mallette Peli Case IP67 avec balise GPS/RTK NavX (conçu en France), carnet de terrain
                             IP68/IP69K, fixation, cane avec nivelle.</p>
@@ -646,9 +622,9 @@
                         <div class="card__top">
                             <h4>Kit complet GPS/RTK <span>(base + rover)</span></h4>
                             <div class="card__pair">
-                                <img src="Balise/shopping.webp" alt="Emlid rs3" width="1000" height="1000" loading="lazy">
+                                <img src="assets/balises/shopping.webp" alt="Emlid rs3" width="1000" height="1000" loading="lazy">
                                 <span aria-hidden="true">+</span>
-                                <img src="Balise/shopping.webp" alt="Emlid rs3" width="1000" height="1000" loading="lazy">
+                                <img src="assets/balises/shopping.webp" alt="Emlid rs3" width="1000" height="1000" loading="lazy">
                             </div>
                         </div>
                         <p>Mallette Peli Case IP67 avec 2 balises GPS/RTK IP67, carnet de terrain, pince articulée,
@@ -692,7 +668,7 @@
             <!-- Formations -->
             <div class="container grid-12 offer-group">
                 <h3>Formations</h3>
-                <div class="offer-grid offer-grid--2">
+                <div class="offer-grid">
                     <div class="card-industrial">
                         <h4>Formation gestion de chantier <span>Pour Chef de chantier, 1/2&nbsp;journée</span></h4>
                         <p>Intégration/extraction des plans, création nomenclatures, synchronisation, présentation
@@ -705,6 +681,11 @@
                         <p>Démarrage des balises, utilisation application&nbsp;: implantation, collecte de données,
                             synchronisation.</p>
                         <p class="note">Modalités&nbsp;: à distance, dans nos locaux, ou sur site</p>
+                    </div>
+
+                    <div class="card-industrial">
+                        <h4>Formation QGIS <span>Pour les géomètres, topographes et projeteurs, 3&nbsp;jours</span></h4>
+                        <p>Pour la gestion et l’exploitation des données dans un logiciel SIG open source et gratuit.</p>
                     </div>
                 </div>
             </div>
@@ -729,14 +710,56 @@
             </div>
         </section>
 
+        <!-- ==================== CADOLES ==================== -->
+        <section id="cadoles" class="section section--field about">
+            <div class="container grid-12">
+                <div class="about__left">
+                    <h2>Un produit développé par</h2>
+                    <img src="assets/logos/logo.png" alt="Cadoles" class="about__logo" width="586" height="152">
+                    <dl class="about__rows">
+                        <div>
+                            <dt>Expertise Numérique</dt>
+                            <dd>Développement open source garantissant transparence, flexibilité et évolutivité</dd>
+                        </div>
+                        <div>
+                            <dt>Expertise Terrain</dt>
+                            <dd>Conçu par des professionnels du BTP pour répondre aux vraies contraintes</dd>
+                        </div>
+                        <div>
+                            <dt>Communauté</dt>
+                            <dd>Une communauté d’utilisateurs qui contribue à l’amélioration continue</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <figure class="quote">
+                    <blockquote>
+                        <p>«&nbsp;Après deux décennies en tant que Chef de chantier dans le secteur des travaux publics,
+                            j’ai eu l’opportunité de travailler sur une grande variété de projets (VRD, autoroutiers,
+                            éoliens…). Cependant, des contraintes récurrentes ralentissaient souvent nos chantiers. En
+                            2020, je me suis tourné vers Cadoles pour développer une solution qui m’aiderait dans mes
+                            tâches quotidiennes.&nbsp;»</p>
+                    </blockquote>
+                    <figcaption><b>Yann Szemro</b>Chef de produit, Cadoles</figcaption>
+                </figure>
+            </div>
+        </section>
+
         <!-- ==================== RÉFÉRENCES ==================== -->
         <section class="section refs">
             <div class="container">
                 <h2>Ils nous font confiance</h2>
                 <div class="refs__clients">
-                    <a target="_blank" rel="noopener" href="https://carriontp.fr" class="logo-link logo-link--dark">
+                    <a target="_blank" rel="noopener" href="https://carriontp.fr" class="logo-link">
                         <img src="https://carriontp.fr/site/1/assets/img/carrion-travaux-public.svg" alt="CarrionTP"
                             width="240" height="64" loading="lazy">
+                    </a>
+                    <a href="https://axe-tp.fr/" target="_blank" rel="noopener" class="logo-link">
+                        <img src="assets/logos/axetp.png" alt="AxeTP" width="424" height="232" loading="lazy">
+                    </a>
+                    <a href="https://www.melvinpaysage.fr/" target="_blank" rel="noopener" class="logo-link logo-link--named">
+                        <img src="assets/logos/melvin_paysage.png" alt="" width="370" height="370" loading="lazy">
+                        <img class="logo-wordmark" src="assets/logos/melvin_paysage_name.png" alt="MelvinPaysage" width="816" height="61" loading="lazy">
                     </a>
                     <a target="_blank" rel="noopener" href="https://www.jdprovence.com" class="logo-link">
                         <img src="https://www.jdprovence.com/wp-content/uploads/2025/09/MEDITERRANEE.svg"
@@ -878,7 +901,7 @@
         <div class="container grid-12">
             <div class="footer__sign">
                 <a href="#laCanne" class="nav__brand" aria-label="LaCanne, retour en haut de page">
-                    <img src="./logo.svg" alt="LaCanne" width="235" height="64">
+                    <img src="assets/logos/logo.svg" alt="LaCanne" width="235" height="64">
                 </a>
                 <p>Le kit GPS RTK complet pour donner de l’autonomie à vos chantiers.</p>
             </div>
@@ -888,8 +911,8 @@
                 <ul>
                     <li><a href="#fonctions">Fonctionnalités</a></li>
                     <li><a href="#avantages">Avantages</a></li>
-                    <li><a href="#cadoles">Qui sommes-nous ?</a></li>
                     <li><a href="#offres">Nos offres</a></li>
+                    <li><a href="#cadoles">Qui sommes-nous ?</a></li>
                     <li><a href="#faq">FAQ</a></li>
                 </ul>
             </div>
@@ -975,21 +998,38 @@
             sync();
         });
 
-        // Workflow : l'image suit l'étape en cours
-        const shot = document.querySelector('.workflow__shot');
-        if (shot) {
-            const imgs = shot.querySelectorAll('img');
-            const caption = shot.querySelector('[data-step-caption]');
-            const steps = document.querySelectorAll('.steps li');
+        // Workflow : section figée, une étape (image + texte) par palier de défilement
+        const workflow = document.querySelector('.workflow');
+        if (workflow) {
+            const pin = workflow.querySelector('.workflow__pin');
+            const imgs = workflow.querySelectorAll('.workflow__shot img');
+            const steps = workflow.querySelectorAll('.steps li');
+            const gotos = workflow.querySelectorAll('[data-goto]');
+            const n = steps.length;
+            let current = 0, ticking = false;
             const show = (i) => {
+                if (i === current) return;
+                current = i;
                 imgs.forEach((im, k) => im.classList.toggle('is-active', k === i));
                 steps.forEach((li, k) => li.classList.toggle('is-current', k === i));
-                caption.textContent = steps[i].querySelector('h3').textContent;
+                gotos.forEach((b, k) => (k === i ? b.setAttribute('aria-current', 'step') : b.removeAttribute('aria-current')));
             };
-            const io = new IntersectionObserver((entries) => {
-                entries.forEach((e) => { if (e.isIntersecting) show(Number(e.target.dataset.step)); });
-            }, { rootMargin: '-45% 0px -45% 0px' });
-            steps.forEach((li) => io.observe(li));
+            const track = () => workflow.offsetHeight - pin.offsetHeight;
+            const update = () => {
+                ticking = false;
+                const t = track();
+                if (t <= 0) return;
+                const progress = Math.min(Math.max(-workflow.getBoundingClientRect().top / t, 0), 0.9999);
+                show(Math.floor(progress * n));
+            };
+            window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+            window.addEventListener('resize', update);
+            gotos.forEach((b) => b.addEventListener('click', () => {
+                const i = Number(b.dataset.goto);
+                const top = workflow.getBoundingClientRect().top + window.scrollY + (track() * (i + 0.5)) / n;
+                window.scrollTo({ top, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+            }));
+            update();
         }
 
         // Formulaire de contact -> mailto
