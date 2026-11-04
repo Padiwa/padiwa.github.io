@@ -9,6 +9,7 @@
 /* Hallmark · reworded "Simple , Rapide , Précis : les avantages du GPS RTK" to "Simple, Rapide, Précis : les avantages du GPS RTK" · 38iii, the head set in one colour, stray spaces removed */
 /* Hallmark · dropped the h3 and h4 heading tags on the benefits, the five tech specs, the expertise rows, the FAQ questions and the receiver tabs · their words stay verbatim as dt labels or tab text; a heading cannot sit inside a button */
 /* Hallmark · dropped the Multi-constellation and Autonomie spec items under the diagram · the diagram states both word for word (the sky bar and the receiver node), 69 named the echo */
+/* Hallmark · dropped logo-fonce.png · the Cadoles section now sits on the navy field at the owner's request, so it shows logo.png, the owner's Cadoles logo with white lettering */
 /* Hallmark · waive 38iii · the second hero line set in the brand orange, once on the page, in the hero · the owner asked to keep closer to the LaCanne charte, whose original hero set à vos chantiers in orange */
 /* Hallmark · waive 39b · the receiver tabs and the two mode cards are choice cards holding the receiver photo, name and tagline · the comparison and the mode switch must show which one is picked */
 /* Hallmark · answered F4 · the two video controls sit on moving footage and need a solid overlay plate to stay legible */
@@ -227,6 +228,12 @@ html:not(.js) .workflow__index { display: none; }
 .quote blockquote { margin: 0; font: 400 var(--text-xl)/1.45 var(--font-display); text-indent: -0.45em; }
 .quote figcaption { font-size: var(--text-sm); color: var(--color-ink-2); }
 .quote figcaption b { display: block; font-size: var(--text-md); color: var(--color-ink); font-weight: 600; }
+
+.about .about__rows > div { border-top-color: var(--color-field-rule); }
+.about .about__rows dd { color: var(--color-field-ink-2); }
+.about .quote { background: var(--color-field-2); }
+.about .quote figcaption { color: var(--color-field-ink-2); }
+.about .quote figcaption b { color: var(--color-field-ink); }
 
 /* ---------- Offers: the catalogue ---------- */
 .offer-head { grid-column: 1 / span 7; }
