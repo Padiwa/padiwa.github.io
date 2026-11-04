@@ -370,42 +370,12 @@ html:not(.js) .offer-tabs-wrap { display: none; }
   #fonctions .steps li::before { font-size: var(--text-lg); }
   #fonctions .steps h3 { font-size: var(--text-xl); }
 
-  #technologie .modes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xs); margin-bottom: var(--space-lg); }
-  #technologie .mode-tab { grid-template-columns: minmax(0, 1fr); padding: var(--space-sm) var(--space-md); row-gap: var(--space-2xs); }
-  #technologie .mode-tab__pics, #technologie .mode-tab .tab__sub { display: none; }
-  #technologie .mode-tab .tab__id { font-size: var(--text-md); color: var(--color-field-ink); }
-  #technologie .mode-tab .tab__name { font: 400 var(--text-sm)/1.35 var(--font-body); color: var(--color-field-ink-2); }
-  #technologie .mode-tab__state { margin-top: var(--space-2xs); font-size: var(--text-xs); }
-  #technologie .map__sky { padding: var(--space-sm) var(--space-md); }
-  #technologie .map__sky strong { font-size: var(--text-lg); }
-  #technologie .map__sky span { font-size: var(--text-sm); }
-  #technologie .map__row { padding-top: var(--space-lg); }
-  #technologie .node { grid-template-columns: 56px minmax(0, 1fr); align-items: center; column-gap: var(--space-md); row-gap: 0; padding: var(--space-sm) var(--space-md); }
-  #technologie .node__icon, #technologie .node__pic { grid-row: 1 / span 2; justify-self: center; }
-  #technologie .node__pic { width: 56px; height: 56px; padding: var(--space-3xs); }
-  #technologie .node__pic img, #technologie .node__pic--single img { width: 100%; height: 100%; max-height: none; object-fit: contain; }
-  #technologie .node h3 { font-size: var(--text-lg); }
-  #technologie .node p { font-size: var(--text-sm); }
-  #technologie .node--sky::before, #technologie .map__row .node--sky:not(.node--lead)::before { height: var(--space-lg); }
-  #technologie .edge { padding-block: var(--space-xs); padding-left: var(--space-xl); }
-  #technologie .edge b { font-size: var(--text-sm); }
-  #technologie .map__note { margin-top: var(--space-lg); font-size: var(--text-sm); }
-  #technologie .specs { margin-top: var(--space-xl); }
-
-  #balises .choices { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xs); margin-bottom: var(--space-md); }
-  #balises .balise-tab { grid-template-columns: minmax(0, 1fr); justify-items: center; row-gap: var(--space-2xs); padding: var(--space-sm) var(--space-xs); text-align: center; }
-  #balises .balise-tab img { grid-column: 1; grid-row: 1; width: 56px; height: 56px; }
-  #balises .balise-tab .tab__id { font: 600 var(--text-md)/1.2 var(--font-display); color: var(--color-ink); }
-  #balises .balise-tab .tab__name, #balises .balise-tab .tab__sub { display: none; }
-  #balises .panels { padding: var(--space-md); }
-  #balises .balise-panel { gap: var(--space-lg); }
-  #balises .panel__intro h3 { font-size: var(--text-xl); }
-  #balises .panel__intro p, #balises .panel__ideal { font-size: var(--text-sm); }
-  #balises .panel__devis { justify-self: stretch; }
-  #balises .panel__specs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md) var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--color-rule); }
-  #balises .panel__specs dt { font-size: var(--text-xs); }
-  #balises .panel__specs dd { font-size: var(--text-sm); }
 }
+
+/* Hero video on mobile: the poster with one clear play button, the video loads only on request */
+.hero__media.is-light .media-controls { inset: 0; align-items: center; justify-content: center; }
+.hero__media.is-light #fullscreen-btn { display: none; }
+.hero__media.is-light [data-loop-toggle] { width: 64px; height: 64px; border-radius: var(--radius-pill); font-size: var(--text-xl); }
 
 /* ---------- Mobile quote bar ---------- */
 .devis-bar { display: none; }
@@ -488,6 +458,55 @@ html:not(.js) .offer-tabs-wrap { display: none; }
   .js .offer-group > h3 { position: static; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal; }
   .press { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* ---------- Tablet and mobile: compact technology path, compact receiver picker ---------- */
+@media (max-width: 64rem) {
+  #technologie .map, #technologie .modes { max-width: 44rem; }
+  #technologie .map__row { grid-template-columns: minmax(0, 1fr); }
+  #technologie .map__row .node:not(.node--lead) { margin-top: 0; }
+  #technologie .node:not(.node--sky)::before, #technologie .map__row .edge + .node--sky::before { content: none; }
+  #technologie .edge { justify-items: start; grid-template-columns: 2px minmax(0, 1fr); column-gap: var(--space-md); text-align: left; }
+  #technologie .edge::before { width: 2px; height: 100%; grid-row: span 2; order: 0; }
+  #technologie .edge--key::before { width: 4px; }
+  #technologie .edge span { order: 0; }
+  #balises .balise-panel { grid-template-columns: minmax(0, 1fr); }
+  #balises .panel__intro, #balises .panel__specs { grid-column: 1 / -1; }
+  #technologie .modes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xs); margin-bottom: var(--space-lg); }
+  #technologie .mode-tab { grid-template-columns: minmax(0, 1fr); padding: var(--space-sm) var(--space-md); row-gap: var(--space-2xs); }
+  #technologie .mode-tab__pics, #technologie .mode-tab .tab__sub { display: none; }
+  #technologie .mode-tab .tab__id { font-size: var(--text-md); color: var(--color-field-ink); }
+  #technologie .mode-tab .tab__name { font: 400 var(--text-sm)/1.35 var(--font-body); color: var(--color-field-ink-2); }
+  #technologie .mode-tab__state { margin-top: var(--space-2xs); font-size: var(--text-xs); }
+  #technologie .map__sky { padding: var(--space-sm) var(--space-md); }
+  #technologie .map__sky strong { font-size: var(--text-lg); }
+  #technologie .map__sky span { font-size: var(--text-sm); }
+  #technologie .map__row { padding-top: var(--space-lg); }
+  #technologie .node { grid-template-columns: 56px minmax(0, 1fr); align-items: center; column-gap: var(--space-md); row-gap: 0; padding: var(--space-sm) var(--space-md); }
+  #technologie .node__icon, #technologie .node__pic { grid-row: 1 / span 2; justify-self: center; }
+  #technologie .node__pic { width: 56px; height: 56px; padding: var(--space-3xs); }
+  #technologie .node__pic img, #technologie .node__pic--single img { width: 100%; height: 100%; max-height: none; object-fit: contain; }
+  #technologie .node h3 { font-size: var(--text-lg); }
+  #technologie .node p { font-size: var(--text-sm); }
+  #technologie .node--sky::before, #technologie .map__row .node--sky:not(.node--lead)::before { height: var(--space-lg); }
+  #technologie .edge { padding-block: var(--space-xs); padding-left: var(--space-xl); }
+  #technologie .edge b { font-size: var(--text-sm); }
+  #technologie .map__note { margin-top: var(--space-lg); font-size: var(--text-sm); }
+  #technologie .specs { margin-top: var(--space-xl); }
+  #balises .choices { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xs); margin-bottom: var(--space-md); }
+  #balises .balise-tab { grid-template-columns: minmax(0, 1fr); justify-items: center; row-gap: var(--space-2xs); padding: var(--space-sm) var(--space-xs); text-align: center; }
+  #balises .balise-tab img { grid-column: 1; grid-row: 1; width: 56px; height: 56px; }
+  #balises .balise-tab .tab__id { font: 600 var(--text-md)/1.2 var(--font-display); color: var(--color-ink); }
+  #balises .balise-tab .tab__name, #balises .balise-tab .tab__sub { display: none; }
+  #balises .panels { padding: var(--space-md); }
+  #balises .balise-panel { gap: var(--space-lg); }
+  #balises .panel__intro h3 { font-size: var(--text-xl); }
+  #balises .panel__intro p, #balises .panel__ideal { font-size: var(--text-sm); }
+  #balises .panel__devis { justify-self: stretch; }
+  #balises .panel__specs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md) var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--color-rule); }
+  #balises .panel__specs dt { font-size: var(--text-xs); }
+  #balises .panel__specs dd { font-size: var(--text-sm); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .devis-bar, .press__item, .btn, .icon-btn, .balise-tab, .mode-tab, .mode-tab__state .state--off, .link, .logo-link, .compare summary, .compare summary .fa-chevron-down, .nav__links a, .menu__links a { transition: none; }
   .workflow__shot img, .js .steps li, .workflow__index button { transition: none; }

@@ -177,10 +177,11 @@
                 </div>
 
                 <figure class="hero__media" data-loop>
-                    <video id="hero-video" autoplay loop muted playsinline preload="auto"
+                    <video id="hero-video" loop muted playsinline preload="none"
                         poster="assets/video/hero-poster.jpg"
                         aria-label="Présentation de LaCanne : du bureau au chantier">
-                        <source src="assets/video/presensation.mp4" type="video/mp4">
+                        <source src="assets/video/hero.webm" type="video/webm">
+                        <source src="assets/video/hero.mp4" type="video/mp4">
                     </video>
                     <div class="media-controls">
                         <button type="button" class="icon-btn" data-loop-toggle aria-label="Mettre la vidéo en pause">
@@ -1148,7 +1149,10 @@
         document.querySelectorAll('[data-loop]').forEach((el) => {
             const btn = el.querySelector('[data-loop-toggle]');
             const icon = btn.querySelector('i');
-            const s = { seen: false, focus: false, held: matchMedia('(prefers-reduced-motion: reduce)').matches };
+            // Sur mobile ou en mode économie de données : affiche est seule, la vidéo ne se charge qu'à la demande
+            const light = matchMedia('(max-width: 40rem)').matches || (navigator.connection && navigator.connection.saveData);
+            const s = { seen: false, focus: false, held: matchMedia('(prefers-reduced-motion: reduce)').matches || !!light };
+            el.classList.toggle('is-light', !!light);
             const sync = () => {
                 const run = s.seen && !s.focus && !s.held;
                 el.classList.toggle('is-running', run);
@@ -1156,7 +1160,7 @@
                 btn.setAttribute('aria-label', s.held ? 'Lire la vidéo' : 'Mettre la vidéo en pause');
                 icon.className = s.held ? 'fas fa-play' : 'fas fa-pause';
             };
-            btn.addEventListener('click', () => { s.held = !s.held; sync(); });
+            btn.addEventListener('click', () => { s.held = !s.held; el.classList.remove('is-light'); sync(); });
             new IntersectionObserver(([e]) => { s.seen = e.isIntersecting; sync(); }).observe(el);
             sync();
         });
