@@ -861,6 +861,15 @@
                 </div>
             </div>
 
+            <div class="container">
+                <div class="quote-bar" id="quote-bar" hidden>
+                    <p class="quote-bar__text"><strong id="quote-count"></strong><span id="quote-list"></span></p>
+                    <div class="quote-bar__actions">
+                        <button type="button" class="quote-bar__clear" id="quote-clear">Vider</button>
+                        <a href="#contact" class="btn" id="quote-go">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- ==================== CADOLES ==================== -->
@@ -1247,21 +1256,54 @@
 
         document.getElementById('offre-clear').addEventListener('click', () => setOffre(''));
 
-        document.querySelectorAll('#offres .card-industrial').forEach(card => {
-            const titre = card.querySelector('h4').textContent.replace(/\s+/g, ' ').trim();
+        // Nos offres : sélection pour devis, un seul bouton pour toute la section
+        const picked = new Map();
+        const quoteBar = document.getElementById('quote-bar');
+        const quoteCount = document.getElementById('quote-count');
+        const quoteList = document.getElementById('quote-list');
+        const quoteText = () => [...picked.values()].map((p) => p.offre).join(' ; ');
+        const renderQuote = () => {
+            const n = picked.size;
+            quoteBar.hidden = n === 0;
+            quoteCount.textContent = `${n} offre${n > 1 ? 's' : ''} sélectionnée${n > 1 ? 's' : ''}`;
+            quoteList.textContent = [...picked.values()].map((p) => p.titre).join(', ');
+            const mobileLink = document.querySelector('.devis-bar a');
+            if (mobileLink) mobileLink.textContent = n ? `Demander un devis (${n})` : 'Demander un devis';
+        };
+        const togglePick = (card, btn, key, data) => {
+            const on = !picked.has(key);
+            on ? picked.set(key, data) : picked.delete(key);
+            card.classList.toggle('is-picked', on);
+            btn.setAttribute('aria-pressed', on);
+            btn.querySelector('.pick__txt').textContent = on ? 'Dans le devis' : 'Ajouter au devis';
+            btn.querySelector('i').className = on ? 'fas fa-circle-check' : 'fa-regular fa-circle';
+            renderQuote();
+        };
+        document.querySelectorAll('#offres .card-industrial').forEach((card, k) => {
+            const titre = card.querySelector('h4').childNodes[0].textContent.replace(/\s+/g, ' ').trim();
+            const titreComplet = card.querySelector('h4').textContent.replace(/\s+/g, ' ').trim();
             const categorie = card.parentElement.previousElementSibling?.textContent.replace(/\s+/g, ' ').trim();
-            const offre = card.dataset.offre || (categorie ? `${categorie} — ${titre}` : titre);
+            const offre = card.dataset.offre || (categorie ? `${titre} (${categorie})` : titre);
 
-            const btn = document.createElement('a');
-            btn.href = '#contact';
-            btn.className = 'btn btn--sm offer-btn';
-            btn.innerHTML = '<i class="fas fa-file-invoice" aria-hidden="true"></i>Devis';
-            btn.setAttribute('aria-label', `Demander un devis : ${offre}`);
-            btn.addEventListener('click', () => setOffre(offre));
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'card-pick';
+            btn.setAttribute('aria-pressed', 'false');
+            btn.setAttribute('aria-label', `Ajouter au devis : ${titreComplet}`);
+            btn.innerHTML = '<i class="fa-regular fa-circle" aria-hidden="true"></i><span class="pick__txt">Ajouter au devis</span>';
+            const toggle = () => togglePick(card, btn, k, { titre, offre });
+            btn.addEventListener('click', (e) => { e.stopPropagation(); toggle(); });
+            card.addEventListener('click', (e) => { if (!e.target.closest('a, button')) toggle(); });
 
-            card.classList.add('flex', 'flex-col');
+            card.classList.add('flex', 'flex-col', 'is-pickable');
             card.appendChild(btn);
         });
+        const sendQuote = () => { if (picked.size) setOffre(quoteText()); };
+        document.getElementById('quote-go').addEventListener('click', sendQuote);
+        document.getElementById('quote-clear').addEventListener('click', () => {
+            document.querySelectorAll('#offres .card-industrial.is-picked .card-pick').forEach((b) => b.click());
+        });
+        document.querySelector('.devis-bar a')?.addEventListener('click', sendQuote);
 
         // Technologie : mono-balise ou base + rover
         const modeTabs = document.querySelectorAll('.mode-tab');

@@ -271,7 +271,29 @@ html:not(.js) .offer-tabs-wrap { display: none; }
 .card-industrial h4 span { display: block; font: 400 var(--text-sm)/1.4 var(--font-body); color: var(--color-ink-2); }
 .card-industrial p { font-size: var(--text-sm); color: var(--color-ink-2); }
 .card-industrial .note { color: var(--color-muted); }
-.card-industrial .offer-btn { margin-top: auto; align-self: flex-start; }
+.card-industrial.is-pickable { cursor: pointer; transition: border-color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out); }
+.card-industrial.is-pickable:hover { border-color: var(--color-ink-2); }
+.card-industrial.is-picked { border-color: var(--color-focus); box-shadow: inset 0 0 0 1px var(--color-focus); }
+.card-pick { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 44px; padding: 0; border: 0; background: none; color: var(--color-seal-ink); font: 600 var(--text-sm)/1 var(--font-body); cursor: pointer; }
+.card-pick i { font-size: var(--text-lg); }
+.card-pick .pick__txt { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 0.3em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.card-industrial.is-pickable:hover .pick__txt { text-decoration-color: currentColor; }
+.card-pick[aria-pressed="true"] { color: var(--color-focus); }
+.card-pick:active { transform: translateY(1px); }
+.card-pick:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; border-radius: var(--space-2xs); }
+.card-pick:disabled { opacity: 0.55; cursor: not-allowed; }
+.quote-bar { position: sticky; bottom: var(--space-md); z-index: var(--z-sticky); display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); margin-top: var(--space-xl); padding: var(--space-sm) var(--space-sm) var(--space-sm) var(--space-lg); border-radius: var(--radius-card); background: var(--color-field); color: var(--color-field-ink); }
+.quote-bar[hidden] { display: none; }
+.quote-bar__text { display: grid; gap: var(--space-3xs); min-width: 0; }
+.quote-bar__text strong { font-weight: 600; }
+.quote-bar__text span { font-size: var(--text-sm); color: var(--color-field-ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.quote-bar__actions { display: flex; align-items: center; gap: var(--space-md); flex-shrink: 0; }
+.quote-bar__clear { min-height: 44px; padding: 0 var(--space-xs); border: 0; background: none; color: var(--color-field-ink-2); font: 400 var(--text-sm)/1 var(--font-body); text-decoration: underline; text-underline-offset: 0.25em; cursor: pointer; transition: color var(--dur-short) var(--ease-out); }
+.quote-bar__clear:hover { color: var(--color-field-ink); }
+.quote-bar__clear:active { transform: translateY(1px); }
+.quote-bar__clear:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.quote-bar__clear:disabled { opacity: 0.55; cursor: not-allowed; }
+@media (max-width: 40rem) { .quote-bar { display: none !important; } }
 .card__top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-md); }
 .card__top img { width: 64px; height: 64px; object-fit: contain; flex-shrink: 0; mix-blend-mode: multiply; }
 .card__pair { display: flex; align-items: center; gap: var(--space-2xs); flex-shrink: 0; color: var(--color-ink-2); }
@@ -509,7 +531,7 @@ html:not(.js) .offer-tabs-wrap { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .devis-bar, .press__item, .btn, .icon-btn, .balise-tab, .mode-tab, .mode-tab__state .state__txt, .link, .logo-link, .compare summary, .compare summary .fa-chevron-down, .nav__links a, .menu__links a { transition: none; }
+  .card-industrial.is-pickable, .card-pick .pick__txt, .quote-bar__clear, .devis-bar, .press__item, .btn, .icon-btn, .balise-tab, .mode-tab, .mode-tab__state .state__txt, .link, .logo-link, .compare summary, .compare summary .fa-chevron-down, .nav__links a, .menu__links a { transition: none; }
   .workflow__shot img, .js .steps li, .workflow__index button { transition: none; }
   .js .steps li { transform: none; }
   .btn:active, .icon-btn:active, .balise-tab:active, .mode-tab:active { transform: none; }
