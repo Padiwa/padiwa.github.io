@@ -328,11 +328,12 @@ html:not(.js) .offer-tabs-wrap { display: none; }
 .logo-link:hover .logo-word { color: var(--color-ink); }
 
 .press { grid-column: 4 / span 9; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); margin: 0; padding: 0; list-style: none; }
-.press__item { display: grid; align-content: start; gap: var(--space-sm); height: 100%; padding: var(--space-lg); border: 1px solid var(--color-rule); border-radius: var(--radius-card); background: var(--color-raised); color: var(--color-ink); text-decoration: none; transition: border-color var(--dur-short) var(--ease-out); }
+.press__item { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-sm); height: 100%; padding: var(--space-lg); border: 1px solid var(--color-rule); border-radius: var(--radius-card); background: var(--color-raised); color: var(--color-ink); text-decoration: none; transition: border-color var(--dur-short) var(--ease-out); }
 .press__item img { height: 28px; width: auto; max-width: 180px; object-fit: contain; object-position: left center; mix-blend-mode: multiply; }
 .press__name { font: 600 var(--text-lg)/28px var(--font-display); color: var(--color-ink-2); }
 .press__title { font: 600 var(--text-lg)/1.3 var(--font-display); text-wrap: balance; }
-.press__date { font-size: var(--text-sm); color: var(--color-muted); }
+.press__lede { font-size: var(--text-md); line-height: 1.55; color: var(--color-ink-2); }
+.press__date { margin-top: auto; font-size: var(--text-sm); color: var(--color-muted); }
 .press__item:hover { border-color: var(--color-ink-2); }
 .press__item:hover .press__title { text-decoration: underline; text-underline-offset: 0.2em; }
 .press__item:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
@@ -427,6 +428,7 @@ html:not(.js) .offer-tabs-wrap { display: none; }
 }
 @media (max-width: 60rem) {
   .press, .head, .hero h1, .hero__side, .workflow__shot, .about__left, .quote, .offer-head, .offer-group > h3, .offer-grid, .refs__row h3, .refs__logos, .faq h2, .faq__list, .contact__left, .form, .footer__sign, .footer__col, .footer__col:first-of-type { grid-column: 1 / -1; }
+  .refs__row h3 { margin-bottom: var(--space-lg); }
   .hero__media video { height: auto; aspect-ratio: 16 / 9; }
   .workflow__text { grid-column: 1 / -1; margin-top: var(--space-lg); }
   .workflow__index button { padding: 0 var(--space-sm); }
