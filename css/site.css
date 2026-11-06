@@ -382,10 +382,13 @@ html:not(.js) .offer-tabs-wrap { display: none; }
 .footer__col a { color: var(--color-field-ink-2); text-decoration: none; border-radius: var(--space-2xs); }
 .footer__col a:hover { color: var(--color-field-ink); text-decoration: underline; }
 .footer__col a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
-.footer__col i { width: 1.25em; color: var(--color-sky); }
+.footer__col li { display: flex; align-items: baseline; gap: var(--space-2xs); }
+.footer__col address { font-style: normal; line-height: 1.5; }
+.footer__col i { flex: none; width: 1.25em; color: var(--color-sky); }
 .footer__base { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-lg); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-field-rule); font-size: var(--text-sm); color: var(--color-field-ink-2); }
 .footer .link { color: var(--color-accent); text-decoration-color: currentColor; }
-.footer__support { display: flex; align-items: center; gap: var(--space-md); }
+.footer__support { display: flex; align-items: center; gap: var(--space-md); margin-top: var(--space-md); }
+.footer__support p { font: 400 var(--text-sm)/1.4 var(--font-body); color: var(--color-field-ink-2); }
 .footer__support img { height: 56px; width: auto; border-radius: var(--space-2xs); }
 
 /* ---------- Mobile: workflow as a swipe rail, technology as a compact path ---------- */
