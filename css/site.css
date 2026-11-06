@@ -261,7 +261,12 @@ html:not(.js) .offer-tabs-wrap { display: none; }
 .js .offer-group::before { content: none; }
 .js .offer-group > h3 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .js .offer-grid { grid-column: 1 / -1; }
+/* Offer tabs: a segmented bar that reads as the section's control */
+.offer-tabs { gap: var(--space-2xs); padding: var(--space-2xs); border: 1px solid var(--color-rule); border-radius: var(--radius-card); background: var(--color-raised); box-shadow: 0 1px 2px var(--color-shade); overflow: visible; }
+.offer-tabs button { justify-content: center; min-height: 60px; border-radius: var(--radius-inner); font-size: var(--text-lg); color: var(--color-ink); }
 .offer-tabs button:hover { background: var(--color-paper-3); }
+.offer-tabs button[aria-pressed="true"] { background: var(--color-field); color: var(--color-field-ink); box-shadow: inset 0 -4px 0 var(--color-accent); }
+.offer-tabs button[aria-pressed="true"]:hover { background: var(--color-field-2); }
 .offer-group::before, .refs__row::before { content: ""; grid-column: 1 / -1; border-top: 1px solid var(--color-rule); margin-bottom: var(--space-xl); }
 .offer-group > h3 { grid-column: 1 / span 3; font-size: var(--text-xl); }
 .offer-grid { grid-column: 4 / span 9; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
