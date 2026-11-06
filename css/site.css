@@ -526,10 +526,11 @@ html:not(.js) .offer-tabs-wrap { display: none; }
   #technologie .map__note { margin-top: var(--space-lg); font-size: var(--text-sm); }
   /* Both modes: the first two nodes side by side under the sky, their link between them, as on PC */
   #technologie .map__row { --mid: 7rem; grid-template-columns: minmax(0, 1fr) var(--mid) minmax(0, 1fr); column-gap: 0; padding-top: var(--space-xl); }
-  #technologie .map__row > :nth-child(n+5) { grid-column: 1 / -1; }
-  #technologie .map__row > .edge:nth-child(4) { grid-column: 1 / -1; grid-template-columns: minmax(0, 1fr) 2px; justify-items: end; column-gap: var(--space-sm); padding-left: 0; padding-right: calc((100% - var(--mid)) / 4 - 1px); text-align: right; }
-  #technologie .map__row > .edge:nth-child(4)::before { grid-column: 2; grid-row: 1 / span 2; }
-  #technologie .map__row > .edge:nth-child(4) :is(b, span) { grid-column: 1; }
+  #technologie .map__row > :nth-child(n+4) { grid-column: 1 / -1; }
+  /* The receiver carried on the pole goes left, so its link to the field book runs straight down the same line as the rest */
+  #technologie .map__row > :nth-child(3) { grid-column: 1; grid-row: 1; }
+  #technologie .map__row > :nth-child(2) { grid-row: 1; }
+  #technologie .map__row > :nth-child(1) { grid-column: 3; grid-row: 1; }
   #technologie .map__row > .node:is(:nth-child(1), :nth-child(3)) { align-self: stretch; align-content: start; grid-template-columns: minmax(0, 1fr); justify-items: center; row-gap: var(--space-2xs); padding: var(--space-sm); text-align: center; }
   #technologie .map__row > .node:is(:nth-child(1), :nth-child(3)) :is(.node__pic, .node__icon) { grid-row: auto; margin-bottom: var(--space-2xs); }
   #technologie .map__row > .node:is(:nth-child(1), :nth-child(3)) .node__pic { width: 72px; height: 72px; }
