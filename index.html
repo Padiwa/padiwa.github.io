@@ -13,7 +13,11 @@
     <meta property="og:title" content="LaCanne - Kit GPS RTK pour Chantier">
     <meta property="og:description"
         content="Un seul kit GPS RTK pour simplifier vos chantiers et gagner en précision au quotidien.">
-    <meta property="og:image" content="https://www.lacanne.fr/wp-content/uploads/2024/09/lacanne-releves-1024.jpg">
+    <meta property="og:image" content="https://www.lacanne.fr/assets/og-image.jpg">
+    <meta property="og:image:width" content="1100">
+    <meta property="og:image:height" content="576">
+    <meta property="og:image:alt" content="Un chef de chantier règle une balise GPS RTK LaCanne sur sa canne">
+    <meta property="og:locale" content="fr_FR">
     <meta property="og:url" content="https://www.lacanne.fr/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="LaCanne">
@@ -22,6 +26,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="LaCanne - Kit GPS RTK pour Chantier">
     <meta name="twitter:description" content="Donnez de l'autonomie à vos chantiers avec le kit GPS RTK.">
+    <meta name="twitter:image" content="https://www.lacanne.fr/assets/og-image.jpg">
 
     <script>document.documentElement.classList.add('js');</script>
 
@@ -32,9 +37,7 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
-    <link rel="icon"
-        href="assets/logos/cropped-logo_LaCanne-RVB_carre-sombre-32x32.png"
-        sizes="32x32" />
+    <link rel="icon" href="assets/logos/cropped-logo_LaCanne-RVB_carre-sombre-32x32.png" sizes="32x32" />
 
     <link rel="stylesheet" href="css/site.css">
 
@@ -43,9 +46,10 @@
     {
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": "https://www.lacanne.fr/#organization",
         "name": "LaCanne",
         "url": "https://www.lacanne.fr",
-        "logo": "https://www.lacanne.fr/wp-content/uploads/2026/01/logo_LaCanne-RVB_long-sombre-32da19.svg",
+        "logo": "https://www.lacanne.fr/assets/logos/logo.svg",
         "description": "Kit GPS RTK complet pour chantier : intégrer, implanter, guider, relever. Précision centimétrique.",
         "contactPoint": {
             "@type": "ContactPoint",
@@ -57,11 +61,297 @@
         },
         "address": {
             "@type": "PostalAddress",
+            "streetAddress": "170 avenue Jean Jaurès",
+            "postalCode": "21000",
             "addressLocality": "Dijon",
             "addressRegion": "Côte-d'Or",
             "addressCountry": "FR"
         },
-        "sameAs": []
+        "parentOrganization": {
+            "@type": "Organization",
+            "name": "Cadoles",
+            "legalName": "SCOP ARL Cadoles",
+            "url": "https://www.cadoles.com",
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "SIREN",
+                "value": "535115729"
+            }
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Nos offres",
+            "itemListElement": [
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Acheter LaCanne",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Kit mono-balise GPS/RTK",
+                                "description": "Mallette Peli Case IP67 avec 1 balise GPS/RTK, carnet de terrain IP68/IP69K, pince articulée, canne en aluminium avec nivelle. Données de correction RTK non incluses.",
+                                "image": "https://www.lacanne.fr/assets/balises/shopping.webp",
+                                "brand": {
+                                    "@type": "Brand",
+                                    "name": "LaCanne"
+                                }
+                            },
+                            "offeredBy": {
+                                "@id": "https://www.lacanne.fr/#organization"
+                            },
+                            "areaServed": "FR",
+                            "businessFunction": "http://purl.org/goodrelations/v1#Sell"
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Kit Géostix X5 mobile RTK",
+                                "description": "Mallette Peli Case IP67 avec balise GPS/RTK Geostix RTK (fabriquée en France), carnet de terrain IP68/IP69K, fixation, canne avec nivelle. Données de correction RTK non incluses.",
+                                "image": "https://www.lacanne.fr/assets/balises/GEOSTIX78.png",
+                                "brand": {
+                                    "@type": "Brand",
+                                    "name": "LaCanne"
+                                }
+                            },
+                            "offeredBy": {
+                                "@id": "https://www.lacanne.fr/#organization"
+                            },
+                            "areaServed": "FR",
+                            "businessFunction": "http://purl.org/goodrelations/v1#Sell"
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Kit NavX mobile RTK",
+                                "description": "Mallette Peli Case IP67 avec balise GPS/RTK NavX (conçu en France), carnet de terrain IP68/IP69K, fixation, canne avec nivelle. Données de correction RTK non incluses.",
+                                "image": "https://www.lacanne.fr/assets/balises/navX.png",
+                                "brand": {
+                                    "@type": "Brand",
+                                    "name": "LaCanne"
+                                }
+                            },
+                            "offeredBy": {
+                                "@id": "https://www.lacanne.fr/#organization"
+                            },
+                            "areaServed": "FR",
+                            "businessFunction": "http://purl.org/goodrelations/v1#Sell"
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Kit complet GPS/RTK (base + rover)",
+                                "description": "Mallette Peli Case IP67 avec 2 balises GPS/RTK IP67, carnet de terrain, pince articulée, trépied, 2 cannes avec nivelle. Idéal sans couverture réseau.",
+                                "image": "https://www.lacanne.fr/assets/balises/shopping.webp",
+                                "brand": {
+                                    "@type": "Brand",
+                                    "name": "LaCanne"
+                                }
+                            },
+                            "offeredBy": {
+                                "@id": "https://www.lacanne.fr/#organization"
+                            },
+                            "areaServed": "FR",
+                            "businessFunction": "http://purl.org/goodrelations/v1#Sell"
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Option tablette durcie",
+                                "description": "Tablette 10,36″ Noir IP68/IP69K, Dual SIM/4G LTE, 8 Go RAM / 256 Go stockage. Écran 10″ pour plus de confort.",
+                                "brand": {
+                                    "@type": "Brand",
+                                    "name": "LaCanne"
+                                }
+                            },
+                            "offeredBy": {
+                                "@id": "https://www.lacanne.fr/#organization"
+                            },
+                            "areaServed": "FR",
+                            "businessFunction": "http://purl.org/goodrelations/v1#Sell"
+                        }
+                    ]
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Abonnements",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Serveur gestion de chantier",
+                                "description": "Synchronisation, sauvegarde, gestion utilisateurs, export DAO/CAO, support technique, jusqu’à 10 kits.",
+                                "provider": {
+                                    "@id": "https://www.lacanne.fr/#organization"
+                                },
+                                "serviceType": "Abonnements"
+                            },
+                            "offeredBy": {
+                                "@id": "https://www.lacanne.fr/#organization"
+                            },
+                            "areaServed": "FR",
+                            "businessFunction": "http://purl.org/goodrelations/v1#Sell"
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Carte SIM et données mobiles",
+                                "description": "1 Go/mois. Pour base automatique ou kit mono-balise. En partenariat avec Satinfo.",
+                                "provider": {
+                                    "@id": "https://www.lacanne.fr/#organization"
+                                },
+                                "serviceType": "Abonnements"
+                            },
+                            "offeredBy": {
+                                "@id": "https://www.lacanne.fr/#organization"
+                            },
+                            "areaServed": "FR",
+                            "businessFunction": "http://purl.org/goodrelations/v1#Sell"
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Correction Satinfo en ligne",
+                                "description": "Abonnement de correction NTRIP du réseau Satinfo pour géolocalisation automatique.",
+                                "provider": {
+                                    "@id": "https://www.lacanne.fr/#organization"
+                                },
+                                "serviceType": "Abonnements"
+                            },
+                            "offeredBy": {
+                                "@id": "https://www.lacanne.fr/#organization"
+                            },
+                            "areaServed": "FR",
+                            "businessFunction": "http://purl.org/goodrelations/v1#Sell"
+                        }
+                    ]
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Formations",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Formation gestion de chantier",
+                                "description": "Pour Chef de chantier, 1/2 journée. Intégration/extraction des plans, création nomenclatures, synchronisation, présentation carnet de terrain. Modalités : à distance, dans nos locaux, ou sur site.",
+                                "provider": {
+                                    "@id": "https://www.lacanne.fr/#organization"
+                                },
+                                "serviceType": "Formations"
+                            },
+                            "offeredBy": {
+                                "@id": "https://www.lacanne.fr/#organization"
+                            },
+                            "areaServed": "FR",
+                            "businessFunction": "http://purl.org/goodrelations/v1#Sell"
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Formation utilisation GPS",
+                                "description": "Pour Opérateurs et géomètres, 1/2 journée. Démarrage des balises, utilisation application : implantation, collecte de données, synchronisation. Modalités : à distance, dans nos locaux, ou sur site.",
+                                "provider": {
+                                    "@id": "https://www.lacanne.fr/#organization"
+                                },
+                                "serviceType": "Formations"
+                            },
+                            "offeredBy": {
+                                "@id": "https://www.lacanne.fr/#organization"
+                            },
+                            "areaServed": "FR",
+                            "businessFunction": "http://purl.org/goodrelations/v1#Sell"
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Formation QGIS",
+                                "description": "Pour les géomètres, topographes et projeteurs, 3 jours. Pour la gestion et l’exploitation des données dans un logiciel SIG open source et gratuit. Modalités : à distance, dans nos locaux, ou sur site.",
+                                "provider": {
+                                    "@id": "https://www.lacanne.fr/#organization"
+                                },
+                                "serviceType": "Formations"
+                            },
+                            "offeredBy": {
+                                "@id": "https://www.lacanne.fr/#organization"
+                            },
+                            "areaServed": "FR",
+                            "businessFunction": "http://purl.org/goodrelations/v1#Sell"
+                        }
+                    ]
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Location",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Kit complet GPS/RTK (base + rover)",
+                                "image": "https://www.lacanne.fr/assets/balises/shopping.webp",
+                                "brand": {
+                                    "@type": "Brand",
+                                    "name": "LaCanne"
+                                }
+                            },
+                            "offeredBy": {
+                                "@id": "https://www.lacanne.fr/#organization"
+                            },
+                            "areaServed": "FR",
+                            "businessFunction": "http://purl.org/goodrelations/v1#LeaseOut"
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Kit mono-balise GPS/RTK",
+                                "image": "https://www.lacanne.fr/assets/balises/shopping.webp",
+                                "brand": {
+                                    "@type": "Brand",
+                                    "name": "LaCanne"
+                                }
+                            },
+                            "offeredBy": {
+                                "@id": "https://www.lacanne.fr/#organization"
+                            },
+                            "areaServed": "FR",
+                            "businessFunction": "http://purl.org/goodrelations/v1#LeaseOut"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.lacanne.fr/#produit",
+        "name": "LaCanne",
+        "description": "LaCanne est un kit complet comprenant une mallette de transport, deux balises GPS RTK fiables et robustes, deux cannes et un tripode. Le tout est accompagné d'applications web et mobile synchronisées pour gagner en efficacité sur vos chantiers.",
+        "image": "https://www.lacanne.fr/assets/og-image.jpg",
+        "brand": {
+            "@type": "Brand",
+            "name": "LaCanne"
+        },
+        "manufacturer": {
+            "@id": "https://www.lacanne.fr/#organization"
+        },
+        "category": "Kit GPS RTK pour chantier",
+        "url": "https://www.lacanne.fr/"
     }
     </script>
 
@@ -758,7 +1048,7 @@
                                 loading="lazy">
                         </div>
                         <p>Mallette Peli Case IP67 avec 1 balise GPS/RTK, carnet de terrain IP68/IP69K, pince articulée,
-                            cane en aluminium avec nivelle.</p>
+                            canne en aluminium avec nivelle.</p>
                         <p class="note">Données de correction RTK non incluses</p>
                     </div>
 
@@ -769,7 +1059,7 @@
                                 loading="lazy">
                         </div>
                         <p>Mallette Peli Case IP67 avec balise GPS/RTK Geostix RTK (fabriquée en France), carnet de
-                            terrain IP68/IP69K, fixation, cane avec nivelle.</p>
+                            terrain IP68/IP69K, fixation, canne avec nivelle.</p>
                         <p class="note">Données de correction RTK non incluses</p>
                     </div>
 
@@ -780,7 +1070,7 @@
                                 loading="lazy">
                         </div>
                         <p>Mallette Peli Case IP67 avec balise GPS/RTK NavX (conçu en France), carnet de terrain
-                            IP68/IP69K, fixation, cane avec nivelle.</p>
+                            IP68/IP69K, fixation, canne avec nivelle.</p>
                         <p class="note">Données de correction RTK non incluses</p>
                     </div>
 
@@ -926,8 +1216,8 @@
                 <h2>Ils nous font confiance</h2>
                 <div class="refs__clients">
                     <a target="_blank" rel="noopener" href="https://carriontp.fr" class="logo-link">
-                        <img src="assets/logos/carrion-travaux-public.svg" alt="CarrionTP"
-                            width="213" height="150" loading="lazy">
+                        <img src="assets/logos/carrion-travaux-public.svg" alt="CarrionTP" width="213" height="150"
+                            loading="lazy">
                     </a>
                     <a href="https://axe-tp.fr/" target="_blank" rel="noopener" class="logo-link">
                         <img src="assets/logos/axetp.png" alt="AxeTP" width="424" height="232" loading="lazy">
@@ -939,12 +1229,12 @@
                             width="816" height="61" loading="lazy">
                     </a>
                     <a target="_blank" rel="noopener" href="https://www.jdprovence.com" class="logo-link">
-                        <img src="assets/logos/jardin_de_provence.svg"
-                            alt="Jardin de Provence" width="350" height="133" loading="lazy">
+                        <img src="assets/logos/jardin_de_provence.svg" alt="Jardin de Provence" width="350" height="133"
+                            loading="lazy">
                     </a>
                     <a href="https://www.rogermartin.fr" target="_blank" rel="noopener" class="logo-link">
-                        <img src="assets/logos/roger_martin.svg" alt="Roger Martin"
-                            width="227" height="79" loading="lazy">
+                        <img src="assets/logos/roger_martin.svg" alt="Roger Martin" width="227" height="79"
+                            loading="lazy">
                     </a>
                 </div>
             </div>
@@ -953,16 +1243,13 @@
                 <h3>Nos partenaires</h3>
                 <div class="refs__logos">
                     <a target="_blank" rel="noopener" href="https://www.geobsys.com/" class="logo-link">
-                        <img src="assets/logos/geobsys.png" alt="Geobsys"
-                            width="1920" height="309" loading="lazy">
+                        <img src="assets/logos/geobsys.png" alt="Geobsys" width="1920" height="309" loading="lazy">
                     </a>
                     <a target="_blank" rel="noopener" href="https://natuition.com/" class="logo-link">
-                        <img src="assets/logos/natuition.png" alt="Natuition" width="234"
-                            height="200" loading="lazy">
+                        <img src="assets/logos/natuition.png" alt="Natuition" width="234" height="200" loading="lazy">
                     </a>
                     <a target="_blank" rel="noopener" href="https://satinfo.fr" class="logo-link">
-                        <img src="assets/logos/satinfo.svg" alt="Satinfo" width="375"
-                            height="225" loading="lazy">
+                        <img src="assets/logos/satinfo.svg" alt="Satinfo" width="375" height="225" loading="lazy">
                     </a>
                 </div>
             </div>
@@ -972,8 +1259,8 @@
                 <ul class="press">
                     <li><a class="press__item" target="_blank" rel="noopener"
                             href="https://www.lemoniteur.fr/article/lacanne-une-solution-pour-faciliter-les-implantations-des-ouvrages-lineaires.2342893">
-                            <img src="assets/logos/le_moniteur.svg"
-                                alt="Le Moniteur" width="178" height="24" loading="lazy">
+                            <img src="assets/logos/le_moniteur.svg" alt="Le Moniteur" width="178" height="24"
+                                loading="lazy">
                             <span class="press__title">LaCanne, une solution pour faciliter les implantations des
                                 ouvrages linéaires</span>
                             <span class="press__lede">Deux balises géolocalisables, une appli, un smartphone durci... La
@@ -983,8 +1270,8 @@
                         </a></li>
                     <li><a class="press__item" target="_blank" rel="noopener"
                             href="https://journal-du-palais.fr/au-sommaire/entreprises/lacanne-l-innovation-qui-a-seduit-un-geant-du-btp">
-                            <img src="assets/logos/le_journal_du_palais.svg"
-                                alt="Journal du Palais" width="1183" height="280" loading="lazy">
+                            <img src="assets/logos/le_journal_du_palais.svg" alt="Journal du Palais" width="1183"
+                                height="280" loading="lazy">
                             <span class="press__title">LaCanne, l’innovation qui a séduit un géant du BTP</span>
                             <span class="press__lede">Côte-d’Or. Cadoles révolutionne les relevés topographiques avec
                                 LaCanne, un outil innovant conçu pour simplifier la collecte de données sur le terrain,
@@ -993,8 +1280,8 @@
                         </a></li>
                     <li><a class="press__item" target="_blank" rel="noopener"
                             href="https://www.constructionbtp.com/terrassements-carrieres/article/2025/02/11/151606/lacanne-facilite-les-releves-topographiques">
-                            <img src="assets/logos/construction_btp.png"
-                                alt="Construction BTP" width="500" height="62" loading="lazy">
+                            <img src="assets/logos/construction_btp.png" alt="Construction BTP" width="500" height="62"
+                                loading="lazy">
                             <span class="press__title">LaCanne facilite les relevés topographiques</span>
                             <span class="press__lede">L’entreprise Cadoles propose une nouvelle solution numérique,
                                 associée à un kit GPS RTK, qui permet aux opérateurs de terrain d’implanter de
@@ -1004,8 +1291,8 @@
                         </a></li>
                     <li><a class="press__item" target="_blank" rel="noopener"
                             href="https://www.bienpublic.com/economie/2025/03/17/comment-lacanne-creee-a-dijon-pourrait-revolutionner-le-secteur-des-travaux-publics">
-                            <img src="assets/logos/le_bien_public.webp"
-                                alt="Le Bien Public" width="3840" height="547" loading="lazy">
+                            <img src="assets/logos/le_bien_public.webp" alt="Le Bien Public" width="3840" height="547"
+                                loading="lazy">
                             <span class="press__title">Comment LaCanne, créée à Dijon, pourrait révolutionner le secteur
                                 des travaux publics</span>
                             <span class="press__lede">Commercialisée depuis septembre 2024, LaCanne est une solution
@@ -1034,7 +1321,8 @@
                     <div>
                         <dt>LaCanne, qu’est-ce que c’est&nbsp;?</dt>
                         <dd>LaCanne est un kit complet comprenant une mallette de transport, deux balises GPS RTK
-                            fiables et robustes, deux cannes et un tripode. Le tout est accompagné d’applications web et mobile synchronisées pour gagner en efficacité sur vos chantiers.</dd>
+                            fiables et robustes, deux cannes et un tripode. Le tout est accompagné d’applications web et
+                            mobile synchronisées pour gagner en efficacité sur vos chantiers.</dd>
                     </div>
                     <div>
                         <dt>Ai-je besoin de compétences techniques&nbsp;?</dt>
@@ -1108,8 +1396,8 @@
                 <p>Le kit GPS RTK complet pour donner de l’autonomie à vos chantiers.</p>
                 <div class="footer__support">
                     <p>Avec le soutien de</p>
-                    <img src="assets/logos/region-bfc-logo-fond-blanc-cmjn-scaled-1-1024x812.jpg"
-                        alt="Région Bourgogne-Franche-Comté" width="71" height="56" loading="lazy">
+                    <img src="assets/logos/region-bfc.jpg" alt="Région Bourgogne-Franche-Comté" width="71" height="56"
+                        loading="lazy">
                 </div>
             </div>
 
